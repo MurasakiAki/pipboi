@@ -1,0 +1,12 @@
+#!/bin/bash
+
+output=$(python3 -c "from system import tell_time; print(tell_time())")
+
+emotion="'V'"
+
+echo "  ,~."
+echo " ($emotion)"
+echo "//-=-\\\\"
+echo "(\_=_/)"
+echo " ^^ ^^"
+echo "$output"
