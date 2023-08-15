@@ -1,12 +1,83 @@
 #!/bin/bash
 
-output=$(python3 -c "from system import tell_time; print(tell_time())")
-
 emotion="'V'"
 
-echo "  ,~."
-echo " ($emotion)"
-echo "//-=-\\\\"
-echo "(\_=_/)"
-echo " ^^ ^^"
-echo "$output"
+function output {
+
+    echo "  ,~."
+    echo " ($emotion)"
+    echo "//-=-\\\\"
+    echo "(\_=_/)"
+    echo " ^^ ^^" 
+    echo "$script_command"
+
+}
+
+if [ "$1" == "register" ]; then
+    if [ -z "$2" ]; then
+        echo Fill in your name too
+    
+    else
+        username="$2"
+        password=""
+        is_sure=0
+        
+        until [ $is_sure -eq 1 ]; do
+            read -s -p "Enter password: " password 
+            echo ""
+            ans=""
+            until [ "$ans" = "yes" ]; do
+                read -p "Are you sure?: " ans
+                if [ "$ans" != "yes" ] && [ "$ans" != "no" ]; then
+                    echo "Only [yes|no]"
+                else
+                    break
+                fi
+            done
+            
+            if [ "$ans" = "yes" ]; then
+                is_sure=1
+            fi
+        done
+
+
+        if [ -d  .$username ]; then
+            echo User already exists
+        else
+            mkdir .$username
+            touch .$username/.usrdata.ini
+            echo "[Data]" >> .$username/.usrdata.ini
+            echo "username=$username" >> .$username/.usrdata.ini
+            hashedpw=$(python3 -c "from system import hash_password; print(hash_password('$password'))")
+            echo "password=$hashedpw" >> .$username/.usrdata.ini
+            echo User created
+        fi
+
+    fi
+
+fi
+
+if [ "$1" == "login" ]; then
+    input=""
+    until [ "$input" == "quit" ]; do
+        read -p "Enter command: " input
+
+        if [ "$input" == "time" ]; then
+            script_command=$(python3 -c "from system import tell_time; print(tell_time())")
+            output
+            script_command=""
+        elif [ "$input" == "day" ]; then
+            script_command=$(python3 -c "from system import tell_day; print(tell_day())")
+            output
+            script_command=""
+        elif [ "$input" == "dt" ]; then
+            script_command=$(python3 -c "from system import tell_dt; print(tell_dt())")
+            output
+            script_command=""
+        else
+            echo ">" $input
+        fi
+    done
+    else
+        echo For login use command login
+fi
