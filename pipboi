@@ -134,6 +134,11 @@ if [ "$1" == "register" ]; then
                 emotion=""
             
             # Basic manipulation
+            elif [ "$input1" == "whoami" ]; then
+                emotion=$(python3 -c "from system import gen_love; print(gen_love())")
+                output
+                emotion=""
+                echo "You are" $logged_in_usr
             elif [ "$input1" == "write" ]; then
                 file_to_write="$input2"
                 if [ -n "$file_to_write" ]; then
@@ -154,20 +159,62 @@ if [ "$1" == "register" ]; then
                         touch ".${logged_in_usr}/${file_to_write}"
                         echo Created file "$file_to_write" in your folder
                     fi
-
                 fi
             elif [ "$input1" == "read" ]; then
                 file_to_read="$input2"
                 if [ -n "$file_to_read" ]; then
                     if [ "$file_to_read" == ".usrdata.ini" ]; then
+                        emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
+                        output
+                        emotion=""
                         echo You don\'t have access to this file 
                     elif [ -f ".${logged_in_usr}/${file_to_read}" ]; then
+                        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                        output
+                        emotion=""
                         cat ".${logged_in_usr}/${file_to_read}"
                     else
+                        emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
+                        output
+                        emotion=""
                         echo File "$file_to_read" doesn\'t exist
                     fi
                 fi
-
+            elif [ "$input1" == "removef" ]; then
+                file_to_remove="$input2"
+                if [ -n "$file_to_remove" ]; then
+                    if [ "$file_to_remove" == ".usrdata.ini" ]; then
+                        emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
+                        output
+                        emotion=""
+                        echo You can\'t remove this file
+                    elif [ -f ".${logged_in_usr}/${file_to_remove}" ]; then
+                        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                        output
+                        emotion=""
+                        rm -f ".${logged_in_usr}/${file_to_remove}"
+                        echo File "$file_to_remove" removed
+                    else
+                        emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
+                        output
+                        emotion=""
+                        echo File "$file_to_remove" doesn\'t exist
+                    fi 
+                fi
+            elif [ "$input1" == "makedir" ]; then
+                dir_name="$input2"
+                if [ -n "$dir_name" ]; then
+                    emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                    output
+                    emotion=""
+                    mkdir ".${logged_in_usr}/${dir_name}"
+                    echo Directory "$dir_name" created
+                else
+                    emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
+                    output
+                    emotion=""
+                    echo Fill in directory name
+                fi
 
             # Weather
             elif [ "$input1" == "weather" ]; then
@@ -196,13 +243,28 @@ if [ "$1" == "register" ]; then
                 fi
 
             #IP Location
-            elif [ "$input1" == "whereami" ] && [ "$input2" == "ip" ]; then
+            elif [ "$input1" == "whereami" ]; then
                 script_command=$(python3 -c "from system import tell_location; print(tell_location())")
                 emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
                 output
                 echo "$script_command"
                 script_command=""
                 emotion=""
+            elif [ "$input1" == "whereis" ]; then
+                ip_add="$input2"
+                if [ -n "$ip_add" ]; then
+                    script_command=$(python3 -c "from system import whereis; print(whereis('$ip_add'))")
+                    emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                    output
+                    echo "$script_command"
+                    script_command=""
+                    emotion=""
+                else
+                    emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
+                    output
+                    emotion=""
+                    echo Enter valid IPv4 address
+                fi
 
             else
                 emotion=$(python3 -c "from system import random_emotion; print(random_emotion())")

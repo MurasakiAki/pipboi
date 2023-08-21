@@ -10,4 +10,12 @@ export PATH=$PATH:$(pwd)
 echo "export PATH=\$PATH:$(pwd)" >> ~/.profile
 #echo "export PATH=\$PATH:$(pwd)" >> ~/.bashrc
 
+#Installing Python libraries
+sudo apt install pip
+libraries=("bcrypt" "geopy" "geocoder")
+
+for library in "${libraries[@]}"; do
+    pip install "$library"
+done
+
 echo "Your pipboi is set up."

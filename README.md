@@ -5,3 +5,5 @@ Dependancies:
 
 - Python
 - Python bcrypt
+- Python geopy
+- Python geocoder

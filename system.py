@@ -86,30 +86,18 @@ def is_valid_city(city_name):
     else:
         return False
 
-def tell_city():
-    location = geocoder.ip('me')
-
-    return location.city
-
-def tell_country():
-    location = geocoder.ip('me')
-
-    return location.country
-
-def tell_lat():
-    location = geocoder.ip('me')
-
-    return location.latlng[0]
-
-def tell_lon():
-    location = geocoder.ip('me')
-
-    return location.latlng[1]
-
 def tell_location():
     location = geocoder.ip('me')
 
     return f"Your location is: {location.country}, {location.city}, {location.latlng[0]}/{location.latlng[1]}"
+
+def whereis(ip_add):
+    location = geocoder.ip(ip_add)
+
+    if location.ok:
+        return f"Location of {ip_add} is: {location.country}, {location.city}, {location.latlng[0]}/{location.latlng[1]}"
+    else:
+        return f"Unable to locate {ip_add}"
 
 # Weather
 def tell_weather(city):
