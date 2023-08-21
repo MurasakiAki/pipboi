@@ -1,5 +1,6 @@
 # pipboi
 A PIPBOI system for RPi.
+PIPBOI: Pigeon Integrated Personal Biometric and Operational Interface
 
 Dependancies:
 
