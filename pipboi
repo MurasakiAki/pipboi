@@ -1,38 +1,49 @@
 #!/bin/bash
 
-emotion="'V'"
+emotion=""
+logged_in_usr=""
 
 function output {
-
+    clear
+    echo ==========================
     echo "  ,~."
     echo " ($emotion)"
     echo "//-=-\\\\"
     echo "(\_=_/)"
-    echo " ^^ ^^" 
-    echo "$script_command"
-
+    echo " ^^ ^^"
 }
 
 if [ "$1" == "register" ]; then
+    username="$2"
+
     if [ -z "$2" ]; then
-        echo Fill in your name too
+        emotion=$(python3 -c "from system import gen_disappointment; print(gen_disappointment())")
+        output
+        emotion=""
+        echo Fill in your name too dummy
+    
+    elif [ -d  ".$username" ]; then
+        emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
+        output
+        emotion=""
+        echo Username already exists silly
     
     else
-        username="$2"
         password=""
         is_sure=0
         
         until [ $is_sure -eq 1 ]; do
+            emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+            output
+            emotion=""
             read -s -p "Enter password: " password 
             echo ""
             ans=""
-            until [ "$ans" = "yes" ]; do
-                read -p "Are you sure?: " ans
-                if [ "$ans" != "yes" ] && [ "$ans" != "no" ]; then
-                    echo "Only [yes|no]"
-                else
-                    break
-                fi
+            until [ "$ans" = "yes" ] || [ "$ans" = "no" ]; do
+                emotion=$(python3 -c "from system import gen_surprise; print(gen_surprise())")
+                output
+                emotion=""
+                read -p "Are you sure? [yes|no] " ans
             done
             
             if [ "$ans" = "yes" ]; then
@@ -40,44 +51,168 @@ if [ "$1" == "register" ]; then
             fi
         done
 
+        mkdir .$username
+        touch .$username/.usrdata.ini
+        echo "[Data]" >> .$username/.usrdata.ini
+        echo "username=$username" >> .$username/.usrdata.ini
+        hashedpw=$(python3 -c "from system import hash_password; print(hash_password('$password'))")
+        echo "password=$hashedpw" >> .$username/.usrdata.ini
+        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+        output
+        emotion=""
+        echo yay user created
+        
+    fi
 
-        if [ -d  .$username ]; then
-            echo User already exists
-        else
-            mkdir .$username
-            touch .$username/.usrdata.ini
-            echo "[Data]" >> .$username/.usrdata.ini
-            echo "username=$username" >> .$username/.usrdata.ini
-            hashedpw=$(python3 -c "from system import hash_password; print(hash_password('$password'))")
-            echo "password=$hashedpw" >> .$username/.usrdata.ini
-            echo User created
-        fi
+    elif [ "$1" == "login" ]; then
+    username="$2"
+
+    if [ -z "$2" ]; then
+        emotion=$(python3 -c "from system import gen_disappointed; print(gen_disappointed())")
+        output
+        emotion=""
+        echo Fill in your name too dummy
+    elif ! [ -d  ".$username" ]; then
+        emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
+        output
+        emotion=""
+        echo Username doesn\'t exists silly
+
+    else
+
+        input_pw=""
+        file=".${username}/.usrdata.ini"
+        hashed_pw=$(grep -E "^\[Data\]" -A 1000 "$file" | grep -E "password=" | cut -d'=' -f2-)
+
+        while true; do
+            emotion=$(python3 -c "from system import gen_surprise; print(gen_surprise())")
+            output
+            emotion=""
+            read -s -p "What's your password? " input_pw
+            echo
+
+            if [ "$(python3 -c "from system import check_password; print(check_password('$input_pw', '$hashed_pw'))")" = "True" ]; then
+                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                output
+                emotion=""            
+                echo "Password is correct!"
+                logged_in_usr="$username"
+                break
+            else
+                emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
+                output
+                emotion=""                   
+                echo "Password is incorrect. Please try again."
+                sleep 5
+            fi
+        done
+
+        until [ "$input1" == "quit" ]; do
+            read -p "Enter command: " input1 input2 
+            
+            # Time
+            if [ "$input1" == "time" ]; then
+                script_command=$(python3 -c "from system import tell_time; print(tell_time())")
+                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                output
+                echo "$script_command"
+                script_command=""
+                emotion=""
+            elif [ "$input1" == "day" ]; then
+                script_command=$(python3 -c "from system import tell_day; print(tell_day())")
+                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                output
+                echo "$script_command"
+                script_command=""
+                emotion=""
+            elif [ "$input1" == "dt" ]; then
+                script_command=$(python3 -c "from system import tell_dt; print(tell_dt())")
+                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                output
+                echo "$script_command"
+                script_command=""
+                emotion=""
+            
+            # Basic manipulation
+            elif [ "$input1" == "write" ]; then
+                file_to_write="$input2"
+                if [ -n "$file_to_write" ]; then
+                    if [ -f ".${logged_in_usr}/${file_to_write}" ]; then
+                        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                        output
+                        emotion=""
+                        read -p "Please enter text: " text
+                        echo "$text" >> ".${logged_in_usr}/${file_to_write}"
+                        emotion=$(python3 -c "from system import gen_love; print(gen_love())")
+                        output
+                        emotion=""
+                        echo Text saved to file "$file_to_write"
+                    else 
+                        emotion=$(python3 -c "from system import gen_surprise; print(gen_surprise())")
+                        output
+                        emotion=""
+                        touch ".${logged_in_usr}/${file_to_write}"
+                        echo Created file "$file_to_write" in your folder
+                    fi
+
+                fi
+            elif [ "$input1" == "read" ]; then
+                file_to_read="$input2"
+                if [ -n "$file_to_read" ]; then
+                    if [ "$file_to_read" == ".usrdata.ini" ]; then
+                        echo You don\'t have access to this file 
+                    elif [ -f ".${logged_in_usr}/${file_to_read}" ]; then
+                        cat ".${logged_in_usr}/${file_to_read}"
+                    else
+                        echo File "$file_to_read" doesn\'t exist
+                    fi
+                fi
+
+
+            # Weather
+            elif [ "$input1" == "weather" ]; then
+                city="$input2"
+                if [ -n "$city" ]; then  # Check if city name is not empty
+                    if [ "$(python3 -c "from system import is_valid_city; print(is_valid_city('$city'))")" = "True" ]; then
+                        script_command=$(python3 -c "from system import tell_weather; print(tell_weather('$city'))")
+                        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                        output
+                        echo Currently in "$city" it\'s "$script_command"
+                        script_command=""
+                        emotion=""
+                    else
+                        emotion=$(python3 -c "from system import gen_disappointment; print(gen_disappointment())")
+                        output
+                        echo Please enter a valid city name
+                        script_command=""
+                        emotion=""
+                    fi
+                else
+                    emotion=$(python3 -c "from system import gen_disappointment; print(gen_disappointment())")
+                    output
+                    echo Please enter a city name
+                    script_command=""
+                    emotion=""
+                fi
+
+            #IP Location
+            elif [ "$input1" == "whereami" ] && [ "$input2" == "ip" ]; then
+                script_command=$(python3 -c "from system import tell_location; print(tell_location())")
+                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                output
+                echo "$script_command"
+                script_command=""
+                emotion=""
+
+            else
+                emotion=$(python3 -c "from system import random_emotion; print(random_emotion())")
+                output
+                emotion=""
+                echo ">" $input1
+            fi
+            
+        done
 
     fi
 
-fi
-
-if [ "$1" == "login" ]; then
-    input=""
-    until [ "$input" == "quit" ]; do
-        read -p "Enter command: " input
-
-        if [ "$input" == "time" ]; then
-            script_command=$(python3 -c "from system import tell_time; print(tell_time())")
-            output
-            script_command=""
-        elif [ "$input" == "day" ]; then
-            script_command=$(python3 -c "from system import tell_day; print(tell_day())")
-            output
-            script_command=""
-        elif [ "$input" == "dt" ]; then
-            script_command=$(python3 -c "from system import tell_dt; print(tell_dt())")
-            output
-            script_command=""
-        else
-            echo ">" $input
-        fi
-    done
-    else
-        echo For login use command login
 fi
