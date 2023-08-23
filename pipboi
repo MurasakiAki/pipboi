@@ -52,11 +52,15 @@ if [ "$1" == "register" ]; then
         done
 
         mkdir .$username
+        #.userdata.ini file
         touch .$username/.usrdata.ini
         echo "[Data]" >> .$username/.usrdata.ini
         echo "username=$username" >> .$username/.usrdata.ini
         hashedpw=$(python3 -c "from system import hash_password; print(hash_password('$password'))")
         echo "password=$hashedpw" >> .$username/.usrdata.ini
+        #.locations.json file
+        touch .$username/.locations.json
+        echo '{"locations" : [] }' > .$username/.locations.json
         emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
         output
         emotion=""
@@ -68,7 +72,7 @@ if [ "$1" == "register" ]; then
     username="$2"
 
     if [ -z "$2" ]; then
-        emotion=$(python3 -c "from system import gen_disappointed; print(gen_disappointed())")
+        emotion=$(python3 -c "from system import gen_disappointment; print(gen_disappointment())")
         output
         emotion=""
         echo Fill in your name too dummy
@@ -134,6 +138,11 @@ if [ "$1" == "register" ]; then
                 emotion=""
             
             # Basic manipulation
+            elif [ "$input1" == "help" ]; then
+                emotion=$(python3 -c "from system import gen_love; print(gen_love())")
+                output
+                emotion=""
+                cat .help.txt
             elif [ "$input1" == "whoami" ]; then
                 emotion=$(python3 -c "from system import gen_love; print(gen_love())")
                 output
@@ -213,8 +222,46 @@ if [ "$1" == "register" ]; then
                     emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
                     output
                     emotion=""
-                    echo Fill in directory name
+                    echo Fill in directory name!
                 fi
+            elif [ "$input1" == "removed" ]; then
+                dir_to_rem="$input2"
+                if [ -d ".${logged_in_usr}/${dir_to_rem}" ]; then
+                    if [ -n "$dir_to_rem" ]; then
+                        read -p "Are you sure you want to delete "$dir_to_rem" and all its contents? [yes|no]" ans
+                        if [ "$ans" == "yes" ]; then
+                            rm -rf ".${logged_in_usr}/${dir_to_rem}"
+                            emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
+                            output
+                            emotion=""
+                            echo Directory "$dir_to_rem" deleted
+                        elif [ "$ans" == "no" ]; then
+                            emotion=$(python3 -c "from system import gen_disappointment; print(gen_disappointment())")
+                            output
+                            emotion=""
+                            echo Won\'t delete "$dir_to_rem" directory
+                        else
+                            emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
+                            output
+                            emotion=""
+                            echo Only "[yes|no]!"
+                        fi
+                    else
+                        emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
+                        output
+                        emotion=""
+                        echo Fill in directory name!
+                    fi
+                else
+                    echo Direcory "$dir_to_rem" doens\'t exist
+                fi
+                
+            elif [ "$input1" == "update" ]; then
+                git pull origin master
+                emotion=$(python3 -c "from system import gen_love; print(gen_love())")
+                output
+                emotion=""
+                echo Your PIPBOI is updated '<3'
 
             # Weather
             elif [ "$input1" == "weather" ]; then
@@ -244,16 +291,16 @@ if [ "$1" == "register" ]; then
 
             #IP Location
             elif [ "$input1" == "whereami" ]; then
-                script_command=$(python3 -c "from system import tell_location; print(tell_location())")
+                script_command=$(python3 -c "from system import tell_location; print(tell_location('$logged_in_usr'))")
                 emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
                 output
                 echo "$script_command"
                 script_command=""
                 emotion=""
-            elif [ "$input1" == "whereis" ]; then
+            elif [ "$input1" == "whereip" ]; then
                 ip_add="$input2"
                 if [ -n "$ip_add" ]; then
-                    script_command=$(python3 -c "from system import whereis; print(whereis('$ip_add'))")
+                    script_command=$(python3 -c "from system import whereip; print(whereip('$ip_add'))")
                     emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
                     output
                     echo "$script_command"
@@ -264,6 +311,58 @@ if [ "$1" == "register" ]; then
                     output
                     emotion=""
                     echo Enter valid IPv4 address
+                fi
+            elif [ "$input1" == "whereloc" ]; then
+                loc_name="$input2"
+                if [ -n "$loc_name" ]; then
+                    script_command=$(python3 -c "from system import whereloc; print(whereloc('$logged_in_usr', '$loc_name'))")
+                    echo "$script_command"
+                fi
+
+            elif [ "$input1" == "addloc" ]; then
+                if [ "$input2" == "here" ]; then
+                    read -p "Locations name: " name
+                    lat=$(python3 -c "from system import tell_latitude; print(tell_latitude())")
+                    lng=$(python3 -c "from system import tell_longitude; print(tell_longitude())")
+                    script_command=$(python3 -c "from system import add_location; print(add_location('$logged_in_usr', '$name', '$lat', '$lng'))")
+                    emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                    output
+                    echo "$script_command"
+                    script_command=""
+                    emotion=""
+                elif [[ $input2 == *"/"* ]]; then
+                    read -p "Locations name: " name
+                    lat=$(echo "$input2" | cut -d '/' -f1)
+                    lng=$(echo "$input2" | cut -d '/' -f2)
+                    number_regex='^[+-]?[0-9]+\.?[0-9]*$'
+                    if [[ $lat =~ $number_regex && $lng =~ $number_regex ]]; then
+                        script_command=$(python3 -c "from system import add_location; print(add_location('$logged_in_usr', '$name', '$lat', '$lng'))")
+                        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                        output
+                        echo "$script_command"
+                        script_command=""
+                        emotion=""
+                    else
+                        emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
+                        output
+                        emotion=""
+                        echo Enter only numbers or floating points e.x. "[12.34/5.67]"
+                    fi
+                fi
+            elif [ "$input1" == "remloc" ]; then
+                loc_name="$input2"
+                if [ -n "$loc_name" ]; then
+                    script_command=$(python3 -c "from system import remove_location; print(remove_location('$logged_in_usr', '$loc_name'))")
+                    emotion=$(python3 -c "from system import gen_surprise; print(gen_surprise())")
+                    output
+                    echo "$script_command"
+                    script_command=""
+                    emotion=""
+                else
+                    emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
+                    output
+                    emotion=""
+                    echo Enter location name plweas
                 fi
 
             else
