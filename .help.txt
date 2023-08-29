@@ -9,6 +9,9 @@ day - tells current day
 dt - tells day and time
 weather [city name] - tells you current weather in [city name]
 whoami - tells you your name
+update - updates the PIPBOI
+list - shows content of your user folder
+list [dir name] - shows content of [dir name]
 write [file name] - creates or writes into [file name]
 read [file name] - displays a [file name] content
 removef [file name] - removes [file name] file

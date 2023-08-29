@@ -1,0 +1,14 @@
+{
+    "locations": [
+        {
+            "name": "Home",
+            "latitude": "50.088",
+            "longitude": "14.4208"
+        },
+        {
+            "name": "Work",
+            "latitude": "15.65",
+            "longitude": "23.025"
+        }
+    ]
+}

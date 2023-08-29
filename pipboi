@@ -255,7 +255,29 @@ if [ "$1" == "register" ]; then
                 else
                     echo Direcory "$dir_to_rem" doens\'t exist
                 fi
-                
+            elif [ "$input1" == "list" ]; then
+                dir_name="$input2"
+                if [ -n "$dir_name" ]; then
+                    directory_to_list=".${logged_in_usr}/${dir_name}"
+                    if [ -d "$directory_to_list" ]; then
+                        list_output=$(ls "$directory_to_list")
+                        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                        output
+                        emotion=""
+                        echo "$list_output"
+                    else
+                        emotion=$(python3 -c "from system import gen_disappointment; print(gen_disappointment())")
+                        output
+                        emotion=""
+                        echo "Directory '$dir_name' does not exist."
+                    fi
+                else
+                    list_output=$(ls .${logged_in_usr})
+                    emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                    output
+                    emotion=""
+                    echo "$list_output"
+                fi
             elif [ "$input1" == "update" ]; then
                 git pull origin master
                 emotion=$(python3 -c "from system import gen_love; print(gen_love())")
@@ -364,7 +386,33 @@ if [ "$1" == "register" ]; then
                     emotion=""
                     echo Enter location name plweas
                 fi
-
+            elif [ "$input1" == "distance" ]; then
+                read -p "Enter latitude and longitude of first location: " lat1 lng1
+                read -p "Enter latitude and longitude of second location: " lat2 lng2
+                script_command=$(python3 -c "from system import distance; print(distance('$lat1', '$lng1', '$lat2', '$lng2'))")
+                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                output
+                echo "$script_command"
+                script_command=""
+                emotion=""
+            elif [ "$input1" == "distname" ]; then
+                read -p "Enter name of first location: " name
+                read -p "Enter latitude and longitude of second location: " lat2 lng2
+                script_command=$(python3 -c "from system import distname; print(distname('$logged_in_usr', '$name', '$lat2', '$lng2'))")
+                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                output
+                echo "$script_command"
+                script_command=""
+                emotion=""
+            elif [ "$input1" == "distnames" ]; then
+                read -p "Enter name of first location: " name1
+                read -p "Enter name of first location: " name2
+                script_command=$(python3 -c "from system import distnames; print(distnames('$logged_in_usr', '$name1', '$name2'))")
+                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                output
+                echo "$script_command"
+                script_command=""
+                emotion=""
             else
                 emotion=$(python3 -c "from system import random_emotion; print(random_emotion())")
                 output

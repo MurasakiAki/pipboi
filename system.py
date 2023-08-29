@@ -4,6 +4,7 @@ import bcrypt
 import random
 import requests
 from geopy.geocoders import Nominatim
+from geopy.distance import geodesic
 import geocoder
 import json
 
@@ -178,6 +179,77 @@ def remove_location(username, name):
     with open(f".{username}/.locations.json", 'w') as file:
         json.dump(data, file, indent=4)
         return f"Location '{name}' removed successfully."
+
+def distance(lat1, lng1, lat2, lng2):
+    loc1 = (lat1, lng1)
+    loc2 = (lat2, lng2)
+
+    dist = geodesic(loc1, loc2).kilometers
+
+    return f"Distance between {lat1}/{lng1} and {lat2}/{lng2} is {dist:.3f} km"
+
+def distname(username, name, lat2, lng2):
+    lat1 = None
+    lng1 = None
+    try:
+        with open(f".{username}/.locations.json", "r") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        return f"Error: .{username}/.locations.json not found."
+        
+    for location in data.get("locations", []):
+        if location.get("name") == name:
+            latitude = location.get("latitude")
+            longitude = location.get("longitude")
+            if latitude is not None and longitude is not None:
+                loc1 = (latitude, longitude)
+                loc2 = (lat2, lng2)
+
+                dist = geodesic(loc1, loc2).kilometers
+
+                return f"Distance between {name} and {lat2}/{lng2} is {dist:.3f} km"
+                break
+            else:
+                return f"Location '{name}' has incomplete data."
+    return f"{name} not found"
+
+def distnames(username, name1, name2):
+    lat1 = None
+    lng1 = None
+    lat2 = None
+    lng2 = None
+    try:
+        with open(f".{username}/.locations.json", "r") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        return f"Error: .{username}/.locations.json not found."
+        
+    for location in data.get("locations", []):
+        if location.get("name") == name1:
+            lat1 = location.get("latitude")
+            lng1 = location.get("longitude")
+        elif location.get("name") == name2:
+            lat2 = location.get("latitude")
+            lng2 = location.get("longitude")
+        
+        if lat1 is not None and lng1 is not None and lat2 is not None and lng2 is not None:
+            loc1 = (lat1, lng1)
+            loc2 = (lat2, lng2)
+
+            dist = geodesic(loc1, loc2).kilometers
+
+            return f"Distance between {name1} and {name2} is {dist:.3f} km"
+    return f"{name1} or {name2} not found"
+
+def disthere(username, input):
+    if "/" in input:
+        parts = input.split("/")
+        if len(parts) == 2:
+            try:
+                lat2 = float(parts[0])
+                lng2 = float(parts[1])
+            except ValueError:
+                name = input_string
 
 # Weather
 def tell_weather(city):
