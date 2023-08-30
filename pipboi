@@ -113,7 +113,6 @@ if [ "$1" == "register" ]; then
 
         until [ "$input1" == "quit" ]; do
             read -p "Enter command: " input1 input2 
-            
             # Time
             if [ "$input1" == "time" ]; then
                 script_command=$(python3 -c "from system import tell_time; print(tell_time())")
@@ -139,10 +138,35 @@ if [ "$1" == "register" ]; then
             
             # Basic manipulation
             elif [ "$input1" == "help" ]; then
-                emotion=$(python3 -c "from system import gen_love; print(gen_love())")
-                output
-                emotion=""
-                cat .help.txt
+                section="$input2"
+                content=$(cat .help.txt)
+
+                if [ -n "$section" ]; then
+                    sec_to_check="#$(echo "$section" | tr '[:lower:]' '[:upper:]')#"
+                    if grep -q "$sec_to_check" .help.txt; then
+                        emotion=$(python3 -c "from system import gen_love; print(gen_love())")
+                        output
+                        emotion=""
+                        echo Displaying "$section" of help file
+                        output_sec=$(echo "$content" | sed -n "/^$sec_to_check$/,/^#/p" | sed '1d;$d')
+                        echo '////////////////////'
+                        echo "$sec_to_check"
+                        echo "$output_sec"
+                        echo '////////////////////'
+                    else
+                        emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
+                        output
+                        emotion=""     
+                        echo "No section '$section' found"
+                    fi
+                else
+                    emotion=$(python3 -c "from system import gen_love; print(gen_love())")
+                    output
+                    emotion=""
+                    cat .help.txt
+                fi
+            
+
             elif [ "$input1" == "whoami" ]; then
                 emotion=$(python3 -c "from system import gen_love; print(gen_love())")
                 output
@@ -414,10 +438,18 @@ if [ "$1" == "register" ]; then
                 script_command=""
                 emotion=""
             else
-                emotion=$(python3 -c "from system import random_emotion; print(random_emotion())")
-                output
-                emotion=""
-                echo ">" $input1
+                if [ "$input1" == "quit" ]; then
+                    emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
+                    output
+                    emotion=""
+                    echo $(python3 -c "from system import rnd_farewell; print(rnd_farewell())")
+                else
+                    emotion=$(python3 -c "from system import random_emotion; print(random_emotion())")
+                    output
+                    emotion=""
+                    echo ">" $input1
+                fi
+
             fi
             
         done

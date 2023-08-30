@@ -15,6 +15,7 @@ import json
 # sad 12-14
 # angry 15-17
 emotions = ["'V'", ">v<", "◠‿◠", "¬‿¬✿", "◕ω◕✿", "｡♥‿♥｡", "☉_☉", "'o'", "⊙△⊙", "<_<", "¬_¬", "⌣_⌣”", "QvQ", "ಥ﹏ಥ", "╥﹏╥", "╬ Ò﹏Ó", "=_=", "⋋▂⋌"]
+farewells = ["Bye", "Bye bye!", "Have a good day!", "See you soon!", "See ya!"]
 
 # Emotions
 def random_emotion():
@@ -50,6 +51,11 @@ def gen_angry():
     i = random.randint(15, 17)
 
     return emotions[i]
+
+#Greetings/Farewells
+def rnd_farewell():
+    
+    return random.choice(farewells)
 
 
 # Time

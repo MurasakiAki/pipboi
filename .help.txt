@@ -1,15 +1,23 @@
 ////////////////////
 All PIPBOI Commands
 
+#BASICS#
 help - displays this help file
 register [name] - creates new user
 login [name] - log into your account
+whoami - tells you your name
+update - updates the PIPBOI
+quit - exits the interface
+
+#TIME#
 time - tells current time
 day - tells current day
 dt - tells day and time
+
+#WEATHER#
 weather [city name] - tells you current weather in [city name]
-whoami - tells you your name
-update - updates the PIPBOI
+
+#FILES#
 list - shows content of your user folder
 list [dir name] - shows content of [dir name]
 write [file name] - creates or writes into [file name]
@@ -17,11 +25,16 @@ read [file name] - displays a [file name] content
 removef [file name] - removes [file name] file
 makedir - creates a directory
 removed [dir name] - removes a directory
+
+#LOCATION#
 whereami - tells you your location
 whereip [ipv4 address] - tells you location of device using [ipv4 address]
 whereloc [location name] - tells you latitude and longitude of your saved location
 addloc here - saves your current location
 addloc [lat/lng] - saves a location based on latitude and longitude
 remloc [location name] - removes a saved location
-quit - exits the interface
+distance [lat1, lng1, lat2, lng2] - tells you distance between two points
+distname [name, lat2, lng2] - tells you distance between saved location [name] and point [lat2, lng2]
+distnames [name1, name2] - tells you distance between two saved locations
+
 ////////////////////
