@@ -7,6 +7,7 @@ from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
 import geocoder
 import json
+from PIL import Image
 
 # normal 0-2
 # love 3-5
@@ -19,44 +20,37 @@ farewells = ["Bye", "Bye bye!", "Have a good day!", "See you soon!", "See ya!"]
 
 # Emotions
 def random_emotion():
-    rnd_emotion = random.choice(emotions)
-    return rnd_emotion
+     
+    return random.choice(emotions)
 
 def gen_normal():
-    i = random.randint(0, 2)
 
-    return emotions[i]
+    return random.randint(0, 2)
 
 def gen_love():
-    i = random.randint(3, 5)
 
-    return emotions[i]
+    return random.randint(3, 5)
 
 def gen_surprise():
-    i = random.randint(6, 8)
-
-    return emotions[i]
+    
+    return random.randint(6, 8)
 
 def gen_disappointment():
-    i = random.randint(9, 11)
 
-    return emotions[i]
+    return random.randint(9, 11)
 
 def gen_sad():
-    i = random.randint(12, 14)
 
-    return emotions[i]
+    return random.randint(12, 14)
 
 def gen_angry():
-    i = random.randint(15, 17)
-
-    return emotions[i]
+    
+    return random.randint(15, 17)
 
 #Greetings/Farewells
 def rnd_farewell():
-    
-    return random.choice(farewells)
 
+    return random.choice(farewells)
 
 # Time
 def tell_time():
@@ -276,3 +270,28 @@ def hash_password(password):
 
 def check_password(input_password, hashed_password):
     return bcrypt.checkpw(input_password.encode('utf-8'), hashed_password.encode('utf-8'))
+
+#Image
+def image_to_ascii(username, image_path, width=35):
+    image = Image.open(f".{username}/{image_path}")
+    original_width, original_height = image.size
+    aspect_ratio = original_height / original_width
+    new_height = int(aspect_ratio * width * 0.55)
+
+    resized_image = image.resize((width, new_height))
+    grayscale_image = resized_image.convert("L")
+
+    ascii_chars = "@%#*+=-:. "
+    ascii_chars = ascii_chars[::-1]  # Reverse the character set for better contrast
+
+    ascii_art = ""
+    for pixel_value in grayscale_image.getdata():
+        ascii_index = pixel_value * (len(ascii_chars) - 1) // 255
+        ascii_art += ascii_chars[ascii_index]
+
+    lines = [ascii_art[i:i + width] for i in range(0, len(ascii_art), width)]
+    ascii_art = "\n".join(lines)
+
+    return ascii_art
+
+print(image_to_ascii("aki", "not_eevee.jpg"))
