@@ -25,27 +25,27 @@ def random_emotion():
 
 def gen_normal():
 
-    return random.randint(0, 2)
+    return emotions[random.randint(0, 2)]
 
 def gen_love():
 
-    return random.randint(3, 5)
+    return emotions[random.randint(3, 5)]
 
 def gen_surprise():
     
-    return random.randint(6, 8)
+    return emotions[random.randint(6, 8)]
 
 def gen_disappointment():
 
-    return random.randint(9, 11)
+    return emotions[random.randint(9, 11)]
 
 def gen_sad():
 
-    return random.randint(12, 14)
+    return emotions[random.randint(12, 14)]
 
 def gen_angry():
     
-    return random.randint(15, 17)
+    return emotions[random.randint(15, 17)]
 
 #Greetings/Farewells
 def rnd_farewell():
@@ -180,6 +180,26 @@ def remove_location(username, name):
         json.dump(data, file, indent=4)
         return f"Location '{name}' removed successfully."
 
+def show_location(username):
+    try:
+        with open(f".{username}/.locations.json", 'r') as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        return "File not found"
+    
+    saved_locations = []
+
+    for loc in data.get("locations", []):
+        name = loc.get("name")
+        lat = loc.get("latitude")
+        lng = loc.get("longitude")
+        saved_locations.append( f"{name}, {lat}/{lng}")
+    
+    if saved_locations is None:
+        return "No saved locations"
+    else:
+        return saved_locations
+
 def distance(lat1, lng1, lat2, lng2):
     loc1 = (lat1, lng1)
     loc2 = (lat2, lng2)
@@ -294,4 +314,4 @@ def image_to_ascii(username, image_path, width=35):
 
     return ascii_art
 
-print(image_to_ascii("aki", "not_eevee.jpg"))
+print(show_location("aki"))

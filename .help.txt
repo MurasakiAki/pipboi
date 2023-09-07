@@ -33,6 +33,7 @@ whereloc [location name] - tells you latitude and longitude of your saved locati
 addloc here - saves your current location
 addloc [lat/lng] - saves a location based on latitude and longitude
 remloc [location name] - removes a saved location
+#showloc - shows saved locations
 distance [lat1, lng1, lat2, lng2] - tells you distance between two points
 distname [name, lat2, lng2] - tells you distance between saved location [name] and point [lat2, lng2]
 distnames [name1, name2] - tells you distance between two saved locations
