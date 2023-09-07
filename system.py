@@ -262,6 +262,16 @@ def distnames(username, name1, name2):
     return f"{name1} or {name2} not found"
 
 def disthere(username, input):
+    name = None
+    lat2 = None
+    lng2 = None
+
+    try:
+        with open(f".{username}/.locations.json", "r") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        return f"Error: .{username}/.locations.json not found."
+
     if "/" in input:
         parts = input.split("/")
         if len(parts) == 2:
@@ -269,8 +279,16 @@ def disthere(username, input):
                 lat2 = float(parts[0])
                 lng2 = float(parts[1])
             except ValueError:
-                name = input_string
-
+                name = input
+    
+    if name is not None:
+        for loc in data.get("locations", []):
+            if loc.get("name") == name:
+                return distname(username, name, tell_latitude(), tell_longitude())
+    
+    else:
+        return distance(tell_latitude(), tell_longitude(), lat2, lng2)
+        
 # Weather
 def tell_weather(city):
     url = f'https://wttr.in/{city.replace(" ", "+")}?format=%t'
@@ -314,4 +332,4 @@ def image_to_ascii(username, image_path, width=35):
 
     return ascii_art
 
-print(show_location("aki"))
+print(disthere("aki", "Home"))
