@@ -279,15 +279,21 @@ def disthere(username, input):
                 lat2 = float(parts[0])
                 lng2 = float(parts[1])
             except ValueError:
-                name = input
-    
-    if name is not None:
+                pass  # Invalid latitude/longitude input
+    else:
+        # Input is a location name, search for it in the locations data
+        name = input
         for loc in data.get("locations", []):
             if loc.get("name") == name:
-                return distname(username, name, tell_latitude(), tell_longitude())
-    
-    else:
-        return distance(tell_latitude(), tell_longitude(), lat2, lng2)
+                lat2 = loc.get("latitude")
+                lng2 = loc.get("longitude")
+                break
+
+    # Check if valid latitude and longitude are found
+    if lat2 is None or lng2 is None:
+        return "Location not found."
+
+    return distance(tell_latitude(), tell_longitude(), lat2, lng2)
         
 # Weather
 def tell_weather(city):
@@ -331,5 +337,3 @@ def image_to_ascii(username, image_path, width=35):
     ascii_art = "\n".join(lines)
 
     return ascii_art
-
-print(disthere("aki", "Home"))

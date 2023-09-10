@@ -364,7 +364,6 @@ if [ "$1" == "register" ]; then
                     script_command=$(python3 -c "from system import whereloc; print(whereloc('$logged_in_usr', '$loc_name'))")
                     echo "$script_command"
                 fi
-
             elif [ "$input1" == "addloc" ]; then
                 if [ "$input2" == "here" ]; then
                     read -p "Locations name: " name
@@ -410,6 +409,13 @@ if [ "$1" == "register" ]; then
                     emotion=""
                     echo Enter location name plweas
                 fi
+            elif [ "$input1" == "showloc" ]; then
+                script_command=$(python3 -c "from system import show_location; print(show_location('$logged_in_usr'))")
+                emotion=$(python3 -c "from system import gen_surprise; print(gen_surprise())")
+                output
+                echo "$script_command"
+                script_command=""
+                emotion=""
             elif [ "$input1" == "distance" ]; then
                 read -p "Enter latitude and longitude of first location: " lat1 lng1
                 read -p "Enter latitude and longitude of second location: " lat2 lng2
@@ -437,6 +443,16 @@ if [ "$1" == "register" ]; then
                 echo "$script_command"
                 script_command=""
                 emotion=""
+            elif [ "$input1" == "disthere" ]; then
+                loc="$input2"
+                if [ -n "$loc" ]; then
+                    script_command=$(python3 -c "from system import disthere; print(disthere('$logged_in_usr', '$loc'))")
+                    emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
+                    output
+                    echo "$script_command"
+                    script_command=""
+                    emotion=""
+                fi
             else
                 if [ "$input1" == "quit" ]; then
                     emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")

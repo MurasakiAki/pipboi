@@ -13,12 +13,15 @@ elif [ -f "$HOME/.profile" ]; then
     echo "export PATH=\$PATH:$(pwd)" >> ~/.profile
 fi
 
-# Installing Python libraries
+# Installing pip
 sudo apt install pip
-libraries=("bcrypt" "geopy" "geocoder")
+
+# Installing Python libraries
+libraries=("bcrypt" "geopy" "geocoder" "pillow")
 
 for library in "${libraries[@]}"; do
     pip install "$library"
+    #sudo pacman -S python-"$library"
 done
 
 echo "Your pipboi is all set up."
