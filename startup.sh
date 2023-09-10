@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Change the permission of the pipboi script to executable
+# Change the permission of the system.py and pipboi scripts to be executable
+sudo chmod u+x system.py
 sudo chmod u+x pipboi
 
 # Add the current directory to the PATH variable
@@ -14,14 +15,19 @@ elif [ -f "$HOME/.profile" ]; then
 fi
 
 # Installing pip
-sudo apt install pip
+# Note: It should be "python3-pip" instead of "pip" on some systems
+sudo apt install python3-pip
 
-# Installing Python libraries
+# Specify the absolute path to pip to ensure you're using the right one
+pip_path=$(which pip)
+
+# Installing Python libraries using the specified pip
 libraries=("bcrypt" "geopy" "geocoder" "pillow")
 
 for library in "${libraries[@]}"; do
-    pip install "$library"
-    #sudo pacman -S python-"$library"
+    #$pip_path install "$library"
+    # For Arch Linux, you can use the following command instead:
+    sudo pacman -S python-"$library"
 done
 
 echo "Your pipboi is all set up."
