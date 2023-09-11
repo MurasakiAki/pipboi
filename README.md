@@ -1,11 +1,18 @@
 # pipboi
+
 A PIPBOI system for RPi.
 
-Version Beta 0.1
+***PIPBOI*** stands for:
 
-Dependancies:
+Pigeon Integrated Personal Biometric and Operational Interface
+
+***Version Beta 0.1***
+
+### Dependancies:
 
 - Python
 - Python bcrypt
 - Python geopy
 - Python geocoder
+- Python pillow
+- Python requests

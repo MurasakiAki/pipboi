@@ -1,5 +1,7 @@
 #!/bin/bash
 
+project_dir="$(echo "$PATH" | awk -F: '{print $NF}')"
+
 emotion=""
 logged_in_usr=""
 
@@ -12,6 +14,14 @@ function output {
     echo "(\_=_/)"
     echo " ^^ ^^"
 }
+
+# Check if the project directory path is empty or not found
+if [ -z "$project_dir" ]; then
+    echo "Project directory path not found in PATH variable. Please set it."
+    exit 1
+else
+    cd "$project_dir"
+fi
 
 if [ "$1" == "register" ]; then
     username="$2"

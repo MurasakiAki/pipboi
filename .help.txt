@@ -39,5 +39,5 @@ showloc - shows saved locations
 distance [lat1, lng1, lat2, lng2] - tells you distance between two points
 distname [name, lat2, lng2] - tells you distance between saved location [name] and point [lat2, lng2]
 distnames [name1, name2] - tells you distance between two saved locations
-#disthere [name|lat/lng] - tells you how far is your current location and location you choose
+disthere [name|lat/lng] - tells you how far is your current location and location you choose
 ////////////////////
