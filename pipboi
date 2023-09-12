@@ -145,7 +145,8 @@ if [ "$1" == "register" ]; then
                 echo "$script_command"
                 script_command=""
                 emotion=""
-            
+            #elif [ "$input1" == "setalarm" ]; then
+
             # Basic manipulation
             elif [ "$input1" == "help" ]; then
                 section="$input2"
