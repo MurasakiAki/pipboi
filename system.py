@@ -315,8 +315,8 @@ def hash_password(password):
 def check_password(input_password, hashed_password):
     return bcrypt.checkpw(input_password.encode('utf-8'), hashed_password.encode('utf-8'))
 
-#Image
-def image_to_ascii(username, image_path, width=35):
+# Image
+def image_to_ascii(username, image_path, width=20):
     image = Image.open(f".{username}/{image_path}")
     original_width, original_height = image.size
     aspect_ratio = original_height / original_width
@@ -325,12 +325,13 @@ def image_to_ascii(username, image_path, width=35):
     resized_image = image.resize((width, new_height))
     grayscale_image = resized_image.convert("L")
 
-    ascii_chars = "@%#*+=-:. "
-    ascii_chars = ascii_chars[::-1]  # Reverse the character set for better contrast
+    # Use a larger character set with varying shades
+    ascii_chars = "@B%8WM#*oahkbdpwmZO0QCJYXzcvnxrjft/\|()1{}[]-_+~<>i!lI;:,"
 
     ascii_art = ""
     for pixel_value in grayscale_image.getdata():
-        ascii_index = pixel_value * (len(ascii_chars) - 1) // 255
+        # Scale pixel value to the range of the character set
+        ascii_index = int(pixel_value * (len(ascii_chars) - 1) / 255)
         ascii_art += ascii_chars[ascii_index]
 
     lines = [ascii_art[i:i + width] for i in range(0, len(ascii_art), width)]
