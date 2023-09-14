@@ -7,6 +7,7 @@ from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
 import geocoder
 import json
+import socket
 from PIL import Image
 
 # normal 0-2
@@ -315,6 +316,14 @@ def hash_password(password):
 def check_password(input_password, hashed_password):
     return bcrypt.checkpw(input_password.encode('utf-8'), hashed_password.encode('utf-8'))
 
+# Networking
+def check_connection():
+    try:
+        socket.create_connection(("8.8.8.8", 53), timeout=5)
+        return 1
+    except OSError:
+        return 0
+
 # Image
 def image_to_ascii(username, image_path, width=20):
     image = Image.open(f".{username}/{image_path}")
@@ -338,3 +347,4 @@ def image_to_ascii(username, image_path, width=20):
     ascii_art = "\n".join(lines)
 
     return ascii_art
+
