@@ -20,7 +20,7 @@ emotions = ["'V'", ">v<", "◠‿◠", "¬‿¬✿", "◕ω◕✿", "｡♥‿�
 farewells = ["Bye", "Bye bye!", "Have a good day!", "See you soon!", "See ya!"]
 
 # Emotions
-def random_emotion():
+def gen_random():
      
     return random.choice(emotions)
 

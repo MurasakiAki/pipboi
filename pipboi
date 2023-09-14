@@ -2,14 +2,15 @@
 
 project_dir="$(echo "$PATH" | awk -F: '{print $NF}')"
 
-emotion=""
 logged_in_usr=""
 
-function output {
+function output() {
+    local emotion="$1"
+
     clear
     echo ==========================
     echo "  ,~."
-    echo " ($emotion)"
+    echo " ($(python3 -c "from system import gen_"$emotion"; print(gen_"$emotion"())"))"
     echo "//-=-\\\\"
     echo "(\_=_/)"
     echo " ^^ ^^"
@@ -27,15 +28,11 @@ if [ "$1" == "register" ]; then
     username="$2"
 
     if [ -z "$2" ]; then
-        emotion=$(python3 -c "from system import gen_disappointment; print(gen_disappointment())")
-        output
-        emotion=""
+        output disappointment
         echo Fill in your name too dummy
     
     elif [ -d  ".$username" ]; then
-        emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
-        output
-        emotion=""
+        output sad
         echo Username already exists silly
     
     else
@@ -43,16 +40,12 @@ if [ "$1" == "register" ]; then
         is_sure=0
         
         until [ $is_sure -eq 1 ]; do
-            emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-            output
-            emotion=""
+            output normal
             read -s -p "Enter password: " password 
             echo ""
             ans=""
             until [ "$ans" = "yes" ] || [ "$ans" = "no" ]; do
-                emotion=$(python3 -c "from system import gen_surprise; print(gen_surprise())")
-                output
-                emotion=""
+                output surprise
                 read -p "Are you sure? [yes|no] " ans
             done
             
@@ -71,51 +64,38 @@ if [ "$1" == "register" ]; then
         #.locations.json file
         touch .$username/.locations.json
         echo '{"locations" : [] }' > .$username/.locations.json
-        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-        output
-        emotion=""
-        echo yay user created
-        
+        output normal
+        echo yay user created   
     fi
 
-    elif [ "$1" == "login" ]; then
+elif [ "$1" == "login" ]; then
     username="$2"
 
     if [ -z "$2" ]; then
-        emotion=$(python3 -c "from system import gen_disappointment; print(gen_disappointment())")
-        output
-        emotion=""
+        output disappointment
         echo Fill in your name too dummy
+
     elif ! [ -d  ".$username" ]; then
-        emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
-        output
-        emotion=""
+        output sad
         echo Username doesn\'t exists silly
 
     else
-
         input_pw=""
         file=".${username}/.usrdata.ini"
         hashed_pw=$(grep -E "^\[Data\]" -A 1000 "$file" | grep -E "password=" | cut -d'=' -f2-)
 
         while true; do
-            emotion=$(python3 -c "from system import gen_surprise; print(gen_surprise())")
-            output
-            emotion=""
+            output surprise
             read -s -p "What's your password? " input_pw
             echo
 
             if [ "$(python3 -c "from system import check_password; print(check_password('$input_pw', '$hashed_pw'))")" = "True" ]; then
-                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                output
-                emotion=""            
+                output normal         
                 echo "Password is correct!"
                 logged_in_usr="$username"
                 break
             else
-                emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
-                output
-                emotion=""                   
+                output sad                 
                 echo "Password is incorrect. Please try again."
                 sleep 5
             fi
@@ -126,25 +106,19 @@ if [ "$1" == "register" ]; then
             # Time
             if [ "$input1" == "time" ]; then
                 script_command=$(python3 -c "from system import tell_time; print(tell_time())")
-                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                output
+                output normal
                 echo "$script_command"
                 script_command=""
-                emotion=""
             elif [ "$input1" == "day" ]; then
                 script_command=$(python3 -c "from system import tell_day; print(tell_day())")
-                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                output
+                output normal
                 echo "$script_command"
                 script_command=""
-                emotion=""
             elif [ "$input1" == "dt" ]; then
                 script_command=$(python3 -c "from system import tell_dt; print(tell_dt())")
-                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                output
+                output normal
                 echo "$script_command"
                 script_command=""
-                emotion=""
             #elif [ "$input1" == "setalarm" ]; then
 
             # Basic manipulation
@@ -155,9 +129,7 @@ if [ "$1" == "register" ]; then
                 if [ -n "$section" ]; then
                     sec_to_check="#$(echo "$section" | tr '[:lower:]' '[:upper:]')#"
                     if grep -q "$sec_to_check" .help.txt; then
-                        emotion=$(python3 -c "from system import gen_love; print(gen_love())")
-                        output
-                        emotion=""
+                        output love
                         echo Displaying "$section" of help file
                         output_sec=$(echo "$content" | sed -n "/^$sec_to_check$/,/^#/p" | sed '1d;$d')
                         echo '////////////////////'
@@ -165,41 +137,29 @@ if [ "$1" == "register" ]; then
                         echo "$output_sec"
                         echo '////////////////////'
                     else
-                        emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
-                        output
-                        emotion=""     
+                        output sad   
                         echo "No section '$section' found"
                     fi
                 else
-                    emotion=$(python3 -c "from system import gen_love; print(gen_love())")
-                    output
-                    emotion=""
+                    output love
                     cat .help.txt
                 fi
             
 
             elif [ "$input1" == "whoami" ]; then
-                emotion=$(python3 -c "from system import gen_love; print(gen_love())")
-                output
-                emotion=""
+                output love
                 echo "You are" $logged_in_usr
             elif [ "$input1" == "write" ]; then
                 file_to_write="$input2"
                 if [ -n "$file_to_write" ]; then
                     if [ -f ".${logged_in_usr}/${file_to_write}" ]; then
-                        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                        output
-                        emotion=""
+                        output normal
                         read -p "Please enter text: " text
                         echo "$text" >> ".${logged_in_usr}/${file_to_write}"
-                        emotion=$(python3 -c "from system import gen_love; print(gen_love())")
-                        output
-                        emotion=""
+                        output love
                         echo Text saved to file "$file_to_write"
                     else 
-                        emotion=$(python3 -c "from system import gen_surprise; print(gen_surprise())")
-                        output
-                        emotion=""
+                        output surprise
                         touch ".${logged_in_usr}/${file_to_write}"
                         echo Created file "$file_to_write" in your folder
                     fi
@@ -208,19 +168,13 @@ if [ "$1" == "register" ]; then
                 file_to_read="$input2"
                 if [ -n "$file_to_read" ]; then
                     if [ "$file_to_read" == ".usrdata.ini" ]; then
-                        emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
-                        output
-                        emotion=""
+                        output angry
                         echo You don\'t have access to this file 
                     elif [ -f ".${logged_in_usr}/${file_to_read}" ]; then
-                        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                        output
-                        emotion=""
+                        output normal
                         cat ".${logged_in_usr}/${file_to_read}"
                     else
-                        emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
-                        output
-                        emotion=""
+                        output sad
                         echo File "$file_to_read" doesn\'t exist
                     fi
                 fi
@@ -228,35 +182,25 @@ if [ "$1" == "register" ]; then
                 file_to_remove="$input2"
                 if [ -n "$file_to_remove" ]; then
                     if [ "$file_to_remove" == ".usrdata.ini" ]; then
-                        emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
-                        output
-                        emotion=""
+                        output angry
                         echo You can\'t remove this file
                     elif [ -f ".${logged_in_usr}/${file_to_remove}" ]; then
-                        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                        output
-                        emotion=""
+                        output normal
                         rm -f ".${logged_in_usr}/${file_to_remove}"
                         echo File "$file_to_remove" removed
                     else
-                        emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
-                        output
-                        emotion=""
+                        output sad
                         echo File "$file_to_remove" doesn\'t exist
                     fi 
                 fi
             elif [ "$input1" == "makedir" ]; then
                 dir_name="$input2"
                 if [ -n "$dir_name" ]; then
-                    emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                    output
-                    emotion=""
+                    output normal
                     mkdir ".${logged_in_usr}/${dir_name}"
                     echo Directory "$dir_name" created
                 else
-                    emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
-                    output
-                    emotion=""
+                    output angry
                     echo Fill in directory name!
                 fi
             elif [ "$input1" == "removed" ]; then
@@ -266,25 +210,17 @@ if [ "$1" == "register" ]; then
                         read -p "Are you sure you want to delete "$dir_to_rem" and all its contents? [yes|no]" ans
                         if [ "$ans" == "yes" ]; then
                             rm -rf ".${logged_in_usr}/${dir_to_rem}"
-                            emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
-                            output
-                            emotion=""
+                            output sad
                             echo Directory "$dir_to_rem" deleted
                         elif [ "$ans" == "no" ]; then
-                            emotion=$(python3 -c "from system import gen_disappointment; print(gen_disappointment())")
-                            output
-                            emotion=""
+                            output disappointment
                             echo Won\'t delete "$dir_to_rem" directory
                         else
-                            emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
-                            output
-                            emotion=""
+                            output angry
                             echo Only "[yes|no]!"
                         fi
                     else
-                        emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
-                        output
-                        emotion=""
+                        output angry
                         echo Fill in directory name!
                     fi
                 else
@@ -296,36 +232,26 @@ if [ "$1" == "register" ]; then
                     directory_to_list=".${logged_in_usr}/${dir_name}"
                     if [ -d "$directory_to_list" ]; then
                         list_output=$(ls "$directory_to_list")
-                        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                        output
-                        emotion=""
+                        output normal
                         echo "$list_output"
                     else
-                        emotion=$(python3 -c "from system import gen_disappointment; print(gen_disappointment())")
-                        output
-                        emotion=""
+                        output disappointment
                         echo "Directory '$dir_name' does not exist."
                     fi
                 else
                     list_output=$(ls .${logged_in_usr})
-                    emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                    output
-                    emotion=""
+                    output normal
                     echo "$list_output"
                 fi
             elif [ "$input1" == "update" ]; then
                 is_conn=$(python3 -c "from system import check_connection; print(check_connection())")
                 if [ "$is_conn" == "1" ]; then
                     git pull origin master
-                    emotion=$(python3 -c "from system import gen_love; print(gen_love())")
-                    output
-                    emotion=""
+                    output love
                     echo Your PIPBOI is updated '<3'
                 else
-                    emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
-                    output
+                    output sad
                     echo No internet connection :/
-                    emotion=""
                 fi
 
             # Weather
@@ -336,30 +262,22 @@ if [ "$1" == "register" ]; then
                     if [ "$is_conn" == "1" ]; then
                         if [ "$(python3 -c "from system import is_valid_city; print(is_valid_city('$city'))")" = "True" ]; then
                             script_command=$(python3 -c "from system import tell_weather; print(tell_weather('$city'))")
-                            emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                            output
+                            output normal
                             echo Currently in "$city" it\'s "$script_command"
                             script_command=""
-                            emotion=""
                         else
-                            emotion=$(python3 -c "from system import gen_disappointment; print(gen_disappointment())")
-                            output
+                            output disappointment
                             echo Please enter a valid city name
                             script_command=""
-                            emotion=""
                         fi
                     else
-                        emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
-                        output
+                        output sad
                         echo No internet connection :/
-                        emotion=""
                     fi
                 else
-                    emotion=$(python3 -c "from system import gen_disappointment; print(gen_disappointment())")
-                    output
+                    output disappointment
                     echo Please enter a city name
                     script_command=""
-                    emotion=""
                 fi
 
             #IP Location
@@ -367,16 +285,12 @@ if [ "$1" == "register" ]; then
                 is_conn=$(python3 -c "from system import check_connection; print(check_connection())")
                 if [ "$is_conn" == "1" ]; then
                     script_command=$(python3 -c "from system import tell_location; print(tell_location('$logged_in_usr'))")
-                    emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                    output
+                    output normal
                     echo "$script_command"
                     script_command=""
-                    emotion=""
                 else
-                    emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
-                    output
+                    output sad
                     echo No internet connection :/
-                    emotion=""
                 fi
             elif [ "$input1" == "whereip" ]; then
                 ip_add="$input2"
@@ -384,26 +298,21 @@ if [ "$1" == "register" ]; then
                     is_conn=$(python3 -c "from system import check_connection; print(check_connection())")
                     if [ "$is_conn" == "1" ]; then
                         script_command=$(python3 -c "from system import whereip; print(whereip('$ip_add'))")
-                        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                        output
+                        output normal
                         echo "$script_command"
                         script_command=""
-                        emotion=""
                     else
-                        emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
-                        output
+                        output sad
                         echo No internet connection :/
-                        emotion=""
                     fi
                 else
-                    emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
-                    output
-                    emotion=""
+                    output angry
                     echo Enter valid IPv4 address
                 fi
             elif [ "$input1" == "whereloc" ]; then
                 loc_name="$input2"
                 if [ -n "$loc_name" ]; then
+                    output normal
                     script_command=$(python3 -c "from system import whereloc; print(whereloc('$logged_in_usr', '$loc_name'))")
                     echo "$script_command"
                 fi
@@ -413,11 +322,9 @@ if [ "$1" == "register" ]; then
                     lat=$(python3 -c "from system import tell_latitude; print(tell_latitude())")
                     lng=$(python3 -c "from system import tell_longitude; print(tell_longitude())")
                     script_command=$(python3 -c "from system import add_location; print(add_location('$logged_in_usr', '$name', '$lat', '$lng'))")
-                    emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                    output
+                    output normal
                     echo "$script_command"
                     script_command=""
-                    emotion=""
                 elif [[ $input2 == *"/"* ]]; then
                     read -p "Locations name: " name
                     lat=$(echo "$input2" | cut -d '/' -f1)
@@ -425,15 +332,11 @@ if [ "$1" == "register" ]; then
                     number_regex='^[+-]?[0-9]+\.?[0-9]*$'
                     if [[ $lat =~ $number_regex && $lng =~ $number_regex ]]; then
                         script_command=$(python3 -c "from system import add_location; print(add_location('$logged_in_usr', '$name', '$lat', '$lng'))")
-                        emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                        output
+                        output normal
                         echo "$script_command"
                         script_command=""
-                        emotion=""
                     else
-                        emotion=$(python3 -c "from system import gen_angry; print(gen_angry())")
-                        output
-                        emotion=""
+                        output angry
                         echo Enter only numbers or floating points e.x. "[12.34/5.67]"
                     fi
                 fi
@@ -441,71 +344,53 @@ if [ "$1" == "register" ]; then
                 loc_name="$input2"
                 if [ -n "$loc_name" ]; then
                     script_command=$(python3 -c "from system import remove_location; print(remove_location('$logged_in_usr', '$loc_name'))")
-                    emotion=$(python3 -c "from system import gen_surprise; print(gen_surprise())")
-                    output
+                    output surprise
                     echo "$script_command"
                     script_command=""
-                    emotion=""
                 else
-                    emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
-                    output
-                    emotion=""
+                    output sad
                     echo Enter location name plweas
                 fi
             elif [ "$input1" == "showloc" ]; then
                 script_command=$(python3 -c "from system import show_location; print(show_location('$logged_in_usr'))")
-                emotion=$(python3 -c "from system import gen_surprise; print(gen_surprise())")
-                output
+                output surprise
                 echo "$script_command"
                 script_command=""
-                emotion=""
             elif [ "$input1" == "distance" ]; then
                 read -p "Enter latitude and longitude of first location: " lat1 lng1
                 read -p "Enter latitude and longitude of second location: " lat2 lng2
                 script_command=$(python3 -c "from system import distance; print(distance('$lat1', '$lng1', '$lat2', '$lng2'))")
-                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                output
+                output normal
                 echo "$script_command"
                 script_command=""
-                emotion=""
             elif [ "$input1" == "distname" ]; then
                 read -p "Enter name of first location: " name
                 read -p "Enter latitude and longitude of second location: " lat2 lng2
                 script_command=$(python3 -c "from system import distname; print(distname('$logged_in_usr', '$name', '$lat2', '$lng2'))")
-                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                output
+                output normal
                 echo "$script_command"
                 script_command=""
-                emotion=""
             elif [ "$input1" == "distnames" ]; then
                 read -p "Enter name of first location: " name1
                 read -p "Enter name of first location: " name2
                 script_command=$(python3 -c "from system import distnames; print(distnames('$logged_in_usr', '$name1', '$name2'))")
-                emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                output
+                output normal
                 echo "$script_command"
                 script_command=""
-                emotion=""
             elif [ "$input1" == "disthere" ]; then
                 loc="$input2"
                 if [ -n "$loc" ]; then
                     script_command=$(python3 -c "from system import disthere; print(disthere('$logged_in_usr', '$loc'))")
-                    emotion=$(python3 -c "from system import gen_normal; print(gen_normal())")
-                    output
+                    output normal
                     echo "$script_command"
                     script_command=""
-                    emotion=""
                 fi
             else
                 if [ "$input1" == "quit" ]; then
-                    emotion=$(python3 -c "from system import gen_sad; print(gen_sad())")
-                    output
-                    emotion=""
+                    output sad
                     echo $(python3 -c "from system import rnd_farewell; print(rnd_farewell())")
                 else
-                    emotion=$(python3 -c "from system import random_emotion; print(random_emotion())")
-                    output
-                    emotion=""
+                    output random
                     echo ">" $input1 $input2
                 fi
 
