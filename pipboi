@@ -162,7 +162,6 @@ elif [ "$1" == "login" ]; then
                     output love
                     cat .help.txt
                 fi
-            
 
             elif [ "$input1" == "whoami" ]; then
                 output love
