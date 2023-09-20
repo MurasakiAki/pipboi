@@ -119,13 +119,31 @@ elif [ "$1" == "login" ]; then
                 output normal
                 echo "$script_command"
                 script_command=""
-            #elif [ "$input1" == "setalarm" ]; then
+            elif [ "$input1" == "calendar" ]; then
+                type="$input2"
+                if [ -n type ]; then
+                    if [ "$type" == "year" ]; then
+                        read -p "Please enter year: " year
+                        script_command=$(python3 -c "from system import tell_y_calendar; print(tell_y_calendar('$year'))")
+                        output normal
+                        echo Calendar of the year "$year" 
+                        echo "$script_command"
+                        script_command=""
+                    elif [ "$type" == "month" ]; then
+                        read -p "Please enter year: " year
+                        read -p "Please enter month: " month
+                        script_command=$(python3 -c "from system import tell_m_calendar; print(tell_m_calendar('$year', '$month'))")
+                        output normal
+                        echo Calendar of the year "$year", month "$month"
+                        echo "$script_command"
+                        script_command=""
+                    fi
+                fi
 
             # Basic manipulation
             elif [ "$input1" == "help" ]; then
                 section="$input2"
                 content=$(cat .help.txt)
-
                 if [ -n "$section" ]; then
                     sec_to_check="#$(echo "$section" | tr '[:lower:]' '[:upper:]')#"
                     if grep -q "$sec_to_check" .help.txt; then

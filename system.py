@@ -9,6 +9,7 @@ import geocoder
 import json
 import socket
 from PIL import Image
+import calendar
 
 # normal 0-2
 # love 3-5
@@ -78,6 +79,25 @@ def tell_dt():
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 
     return f"It's {dt_string}"
+
+def tell_y_calendar(year):
+    try:
+        year = int(year)
+        return calendar.calendar(year)
+    except ValueError:
+        return "Enter correct year please"
+
+def tell_m_calendar(year, month):
+    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    try:
+        year = int(year)
+        if month in months:
+            month = months.index(month) + 1
+        else:
+            month = int(month)
+        return calendar.month(year, month)
+    except ValueError:
+        return "Enter correct year or month please"
 
 # Geological stuff
 def is_valid_city(city_name):
