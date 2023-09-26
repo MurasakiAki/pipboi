@@ -176,7 +176,7 @@ elif [ "$1" == "login" ]; then
                 script_command=""
             elif [ "$input1" == "calendar" ]; then
                 type="$input2"
-                if [ -n type ]; then
+                if [ -n "$type" ]; then
                     if [ "$type" == "year" ]; then
                         read -p "Please enter year: " year
                         script_command=$(python3 -c "from system import tell_y_calendar; print(tell_y_calendar('$year'))")
