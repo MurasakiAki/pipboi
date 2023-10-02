@@ -218,8 +218,14 @@ elif [ "$1" == "login" ]; then
                     cat .help.txt
                 fi
             elif [ "$input1" == "config" ]; then
-                echo ""
-
+                echo "Not integrated yet"
+            elif [ "$input1" == "check" ]; then
+                if [ "$input2" == "game" ]; then
+                    if [ -d "pipboi-game-pckg" ]; then
+                        sed -i '/^\[Configuration\]/,/\[.*\]/{s/^\(has_game_pckg\s*=\s*\).*/\1'"1"'/}' .pipboi-config.ini
+                        sed -i '/^\[Configuration\]/,/\[.*\]/{s/^\(is_integrated\s*=\s*\).*/\1'"1"'/}' pipboi-game-pckg/.game-pckg-config.ini
+                    fi
+                fi
             elif [ "$input1" == "whoami" ]; then
                 output love
                 echo "You are" $logged_in_usr
