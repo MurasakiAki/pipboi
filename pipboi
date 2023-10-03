@@ -4,6 +4,8 @@ project_dir="$(echo "$PATH" | awk -F: '{print $NF}')"
 
 logged_in_usr=""
 
+stty_settings=$(stty -g)
+
 # normal 0-2
 # love 3-5
 # surprise 6-8
@@ -69,6 +71,11 @@ function output() {
     echo " ^^ ^^"
 
     emotion=""
+}
+
+enable_input() {
+    # Restore terminal settings
+    stty "$stty_settings"
 }
 
 # Check if the project directory path is empty or not found
@@ -152,7 +159,9 @@ elif [ "$1" == "login" ]; then
             else
                 output sad                 
                 echo "Password is incorrect. Please try again."
+                stty -echo
                 sleep 5
+                enable_input
             fi
         done
 
