@@ -265,9 +265,8 @@ def disthere(username, input):
                 lat2 = float(parts[0])
                 lng2 = float(parts[1])
             except ValueError:
-                pass  # Invalid latitude/longitude input
+                pass
     else:
-        # Input is a location name, search for it in the locations data
         name = input
         for loc in data.get("locations", []):
             if loc.get("name") == name:
@@ -275,7 +274,6 @@ def disthere(username, input):
                 lng2 = loc.get("longitude")
                 break
 
-    # Check if valid latitude and longitude are found
     if lat2 is None or lng2 is None:
         return "Location not found."
 
