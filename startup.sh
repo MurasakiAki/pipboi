@@ -34,7 +34,7 @@ pip_path=$(which pip)
 libraries=("bcrypt" "geopy" "geocoder" "pillow" "requests")
 
 for library in "${libraries[@]}"; do
-    $pip_path install "$library"
+    sudo $pip_path install "$library"
     # For Arch Linux, you can use the following command instead:
     #sudo pacman -S python-"$library"
 done
