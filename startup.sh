@@ -31,10 +31,10 @@ sudo python3 -m pip install --upgrade pip
 pip_path=$(which pip)
 
 # Installing Python libraries using the specified pip
-libraries=("bcrypt" "geopy" "geocoder" "pillow" "requests")
+libraries=("bcrypt" "geopy" "geocoder" "pillow" "requests" "pyserial")
 
 for library in "${libraries[@]}"; do
-    sudo $pip_path install "$library"
+    $pip_path install "$library"
     # For Arch Linux, you can use the following command instead:
     #sudo pacman -S python-"$library"
 done

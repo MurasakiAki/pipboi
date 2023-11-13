@@ -10,6 +10,7 @@ import json
 import socket
 from PIL import Image
 import calendar
+import serial
 
 farewells = ["Bye", "Bye bye!", "Have a good day!", "See you soon!", "See ya!"]
 
