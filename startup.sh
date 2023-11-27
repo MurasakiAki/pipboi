@@ -19,6 +19,8 @@ if [ -f "$HOME/.bashrc" ]; then
     echo "export PATH=\$PATH:$(pwd)" >> ~/.bashrc
 elif [ -f "$HOME/.profile" ]; then
     echo "export PATH=\$PATH:$(pwd)" >> ~/.profile
+elif [ -f "$HOME/.zshrc" ]; then
+    echo 'export PATH=$PATH:'"$(pwd)" >> ~/.zshrc
 fi
 
 # Installing pip
@@ -34,9 +36,9 @@ pip_path=$(which pip)
 libraries=("bcrypt" "geopy" "geocoder" "pillow" "requests" "pyserial")
 
 for library in "${libraries[@]}"; do
-    $pip_path install "$library"
+    #$pip_path install "$library"
     # For Arch Linux, you can use the following command instead:
-    #sudo pacman -S python-"$library"
+    sudo pacman -S python-"$library"
 done
 
 echo "Your pipboi is all set up. The system will reboot in 60 sec."
