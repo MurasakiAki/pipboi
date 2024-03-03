@@ -25,9 +25,10 @@ fi
 
 # Installing pip
 # Note: It should be "python3-pip" instead of "pip" on some systems
-sudo apt install python3-pip
+#sudo apt install python3-pip
 
-sudo python3 -m pip install --upgrade pip
+#sudo python3 -m pip install --upgrade pip
+sudo python3-pip install --upgrade pip
 
 # Specify the absolute path to pip to ensure you're using the right one
 pip_path=$(which pip)

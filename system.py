@@ -11,6 +11,7 @@ import socket
 from PIL import Image
 import calendar
 import serial
+import speech_recognition as sr
 
 farewells = ["Bye", "Bye bye!", "Have a good day!", "See you soon!", "See ya!"]
 
@@ -27,7 +28,6 @@ def tell_time():
     current_time = t.strftime("%H:%M:%S")
     
     return f"It's {current_time}"
-
 
 def tell_day():
     today = date.today()
@@ -308,8 +308,43 @@ def check_connection():
     except OSError:
         return 0
 
+# Speech to text
+def recognize_speech():
+    # Initialize recognizer
+    recognizer = sr.Recognizer()
+
+    # Check for available microphones
+    microphones = sr.Microphone.list_microphone_names()
+    print("Available microphones:")
+    for i, mic in enumerate(microphones):
+        print(f"{i + 1}. {mic}")
+
+    # Choose a microphone (change index as needed)
+    mic_index = int(input("Choose microphone index: ")) - 1
+
+    # Use the chosen microphone as the audio source
+    with sr.Microphone(device_index=mic_index) as source:
+        print("Listening...")
+
+        # Adjust for ambient noise
+        recognizer.adjust_for_ambient_noise(source)
+
+        # Listen to the user's input
+        audio = recognizer.listen(source)
+
+        print("Processing...")
+
+        try:
+            # Recognize speech using Google Speech Recognition
+            text = recognizer.recognize_google(audio)
+            return text
+        except sr.UnknownValueError:
+            return "Sorry, could not understand audio."
+        except sr.RequestError as e:
+            return "Could not request results from Google Speech Recognition service; {0}".format(e)
+
 # Image
-def image_to_ascii(username, image_path, width=20):
+def image_to_ascii(username, image_path, width=32):
     image = Image.open(f".{username}/{image_path}")
     original_width, original_height = image.size
     aspect_ratio = original_height / original_width
@@ -319,7 +354,7 @@ def image_to_ascii(username, image_path, width=20):
     grayscale_image = resized_image.convert("L")
 
     # Use a larger character set with varying shades
-    ascii_chars = "@B%8WM#*oahkbdpwmZO0QCJYXzcvnxrjft/\|()1{}[]-_+~<>i!lI;:,"
+    ascii_chars = "@#*/)-_+~<!;:,."
 
     ascii_art = ""
     for pixel_value in grayscale_image.getdata():
@@ -331,4 +366,3 @@ def image_to_ascii(username, image_path, width=20):
     ascii_art = "\n".join(lines)
 
     return ascii_art
-
