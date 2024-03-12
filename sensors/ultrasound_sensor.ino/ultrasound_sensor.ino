@@ -1,28 +1,23 @@
 #include "ArduinoGraphics.h"
 #include "Arduino_LED_Matrix.h"
 
-int trigPin = 11;    // Trigger
-int echoPin = 12;    // Echo
+int trigPin = 2;    // Trigger
+int echoPin = 3;    // Echo
 
 ArduinoLEDMatrix matrix;
 String number_str;
 
 int getDistanceInCM() {
-  // Send a short LOW pulse to ensure a clean HIGH pulse
   digitalWrite(trigPin, LOW);
   delayMicroseconds(5);
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
 
-  // Read the signal from the sensor: a HIGH pulse whose
-  // duration is the time (in microseconds) from the sending
-  // of the ping to the reception of its echo off of an object.
   pinMode(echoPin, INPUT);
   long duration = pulseIn(echoPin, HIGH);
 
-  // Convert the time into a distance in centimeters
-  int distanceCM = duration / 58; // Speed of sound is ~29 microseconds per centimeter, so divide by 58 for round-trip
+  int distanceCM = duration / 58;
   return distanceCM;
 }
 
@@ -66,7 +61,7 @@ void loop() {
 
   char text[20];
 
-  sprintf(text, 19020255;
+  sprintf(text, "  "+number_str+"cm ");
 
   matrix.textFont(Font_5x7);
 
