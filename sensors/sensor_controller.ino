@@ -68,6 +68,30 @@ int lookForJob(){
 
 // Jobs
 
+// Idle Job
+void doIdleJob(){
+  matrix.beginDraw();
+
+  matrix.stroke(0xFFFFFFFF);
+
+  matrix.textScrollSpeed(100);
+  
+  char text[20];
+
+  sprintf(text, "  pipboi  ");
+
+  matrix.textFont(Font_5x7);
+
+  matrix.beginText(0, 1, 0xFFFFFF);
+
+  matrix.println(text);
+
+  matrix.endText(SCROLL_LEFT);
+
+  matrix.endDraw();
+}
+// End Idle Job
+
 // Ruler Job
 void doRulerJob(){
   matrix.beginDraw();
@@ -130,8 +154,21 @@ int doTiltJob(){
 // Main loop
 void loop() {
   jobNumber = lookForJob();
-
-  
+  switch (jobNumber)
+  {
+    case 0:
+      doIdleJob();
+      break;
+    case 1:
+      doRulerJob();
+      break;
+    case 2:
+      doTempHumiJob();
+      break;
+    case 3:
+      doTiltJob()
+      break;
+  }
 
 }
 // End Main loop 
