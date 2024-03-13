@@ -16,8 +16,6 @@ String number_str;
 DHT dht(DHTPIN, DHTTYPE);
 // End T/H Job variables
 
-
-
 // Additional functions for Jobs
 int getDistanceInCM() {
   digitalWrite(trigPin, LOW);
