@@ -43,6 +43,7 @@ distnames [name1, name2] - tells you distance between two saved locations
 disthere [name|lat/lng] - tells you how far is your current location and location you choose
 
 #MODS#
-#mods - tells you available mods
-#use [mod name] - runs the [mod name]
+mods - tells you available mods
+use [mod name] - runs the [mod name]
+modinfo [mod name] - shows info about [mod name], if info.txt is in the mod
 ////////////////////

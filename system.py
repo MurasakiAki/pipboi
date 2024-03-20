@@ -11,7 +11,6 @@ import socket
 from PIL import Image
 import calendar
 import serial
-import speech_recognition as sr
 
 farewells = ["Bye", "Bye bye!", "Have a good day!", "See you soon!", "See ya!"]
 
