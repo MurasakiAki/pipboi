@@ -14,6 +14,7 @@ stty_settings=$(stty -g)
 # angry 15-17
 
 emotions=("'V'" ">v<" "◠‿◠" "¬‿¬✿" "◕ω◕✿" "｡♥‿♥｡" "☉_☉" "'o'" "⊙△⊙" "<_<" "¬_¬" "⌣_⌣”" "QvQ" "ಥ﹏ಥ" "╥﹏╥" "╬ Ò﹏Ó" "=_=" "⋋▂⋌")
+farewells=("Bye" "Bye bye!" "Have a good day!" "See you soon!" "See ya!" "Come back soon!")
 
 function output() {
     local emotion="$1"
@@ -71,6 +72,13 @@ function output() {
     echo " ^^ ^^"
 
     emotion=""
+}
+
+function tell_farewell() {
+    array_length=${#farewells[@]}
+    random_index=$((RANDOM % array_length))
+
+    echo "${farewells[$random_index]}"
 }
 
 enable_input() {
@@ -507,7 +515,7 @@ elif [ "$1" == "login" ]; then
             else
                 if [ "$input1" == "quit" ]; then
                     output sad
-                    echo $(python3 -c "from system import rnd_farewell; print(rnd_farewell())")
+                    tell_farewell
                 else
                     output random
                     echo ">" $input1 $input2
