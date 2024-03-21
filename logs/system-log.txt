@@ -5,3 +5,11 @@
 2024-03-21 10:36:22,974 - ERROR - Error fetching weather data.
 2024-03-21 10:36:26,115 - ERROR - Error fetching weather data.
 2024-03-21 11:01:59,379 - INFO - Telling location based on IP.
+2024-03-21 17:42:37,022 - INFO - Checking password.
+2024-03-21 17:42:37,023 - ERROR - Error while checking password.
+2024-03-21 18:16:03,245 - INFO - Checking password.
+2024-03-21 18:16:23,996 - INFO - Checking internet connection.
+2024-03-21 18:16:24,456 - ERROR - Error telling location: [Errno 2] No such file or directory: '.aki/.locations.json'
+2024-03-21 18:18:49,194 - INFO - Checking password.
+2024-03-21 18:18:52,792 - INFO - Checking internet connection.
+2024-03-21 18:18:53,222 - INFO - Telling location.

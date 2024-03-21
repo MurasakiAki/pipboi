@@ -7,9 +7,11 @@ elif [ "$answ" == "n" ]; then
     exit 0
 fi
 
-# Change the permission of the system.py and pipboi scripts to be executable
-sudo chmod u+x system.py
+# Change the permission of the main system scripts and pipboi scripts to be executable
+cd src
+sudo chmod u+x passwd_funcs.py time_funcs.py network_funcs.py geo_funcs.py weather_funcs.py logger.py
 sudo chmod u+x pipboi
+cd ..
 
 # Add the current directory to the PATH variable
 export PATH=$PATH:$(pwd)

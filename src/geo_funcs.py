@@ -56,7 +56,7 @@ def tell_location(username):
     try:
         location = geocoder.ip('me')
 
-        with open(f".{username}/.locations.json", 'r') as file:
+        with open(f"../.{username}/.locations.json", 'r') as file:
             data = json.load(file)
 
         matching_location = None
@@ -89,7 +89,7 @@ def whereip(ip_add):
 
 def whereloc(username, name):
     try:
-        with open(f".{username}/.locations.json", "r") as file:
+        with open(f"../.{username}/.locations.json", "r") as file:
             data = json.load(file)
     except FileNotFoundError:
         system_logger.log_message("ERROR", "File locations.json not found.")
@@ -113,7 +113,7 @@ def whereloc(username, name):
 
 def add_location(username, name, latitude, longitude):
     try:
-        with open(f".{username}/.locations.json", 'r') as file:
+        with open(f"../.{username}/.locations.json", 'r') as file:
             data = json.load(file)
     except FileNotFoundError:
         system_logger.log_message(
@@ -127,7 +127,7 @@ def add_location(username, name, latitude, longitude):
     }
     data['locations'].append(new_location)
 
-    with open(f".{username}/.locations.json", 'w') as file:
+    with open(f"../.{username}/.locations.json", 'w') as file:
         json.dump(data, file, indent=4)
         system_logger.log_message("INFO", "New location added successfully.")
         return "New location added successfully."
@@ -135,7 +135,7 @@ def add_location(username, name, latitude, longitude):
 
 def remove_location(username, name):
     try:
-        with open(f".{username}/.locations.json", 'r') as file:
+        with open(f"../.{username}/.locations.json", 'r') as file:
             data = json.load(file)
     except FileNotFoundError:
         system_logger.log_message(
@@ -148,7 +148,7 @@ def remove_location(username, name):
     data['locations'] = updated_locations
 
     # Write the updated data back to the JSON file
-    with open(f".{username}/.locations.json", 'w') as file:
+    with open(f"../.{username}/.locations.json", 'w') as file:
         json.dump(data, file, indent=4)
         system_logger.log_message(
             "INFO", f"Location '{name}' removed successfully.")
@@ -157,7 +157,7 @@ def remove_location(username, name):
 
 def show_location(username):
     try:
-        with open(f".{username}/.locations.json", 'r') as file:
+        with open(f"../.{username}/.locations.json", 'r') as file:
             data = json.load(file)
     except FileNotFoundError:
         system_logger.log_message(
@@ -195,7 +195,7 @@ def distname(username, name, lat2, lng2):
     lat1 = None
     lng1 = None
     try:
-        with open(f".{username}/.locations.json", "r") as file:
+        with open(f"../.{username}/.locations.json", "r") as file:
             data = json.load(file)
     except FileNotFoundError:
         system_logger.log_message(
@@ -228,7 +228,7 @@ def distnames(username, name1, name2):
     lat2 = None
     lng2 = None
     try:
-        with open(f".{username}/.locations.json", "r") as file:
+        with open(f"../.{username}/.locations.json", "r") as file:
             data = json.load(file)
     except FileNotFoundError:
         system_logger.log_message(
@@ -260,7 +260,7 @@ def disthere(username, input):
     lng2 = None
 
     try:
-        with open(f".{username}/.locations.json", "r") as file:
+        with open(f"../.{username}/.locations.json", "r") as file:
             data = json.load(file)
     except FileNotFoundError:
         system_logger.log_message(

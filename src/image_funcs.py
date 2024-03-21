@@ -9,9 +9,22 @@ system_logger = Logger(log_file_path)
 # Image
 
 
+def is_image_file(file_path):
+    try:
+        system_logger.log_message("INFO", "Checking if file is image (.png, .jpeg, .jpg).")
+        with Image.open(file_path) as img:
+            return img.format.lower() in ['png', 'jpeg', 'jpg']
+    except (IOError, OSError):
+        system_logger.log_message("ERROR", "File is not an image file (.png, .jpeg, .jpg).")
+        return False
+
 def image_to_ascii(username, image_path, width=32):
     try:
-        image = Image.open(f".{username}/{image_path}")
+        path = f"../.{username}/{image_path}"
+        if is_image_file(path):
+            image = Image.open(f".{username}/{image_path}")
+        else:
+            return f"File is not an image file (.png, .jpeg, .jpg)."
     except FileNotFoundError:
         system_logger.log_message("ERROR", f"File {image_path} not found.")
         return f"File {image_path} not found."

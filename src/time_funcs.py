@@ -64,7 +64,6 @@ def tell_y_calendar(year):
 def tell_m_calendar(year, month):
     months = ["January", "February", "March", "April", "May", "June",
               "July", "August", "September", "October", "November", "December"]
-
     try:
         year = int(year)
         if month in months:
