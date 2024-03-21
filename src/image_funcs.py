@@ -7,6 +7,8 @@ log_file_path = os.path.join(script_directory, "../logs/system-log.txt")
 system_logger = Logger(log_file_path)
 
 # Image
+
+
 def image_to_ascii(username, image_path, width=32):
     try:
         image = Image.open(f".{username}/{image_path}")

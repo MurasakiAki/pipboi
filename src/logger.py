@@ -2,7 +2,9 @@ import os
 import logging
 
 script_directory = os.path.dirname(os.path.abspath(__file__))
-log_file_path = os.path.join(script_directory, "../logs/.internal-error-log.txt")
+log_file_path = os.path.join(
+    script_directory, "../logs/.internal-error-log.txt")
+
 
 class Logger:
     def __init__(self, log_file):
@@ -10,7 +12,8 @@ class Logger:
             self.logger = logging.getLogger(log_file)
             self.logger.setLevel(logging.DEBUG)
 
-            formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+            formatter = logging.Formatter(
+                '%(asctime)s - %(levelname)s - %(message)s')
 
             file_handler = logging.FileHandler(log_file)
             file_handler.setLevel(logging.DEBUG)
@@ -19,7 +22,8 @@ class Logger:
             self.logger.addHandler(file_handler)
 
         except FileNotFoundError:
-            Logger(log_file_path).log_message("fatal", f"Error: The specified log file '{log_file}' was not found.")
+            Logger(log_file_path).log_message(
+                "fatal", f"Error: The specified log file '{log_file}' was not found.")
 
     def log_message(self, level, message):
         level = level.upper()
@@ -34,4 +38,5 @@ class Logger:
         elif level == "FATAL":
             self.logger.log(logging.FATAL, message)
         else:
-            Logger(log_file_path).log_message("fatal", f"Unknown logging level on message: '{message}'")
+            Logger(log_file_path).log_message(
+                "fatal", f"Unknown logging level on message: '{message}'")

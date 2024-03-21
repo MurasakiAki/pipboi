@@ -7,6 +7,8 @@ log_file_path = os.path.join(script_directory, "../logs/system-log.txt")
 system_logger = Logger(log_file_path)
 
 # Networking
+
+
 def check_connection():
     try:
         socket.create_connection(("8.8.8.8", 53), timeout=5)

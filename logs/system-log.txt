@@ -1,2 +1,7 @@
 2024-03-20 19:58:04,658 - INFO - Printing image.
 2024-03-20 19:58:26,810 - ERROR - File not_eevee.jpg not found.
+2024-03-21 10:18:41,754 - INFO - Telling time.
+2024-03-21 10:35:45,979 - INFO - Telling temperature in prague
+2024-03-21 10:36:22,974 - ERROR - Error fetching weather data.
+2024-03-21 10:36:26,115 - ERROR - Error fetching weather data.
+2024-03-21 11:01:59,379 - INFO - Telling location based on IP.
