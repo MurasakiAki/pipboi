@@ -1,85 +1,15 @@
 #!/bin/bash
 
+source output_pip.sh
+source farewell_pip.sh
+source basics.sh
+source mods.sh
+
 project_dir="$(echo "$PATH" | awk -F: '{print $NF}')"
 
 logged_in_usr=""
 
 stty_settings=$(stty -g)
-
-# normal 0-2
-# love 3-5
-# surprise 6-8
-# disappointment 9-11
-# sad 12-14
-# angry 15-17
-
-emotions=("'V'" ">v<" "◠‿◠" "¬‿¬✿" "◕ω◕✿" "｡♥‿♥｡" "☉_☉" "'o'" "⊙△⊙" "<_<" "¬_¬" "⌣_⌣”" "QvQ" "ಥ﹏ಥ" "╥﹏╥" "╬ Ò﹏Ó" "=_=" "⋋▂⋌")
-farewells=("Bye" "Bye bye!" "Have a good day!" "See you soon!" "See ya!" "Come back soon!")
-
-function output() {
-    local emotion="$1"
-
-    case $emotion in
-        "random")
-            array_length=${#emotions[@]}
-            random_index=$((RANDOM % array_length))
-            emotion="${emotions[$random_index]}"
-            ;;
-        "normal")
-            start_index=0
-            end_index=2
-            ;;
-        "love")
-            start_index=3
-            end_index=5
-            ;;
-        "surprise")
-            start_index=6
-            end_index=8
-            ;;
-        "disappointment")
-            start_index=9
-            end_index=11
-            ;;
-        "sad")
-            start_index=12
-            end_index=14
-            ;;
-        "angry")
-            start_index=15
-            end_index=17
-            ;;
-        *)
-            echo "Invalid emotion: $emotion"
-            return 1
-            ;;
-    esac
-
-    if [ "$start_index" -ge 0 ] && [ "$end_index" -lt ${#emotions[@]} ] && [ "$start_index" -le "$end_index" ]; then
-        random_index=$((RANDOM % ($end_index - $start_index + 1) + $start_index))
-        emotion="${emotions[$random_index]}"
-    else
-        echo "Invalid range of indexes for emotion: $emotion"
-        return 1
-    fi
-
-    # clear
-    echo "=========================="
-    echo "  ,~."
-    echo " ($emotion)"
-    echo "//-=-\\\\"
-    echo "(\_=_/)"
-    echo " ^^ ^^"
-
-    emotion=""
-}
-
-function tell_farewell() {
-    array_length=${#farewells[@]}
-    random_index=$((RANDOM % array_length))
-
-    echo "${farewells[$random_index]}"
-}
 
 enable_input() {
     # Restore terminal settings
@@ -212,174 +142,33 @@ elif [ "$1" == "login" ]; then
                     fi
                 fi
 
-            # Basic manipulation
-            elif [ "$input1" == "help" ]; then
-                section="$input2"
-                content=$(cat ../.help.txt)
-                if [ -n "$section" ]; then
-                    sec_to_check="#$(echo "$section" | tr '[:lower:]' '[:upper:]')#"
-                    if grep -q "$sec_to_check" ../.help.txt; then
-                        output love
-                        echo Displaying "$section" of help file
-                        output_sec=$(echo "$content" | sed -n "/^$sec_to_check$/,/^#/p" | sed '1d;$d')
-                        echo '////////////////////'
-                        echo "$sec_to_check"
-                        echo "$output_sec"
-                        echo '////////////////////'
-                    else
-                        output sad   
-                        echo "No section '$section' found"
-                    fi
-                else
-                    output love
-                    cat ../.help.txt
-                fi
             # Mods
             elif [ "$input1" == "mods" ]; then
-                if [ -d mods ]; then
-                    if [ "$(ls -A mods)" != "" ]; then
-                        output normal
-                        ls mods
-                    else
-                        output surprise
-                        echo "No mods installed"
-                    fi
-                fi
+                echo_mods
             elif [ "$input1" == "use" ]; then
-                mod_to_use="$input2"
-                if [ -n "$mod_to_use" ]; then
-                    output normal
-                    echo "Okay using" $mod_to_use "mod."
-                    sleep 3
-                    python3 ../mods/$mod_to_use/main
-                else
-                    output sad
-                    echo "Mod doesn't exist or is not installed"
-                fi
+                use_mod "$input2"
             elif [ "$input1" == "modinfo" ]; then
-                info_abt="$input2"
-                if [ -n "$info_abt" ]; then
-                    if [ -f "../mods/$info_abt/info.txt" ]; then
-                        output normal
-                        echo "Info about" $info_abt
-                        cat ../mods/$info_abt/info.txt
-                        echo
-                    else
-                        output disappointment
-                        echo "Mod" $info_abt "doesn't have info file."
-                    fi
-                else
-                    output sad
-                    echo "Mod doesn't exist or is not installed"
-                fi
+                echo_modinfo "$input2"
 
+            # Basic manipulation
+            elif [ "$input1" == "help" ]; then
+                echo_help "$input2"
             elif [ "$input1" == "whoami" ]; then
-                output love
-                echo "You are" $logged_in_usr
+                echo_whoami
             elif [ "$input1" == "write" ]; then
-                file_to_write="$input2"
-                if [ -n "$file_to_write" ]; then
-                    if [ -f "../.${logged_in_usr}/${file_to_write}" ]; then
-                        output normal
-                        read -p "Please enter text: " text
-                        echo "$text" >> "../.${logged_in_usr}/${file_to_write}"
-                        output love
-                        echo Text saved to file "$file_to_write"
-                    else 
-                        output surprise
-                        touch "../.${logged_in_usr}/${file_to_write}"
-                        echo Created file "$file_to_write" in your folder
-                    fi
-                fi
+                write_file "$input2"
             elif [ "$input1" == "read" ]; then
-                file_to_read="$input2"
-                if [ -n "$file_to_read" ]; then
-                    if [ "$file_to_read" == "../.usrdata.ini" ]; then
-                        output angry
-                        echo You don\'t have access to this file 
-                    elif [ -f "../.${logged_in_usr}/${file_to_read}" ]; then
-                        output normal
-                        cat "../.${logged_in_usr}/${file_to_read}"
-                    else
-                        output sad
-                        echo File "$file_to_read" doesn\'t exist
-                    fi
-                fi
+                read_file "$input2"
             elif [ "$input1" == "removef" ]; then
-                file_to_remove="$input2"
-                if [ -n "$file_to_remove" ]; then
-                    if [ "$file_to_remove" == "../.usrdata.ini" ]; then
-                        output angry
-                        echo You can\'t remove this file
-                    elif [ -f "../.${logged_in_usr}/${file_to_remove}" ]; then
-                        output normal
-                        rm -f "../.${logged_in_usr}/${file_to_remove}"
-                        echo File "$file_to_remove" removed
-                    else
-                        output sad
-                        echo File "$file_to_remove" doesn\'t exist
-                    fi 
-                fi
+                remove_file "$input2"
             elif [ "$input1" == "makedir" ]; then
-                dir_name="$input2"
-                if [ -n "$dir_name" ]; then
-                    output normal
-                    mkdir "../.${logged_in_usr}/${dir_name}"
-                    echo Directory "$dir_name" created
-                else
-                    output angry
-                    echo Fill in directory name!
-                fi
+                make_directory "$input2"
             elif [ "$input1" == "removed" ]; then
-                dir_to_rem="$input2"
-                if [ -d "../.${logged_in_usr}/${dir_to_rem}" ]; then
-                    if [ -n "$dir_to_rem" ]; then
-                        read -p "Are you sure you want to delete "$dir_to_rem" and all its contents? [yes|no]" ans
-                        if [ "$ans" == "yes" ]; then
-                            rm -rf "../.${logged_in_usr}/${dir_to_rem}"
-                            output sad
-                            echo Directory "$dir_to_rem" deleted
-                        elif [ "$ans" == "no" ]; then
-                            output disappointment
-                            echo Won\'t delete "$dir_to_rem" directory
-                        else
-                            output angry
-                            echo Only "[yes|no]!"
-                        fi
-                    else
-                        output angry
-                        echo Fill in directory name!
-                    fi
-                else
-                    echo Direcory "$dir_to_rem" doens\'t exist
-                fi
+                remove_directory "$input2"
             elif [ "$input1" == "list" ]; then
-                dir_name="$input2"
-                if [ -n "$dir_name" ]; then
-                    directory_to_list="../.${logged_in_usr}/${dir_name}"
-                    if [ -d "$directory_to_list" ]; then
-                        list_output=$(ls "$directory_to_list")
-                        output normal
-                        echo "$list_output"
-                    else
-                        output disappointment
-                        echo "Directory '$dir_name' does not exist."
-                    fi
-                else
-                    list_output=$(ls ../.${logged_in_usr})
-                    output normal
-                    echo "$list_output"
-                fi
+                list "$input2"
             elif [ "$input1" == "update" ]; then
-                is_conn=$(python3 -c "from network_funcs import check_connection; print(check_connection())")
-                if [ "$is_conn" == "1" ]; then
-                    git pull origin master
-                    output love
-                    echo Your PIPBOI is updated '<3'
-                else
-                    output sad
-                    echo No internet connection :/
-                fi
+                update_pipboi
 
             # Weather
             elif [ "$input1" == "weather" ]; then

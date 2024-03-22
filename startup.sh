@@ -11,7 +11,6 @@ fi
 cd src
 sudo chmod u+x passwd_funcs.py time_funcs.py network_funcs.py geo_funcs.py weather_funcs.py logger.py
 sudo chmod u+x pipboi
-cd ..
 
 # Add the current directory to the PATH variable
 export PATH=$PATH:$(pwd)

@@ -4,6 +4,7 @@ All PIPBOI Commands
 //(If command entry begins with '#' character, the command is not integrated yet.)//
 
 #BASICS#
+#hello
 help - displays this help file
 register [name] - creates new user
 login [name] - log into your account
@@ -46,4 +47,6 @@ disthere [name|lat/lng] - tells you how far is your current location and locatio
 mods - tells you available mods
 use [mod name] - runs the [mod name]
 modinfo [mod name] - shows info about [mod name], if info.txt is in the mod
+#include [folder name] - will make your folder an executable mod in PIPBOI (more in /docs/modding.md)
+#removem
 ////////////////////
