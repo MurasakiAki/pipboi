@@ -1,10 +1,10 @@
 ////////////////////
 All PIPBOI Commands
 
-//(If command entry begins with '#' character, the command is not integrated yet.)//
+//(If command entry begins with '*' character, the command is not integrated yet.)//
 
 #BASICS#
-#hello
+*hello - introduction/basic quick info
 help - displays this help file
 register [name] - creates new user
 login [name] - log into your account
@@ -42,11 +42,13 @@ distance [lat1, lng1, lat2, lng2] - tells you distance between two points
 distname [name, lat2, lng2] - tells you distance between saved location [name] and point [lat2, lng2]
 distnames [name1, name2] - tells you distance between two saved locations
 disthere [name|lat/lng] - tells you how far is your current location and location you choose
+*getlocname [lat/lng] - tells you location name based on [lat/lng]
+*getloc [name] - tells you lat/lng based on [name]
 
 #MODS#
 mods - tells you available mods
 use [mod name] - runs the [mod name]
 modinfo [mod name] - shows info about [mod name], if info.txt is in the mod
-#include [folder name] - will make your folder an executable mod in PIPBOI (more in /docs/modding.md)
-#removem
+*include [folder name] - will make your folder an executable mod in PIPBOI (more in /docs/modding.md)
+*removem
 ////////////////////

@@ -13,7 +13,7 @@ sudo chmod u+x passwd_funcs.py time_funcs.py network_funcs.py geo_funcs.py weath
 sudo chmod u+x pipboi
 
 # Add the current directory to the PATH variable
-export PATH=$PATH:$(pwd)
+export PATH=$PATH:$(pwd/src)/src
 
 # Save the updated PATH variable to the bashrc or profile file - depends on the system
 if [ -f "$HOME/.bashrc" ]; then

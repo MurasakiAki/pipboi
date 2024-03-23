@@ -32,3 +32,81 @@
 2024-03-22 18:26:08,552 - INFO - Checking password.
 2024-03-22 18:27:37,344 - INFO - Checking password.
 2024-03-22 18:49:58,662 - INFO - Checking password.
+2024-03-23 12:25:24,996 - INFO - Checking password.
+2024-03-23 13:07:37,080 - INFO - Checking password.
+2024-03-23 13:07:44,000 - WARNING - Created file file.txt.
+2024-03-23 13:08:53,078 - INFO - Checking password.
+2024-03-23 13:08:55,965 - INFO - Telling identity.
+2024-03-23 13:34:16,294 - INFO - Checking password.
+2024-03-23 13:34:42,388 - INFO - Checking internet connection.
+2024-03-23 13:34:42,976 - INFO - Telling location.
+2024-03-23 13:34:43,060 - INFO - Echoing location.
+2024-03-23 13:34:51,986 - INFO - Telling latitude.
+2024-03-23 13:34:52,422 - INFO - Telling longitude.
+2024-03-23 13:34:52,721 - INFO - New location added successfully.
+2024-03-23 13:34:52,799 - INFO - Adding location - here.
+2024-03-23 13:35:21,493 - INFO - Telling distance from here to 15/3.5.
+2024-03-23 13:35:21,838 - INFO - Telling latitude.
+2024-03-23 13:35:21,975 - INFO - Telling longitude.
+2024-03-23 13:35:21,976 - INFO - Telling distance between 50.088/14.4208 and 15.0/3.5.
+2024-03-23 13:35:22,058 - INFO - Echoing distance between here and 15/3.5.
+2024-03-23 13:37:41,268 - INFO - Echoing identity.
+2024-03-23 13:37:49,619 - INFO - Reading file file.txt.
+2024-03-23 13:38:09,333 - INFO - Echoing location of help file.
+2024-03-23 13:38:31,081 - INFO - Telling saved locations.
+2024-03-23 13:38:31,158 - INFO - Removing locations list.
+2024-03-23 13:38:58,878 - INFO - New location added successfully.
+2024-03-23 13:38:58,959 - INFO - Adding location Void.
+2024-03-23 13:39:01,753 - INFO - Telling saved locations.
+2024-03-23 13:39:01,831 - INFO - Removing locations list.
+2024-03-23 13:39:13,584 - INFO - Echoing location of help file.
+2024-03-23 13:40:00,417 - INFO - Checking password.
+2024-03-23 13:40:20,961 - INFO - Distance between Home and Void is
+2024-03-23 13:40:21,042 - INFO - Echoing distance between names.
+2024-03-23 14:36:05,062 - INFO - Checking password.
+2024-03-23 14:37:00,309 - ERROR - name 'requests' is not defined
+2024-03-23 14:37:00,386 - INFO - Echoing get location name.
+2024-03-23 14:37:45,386 - INFO - Checking password.
+2024-03-23 14:38:12,546 - ERROR - name 'requests' is not defined
+2024-03-23 14:38:12,624 - INFO - Echoing get location name.
+2024-03-23 14:39:32,073 - INFO - Checking password.
+2024-03-23 14:40:07,569 - INFO - Echoing get location name.
+2024-03-23 14:40:43,269 - INFO - Echoing get location name.
+2024-03-23 14:42:48,882 - INFO - Checking password.
+2024-03-23 14:43:14,391 - INFO - Echoing get location name.
+2024-03-23 14:44:36,697 - ERROR - name 'requests' is not defined
+2024-03-23 14:45:19,805 - INFO - Getting name of 40.7127281/-74.0060.
+2024-03-23 14:46:11,836 - INFO - Getting name of 40.7127281/-74.0060.
+2024-03-23 14:46:11,836 - ERROR - name 'typeOf' is not defined
+2024-03-23 14:46:18,308 - INFO - Getting name of 40.7127281/-74.0060.
+2024-03-23 14:49:32,012 - INFO - Getting name of 40.7127281/-74.006.
+2024-03-23 14:50:08,760 - INFO - Getting name of 50.0685293/14.3997193.
+2024-03-23 14:50:40,088 - INFO - Getting name of 50.0685293/14.3997193.
+2024-03-23 14:50:51,868 - INFO - Getting name of 50.0685293/14.3997193.
+2024-03-23 14:52:00,069 - INFO - Getting name of 50.0685293/14.3997193.
+2024-03-23 14:52:38,988 - INFO - Getting name of 40.7127281/-74.0060152.
+2024-03-23 14:56:54,970 - INFO - Checking password.
+2024-03-23 14:57:25,802 - INFO - Getting name of 40.7127281/-74.0060152.
+2024-03-23 14:57:25,884 - INFO - Echoing get location name.
+2024-03-23 14:59:34,493 - INFO - Checking password.
+2024-03-23 15:00:05,742 - INFO - Getting lat/lng of Ostrovského 32/1823.
+2024-03-23 15:00:05,824 - INFO - Echoing get location name.
+2024-03-23 15:00:23,145 - INFO - New location added successfully.
+2024-03-23 15:00:23,222 - INFO - Saving get location.
+2024-03-23 15:01:48,210 - INFO - Checking password.
+2024-03-23 15:01:58,169 - INFO - Getting lat/lng of Praha.
+2024-03-23 15:01:58,250 - INFO - Echoing get location name.
+2024-03-23 15:02:04,357 - INFO - New location added successfully.
+2024-03-23 15:02:04,435 - INFO - Saving get location.
+2024-03-23 15:02:45,373 - INFO - Checking password.
+2024-03-23 15:02:55,111 - INFO - Checking password.
+2024-03-23 15:03:02,615 - INFO - Checking password.
+2024-03-23 15:03:07,500 - ERROR - Section not found in help file.
+2024-03-23 15:03:12,055 - INFO - Echoing basics of help file.
+2024-03-23 15:03:27,080 - INFO - Echoing location of help file.
+2024-03-23 15:04:00,690 - INFO - Echoing basics of help file.
+2024-03-23 15:04:18,797 - INFO - Echoing basics of help file.
+2024-03-23 15:04:53,181 - INFO - Echoing location of help file.
+2024-03-23 15:06:41,556 - INFO - Checking password.
+2024-03-23 15:06:54,691 - INFO - Echoing location of help file.
+2024-03-23 15:07:04,815 - INFO - Displaying help file.

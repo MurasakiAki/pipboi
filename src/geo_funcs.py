@@ -3,6 +3,7 @@ from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
 import geocoder
 import json
+import requests
 from logger import Logger
 
 script_directory = os.path.dirname(os.path.abspath(__file__))
@@ -290,3 +291,48 @@ def disthere(username, input):
     system_logger.log_message(
         "INFO", f"Telling distance from here to {input}.")
     return distance(tell_latitude(), tell_longitude(), lat2, lng2)
+
+def get_lat_lng(location_name):
+    base_url = "https://nominatim.openstreetmap.org/search"
+    params = {
+        "q": location_name,
+        "format": "json",
+    }
+    try:
+        response = requests.get(base_url, params=params)
+        data = response.json()
+        if data:
+            # Extracting latitude and longitude from the response
+            lat = float(data[0]['lat'])
+            lon = float(data[0]['lon'])
+            system_logger.log_message("INFO", f"Getting lat/lng of {location_name}.")
+            return lat, lon
+        else:
+            system_logger.log_message("ERROR", "Location not found.")
+            return None, None
+    except Exception as e:
+        system_logger.log_message("ERROR", f"{e}")
+        return None, None
+
+def get_location_name(latitude, longitude):
+    base_url = "https://nominatim.openstreetmap.org/reverse"
+    lat = float(latitude)
+    lng = float(longitude)
+    params = {
+        "format": "json",
+        "lat": lat,
+        "lon": lng,
+    }
+    try:
+        response = requests.get(base_url, params=params)
+        data = response.json()
+        if 'display_name' in data:
+            address_parts = data['display_name'].split(',')
+            system_logger.log_message("INFO", f"Getting name of {lat}/{lng}.")
+            return f"{address_parts[1].strip()} {address_parts[0].strip()}"
+        else:
+            system_logger.log_message("ERROR", "Location not found.")
+            return None
+    except Exception as e:
+        system_logger.log_message("ERROR", f"{e}")
+        return None

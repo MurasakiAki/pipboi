@@ -4,7 +4,7 @@ source output_pip.sh
 
 function echo_whoami() {
     output love
-    python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Telling identity.')"
+    python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Echoing identity.')"
     echo "You are" $logged_in_usr
 }
 
@@ -15,9 +15,9 @@ function echo_help() {
         sec_to_check="#$(echo "$section" | tr '[:lower:]' '[:upper:]')#"
         if grep -q "$sec_to_check" ../.help.txt; then
             output love
-            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Displaying $section of help file.')"
+            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Echoing $section of help file.')"
             echo Displaying "$section" of help file
-            output_sec=$(echo "$content" | sed -n "/^$sec_to_check$/,/^#/p" | sed '1d;$d')
+            output_sec=$(echo "$content" | sed -n "/^$sec_to_check$/,/^*/p" | sed '1d;$d')
             echo '////////////////////'
             echo "$sec_to_check"
             echo "$output_sec"

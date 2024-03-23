@@ -1,3 +1,24 @@
 {
-    "locations": []
+    "locations": [
+        {
+            "name": "Home",
+            "latitude": "50.088",
+            "longitude": "14.4208"
+        },
+        {
+            "name": "Void",
+            "latitude": "48.002",
+            "longitude": "26.1032"
+        },
+        {
+            "name": "Ostrovsk\u00e9ho 32/1823",
+            "latitude": "(50.0685293, 14.3997193)",
+            "longitude": "(50.0685293, 14.3997193)"
+        },
+        {
+            "name": "Praha",
+            "latitude": "(50.0874654, 14.4212535)",
+            "longitude": "(50.0874654, 14.4212535)"
+        }
+    ]
 }
