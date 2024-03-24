@@ -6,6 +6,7 @@ All PIPBOI Commands
 #BASICS#
 *hello - introduction/basic quick info
 help - displays this help file
+help [section] - displays only one section of help file
 register [name] - creates new user
 login [name] - log into your account
 whoami - tells you your name
@@ -29,6 +30,7 @@ read [file name] - displays a [file name] content
 removef [file name] - removes [file name] file
 makedir - creates a directory
 removed [dir name] - removes a directory
+*goto [dir] - changes working directory
 
 #LOCATION#
 whereami - tells you your location
@@ -42,13 +44,13 @@ distance [lat1, lng1, lat2, lng2] - tells you distance between two points
 distname [name, lat2, lng2] - tells you distance between saved location [name] and point [lat2, lng2]
 distnames [name1, name2] - tells you distance between two saved locations
 disthere [name|lat/lng] - tells you how far is your current location and location you choose
-*getlocname [lat/lng] - tells you location name based on [lat/lng]
-*getloc [name] - tells you lat/lng based on [name]
+getlocname [lat/lng] - tells you location name based on [lat/lng]
+getloc [name] - tells you lat/lng based on [name]
 
 #MODS#
 mods - tells you available mods
 use [mod name] - runs the [mod name]
 modinfo [mod name] - shows info about [mod name], if info.txt is in the mod
-*include [folder name] - will make your folder an executable mod in PIPBOI (more in /docs/modding.md)
-*removem
+include [folder name] - will make your folder an executable mod in PIPBOI (more in /docs/modding.md)
+*removem [mod name] - removes mod
 ////////////////////

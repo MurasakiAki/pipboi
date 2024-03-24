@@ -24,12 +24,15 @@ function use_mod() {
             output normal
             echo "Okay using $main_script script."
             sleep 3
+            clear
             if [[ "$main_script" == *.py ]]; then
+                python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Using $mod_to_use.')"
                 python3 "$main_script"
-                python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Using $mod_to_use.')"
+                output normal
             elif [[ "$main_script" == *.sh ]]; then
-                bash "$main_script"
                 python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Using $mod_to_use.')"
+                bash "$main_script"
+                output normal
             else
                 python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('WARNING', '$mod_to_use has invalid main script format.')"
                 echo "Invalid file format. File must be .py or .sh"
@@ -57,14 +60,66 @@ function echo_modinfo() {
             echo
         else
             output disappointment
-            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('WARNING', 'Mod $info_abt doesn't have info file.')"
-            echo "Mod" $info_abt "doesn't have info file."
+            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('WARNING', 'Mod $info_abt does not have info file.')"
+            echo "Mod" $info_abt "does not have info file."
         fi
     else
         output sad
-        python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('WARNING', 'Mod $info_abt doesn't exist or is not installed.')"
-        echo "Mod $info_abt doesn't exist or is not installed"
+        python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('WARNING', 'Mod $info_abt does not exist or is not installed.')"
+        echo "Mod $info_abt does not exist or is not installed"
     fi
 }
 
+function include_mod() {
+    folder_to_include="$1"
+    if [ -n "$folder_to_include" ]; then
+        if [ -d "../.$logged_in_usr/$folder_to_include" ]; then
+            if [ -f "../.$logged_in_usr/$folder_to_include/main.py" ] || [ -f "../.$logged_in_usr/$folder_to_include/main.sh" ]; then
+                mv "../.$logged_in_usr/$folder_to_include" "../mods"
+                if [ -d "../mods/$folder_to_include" ]; then
+                    output normal
+                    python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Folder $folder_to_include included into mods folder.')"
+                    echo "Succesfully included $folder_to_include"
+                else
+                    output sad
+                    python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Error while including $folder_to_include into mods folder.')"
+                    echo "Something went wrong :c"
+                fi
+            else
+                output angry
+                python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Folder $folder_to_include does not have executable file.')"
+                echo "$folder_to_include does not have main.py/.sh file"
+            fi
+        else
+            output disappointment
+            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Folder $folder_to_include does not exist.')"
+            echo "Folder, $folder_to_include to include into mods, was not found"
+        fi
+    else
+        output angry
+        python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Folder name to include not entered.')"
+        echo "Enter folder name to include!"
+    fi
+}
 
+function remove_mod() {
+    mod_to_remove="$1"
+    if [ -n "$mod_to_remove" ]; then
+        if [ -d "../mods/$mod_to_remove" ]; then
+            rm -rf "../mods/$mod_to_remove"
+            if [ -d "../mods/$mod_to_remove" ]; then
+                output sad
+                echo "something went wroing with removing $mod_to_remove"
+            else
+                output normal
+                echo "$mod_to_remove removed"
+            fi
+        else
+            output disappointment
+            echo "$mod_to_remove does not exist"
+        fi
+    else
+        output angry
+        echo "Enter name of the mod you want to remove!"
+    fi
+}

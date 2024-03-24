@@ -67,7 +67,7 @@ function read_file() {
             cat "../.${logged_in_usr}/${file_to_read}"
         else
             output sad
-            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'File $file_to_read doesn't exist.')"
+            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'File $file_to_read does not exist.')"
             echo File "$file_to_read" doesn\'t exist
         fi
     fi
@@ -87,7 +87,7 @@ function remove_file() {
             echo File "$file_to_remove" removed
         else
             output sad
-            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'File $file_to_remove doesn't exist.')"
+            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'File $file_to_remove does not exist.')"
             echo File "$file_to_remove" doesn\'t exist
         fi 
     fi
@@ -132,7 +132,7 @@ function remove_directory() {
         fi
     else
         output disappointment
-        python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Direcory $dir_to_rem doesn't exist.')"
+        python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Direcory $dir_to_rem does not exist.')"
         echo Direcory "$dir_to_rem" doens\'t exist
     fi
 }
@@ -148,7 +148,7 @@ function list() {
             echo "$list_output"
         else
             output disappointment
-            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Directory $directory_to_list doesn't exist.')"
+            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Directory $directory_to_list does not exist.')"
             echo "Directory '$dir_name' does not exist."
         fi
     else

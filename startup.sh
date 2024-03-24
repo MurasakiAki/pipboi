@@ -45,4 +45,4 @@ done
 
 echo "Your pipboi is all set up. The system will reboot in 60 sec."
 sleep 60
-sudo reboot
+sudo reboot now
