@@ -109,17 +109,21 @@ function remove_mod() {
             rm -rf "../mods/$mod_to_remove"
             if [ -d "../mods/$mod_to_remove" ]; then
                 output sad
+                python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Error while removing $mod_to_remove from mods folder.')"
                 echo "something went wroing with removing $mod_to_remove"
             else
                 output normal
+                python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Mod $mod_to_remove removed from mods folder.')"
                 echo "$mod_to_remove removed"
             fi
         else
             output disappointment
+            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Mod $mod_to_remove does not exist.')"
             echo "$mod_to_remove does not exist"
         fi
     else
         output angry
+        python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Mod name to remove not entered.')"
         echo "Enter name of the mod you want to remove!"
     fi
 }
