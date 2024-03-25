@@ -4,6 +4,7 @@ read -p "This start-up script will reboot your system at the end of PIPBOI initi
 if [ "$answ" == "y" ]; then
     echo "Starting PIPBOI start-up script..."
 elif [ "$answ" == "n" ]; then
+    echo "Stopping PIPBOI start-up."
     exit 0
 fi
 
@@ -11,17 +12,18 @@ fi
 cd src
 sudo chmod u+x passwd_funcs.py time_funcs.py network_funcs.py geo_funcs.py weather_funcs.py logger.py
 sudo chmod u+x pipboi
+cd ..
 
 # Add the current directory to the PATH variable
-export PATH=$PATH:$(pwd/src)/src
+export PATH=$PATH:$(pwd)/src
 
 # Save the updated PATH variable to the bashrc or profile file - depends on the system
 if [ -f "$HOME/.bashrc" ]; then
-    echo "export PATH=\$PATH:$(pwd)" >> ~/.bashrc
+    echo "export PATH=\$PATH:$(pwd)/src" >> ~/.bashrc
 elif [ -f "$HOME/.profile" ]; then
-    echo "export PATH=\$PATH:$(pwd)" >> ~/.profile
+    echo "export PATH=\$PATH:$(pwd)/src" >> ~/.profile
 elif [ -f "$HOME/.zshrc" ]; then
-    echo 'export PATH=$PATH:'"$(pwd)" >> ~/.zshrc
+    echo 'export PATH=$PATH:'"$(pwd)src" >> ~/.zshrc
 fi
 
 # Installing pip
@@ -37,11 +39,21 @@ pip_path=$(which pip)
 # Installing Python libraries using the specified pip
 libraries=("bcrypt" "geopy" "geocoder" "pillow" "requests" "pyserial")
 
+echo "Starting installing libraries:"
+echo
 for library in "${libraries[@]}"; do
     #$pip_path install "$library"
     # For Arch Linux, you can use the following command instead:
     sudo pacman -S python-"$library"
 done
+echo
+
+echo "Compiling Kilo text editor by Salvatore Sanfilippo."
+echo
+cd vendor
+gcc -o kilo kilo.c
+cd ..
+
 
 echo "Your pipboi is all set up. The system will reboot in 60 sec."
 sleep 60
