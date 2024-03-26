@@ -152,6 +152,11 @@ elif [ "$1" == "login" ]; then
                 goto_folder "$input2"
             elif [ "$input1" == "update" ]; then
                 update_pipboi
+            elif [ "$input1" == "sus" ]; then
+                sus
+                clear
+                output random
+                echo "What was that!"
             
 
             # Weather
