@@ -44,7 +44,7 @@ echo
 for library in "${libraries[@]}"; do
     #$pip_path install "$library"
     # For Arch Linux, you can use the following command instead:
-    sudo pacman -S python-"$library"
+    sudo dnf install python-"$library"
 done
 echo
 

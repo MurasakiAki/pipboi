@@ -153,3 +153,8 @@
 2024-03-24 14:27:52,326 - INFO - Checking password.
 2024-03-24 14:28:47,725 - INFO - Checking password.
 2024-03-24 14:29:48,274 - INFO - Checking password.
+2024-03-26 07:56:09,619 - INFO - Checking password.
+2024-03-26 07:56:33,235 - INFO - Displaying help file.
+2024-03-26 07:57:16,264 - INFO - Echoing mods of help file.
+2024-03-26 07:57:25,555 - INFO - Listing mods.
+2024-03-26 07:57:34,604 - INFO - Using test.
