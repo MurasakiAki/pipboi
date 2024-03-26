@@ -1,12 +1,17 @@
 #!/bin/bash
 
-read -p "This start-up script will reboot your system at the end of PIPBOI initialization, proceed? [y|n] " answ
-if [ "$answ" == "y" ]; then
-    echo "Starting PIPBOI start-up script..."
-elif [ "$answ" == "n" ]; then
-    echo "Stopping PIPBOI start-up."
-    exit 0
-fi
+until [ "$answ" == "n" ]; do
+    read -p "This start-up script will reboot your system at the end of PIPBOI initialization, proceed? [y|n] " answ
+    if [ "$answ" == "y" ]; then
+        echo "Starting PIPBOI start-up script..."
+        break
+    elif [ "$answ" == "n" ]; then
+        echo "Stopping PIPBOI start-up."
+        exit 0
+    else
+        echo "Incorrect argument, only [y|n]"
+    fi
+done
 
 # Change the permission of the main system scripts and pipboi scripts to be executable
 cd src
@@ -44,7 +49,7 @@ echo
 for library in "${libraries[@]}"; do
     #$pip_path install "$library"
     # For Arch Linux, you can use the following command instead:
-    sudo dnf install python-"$library"
+    sudo pacman -S python-"$library"
 done
 echo
 
