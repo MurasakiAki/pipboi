@@ -25,7 +25,7 @@ There is pre-installed **test** mod.
 ## 2. Creating mod in PIPBOI
 
 You can create mods even in your PIPBOI.
-You can use PIPBOIs text editor to create your scripts, and create your mod folder based on structure shown in section **1. Creating mod**.
+You can use implemented Kilo text editor to create your scripts, and create your mod folder based on structure shown in section **1. Creating mod**.
 After you're done developping, simply run command **_include [folder name]_** to include your mod folder into PIPBOI accessible mods.
 
 ## 3. Installing mods manually
