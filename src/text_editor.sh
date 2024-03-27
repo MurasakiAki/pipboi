@@ -20,7 +20,7 @@ function start_kilo() {
     if [ -n $file_to_edit ]; then
         if [ $(check_kilo) == 1 ]; then
             python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Starting Kilo text editor.')"
-            ./"../vendor/kilo" $file_to_edit
+            ./"../vendor/kilo" "$file_to_edit"
         elif [ $(check_kilo) == 0 ]; then
             python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('WARNING', 'Kilo was not complied, compiling now.')"
             gcc -o "../vendor/kilo" "../vendor/kilo.c"

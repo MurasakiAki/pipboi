@@ -41,8 +41,9 @@ function write_file() {
     if [ -n "$file_to_write" ]; then
         if [ -f "../.${logged_in_usr}/${file_to_write}" ]; then
             start_kilo "../.${logged_in_usr}/${file_to_write}"
-            #python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Exited Kilo text editor.')"
-            #echo "Exited Kilo text editor"
+            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Exited Kilo text editor.')"
+            output normal
+            echo "Exited Kilo text editor"
         else 
             output surprise
             touch "../.${logged_in_usr}/${file_to_write}"

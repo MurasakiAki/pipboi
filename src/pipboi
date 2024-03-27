@@ -7,6 +7,7 @@ source mods.sh
 source time.sh
 source weather.sh
 source location.sh
+source command_observer.sh
 
 project_dir="$(echo "$PATH" | awk -F: '{print $NF}')"
 
@@ -107,7 +108,10 @@ elif [ "$1" == "login" ]; then
         done
 
         until [ "$input1" == "quit" ]; do
-            read -p "Enter command: " input1 input2 
+            load_history
+            input_commands=($(handle_input "$@"))
+            input1="${input_commands[0]}"
+            input2="${input_commands[1]}"
 
             # Time
             if [ "$input1" == "time" ]; then
