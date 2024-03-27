@@ -9,7 +9,7 @@ Allowed languages are Python 3.x and Bash script.
 1. In your IDE or text editor create your desirable new function for PIPBOI.
 2. Have one main.py/.sh file ready for executing your mod.
 3. You can also add info.txt file, where you can shortly describe what your mod does.
-4. Make a folder for your mod, the folder name should be the name of your folder, the name should be original and should not be same as any other mod currently installed on your PIPBOI.
+4. Make a folder for your mod, the folder name should be the name of your mod, the name should be original and should not be same as any other mod currently installed on your PIPBOI.
 5. This is desirable structure of your mod folder:
 
 > my_mod
