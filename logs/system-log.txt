@@ -174,3 +174,17 @@
 2024-03-26 16:35:49,315 - INFO - Checking password.
 2024-03-26 16:36:20,902 - INFO - Exited Kilo text editor.
 2024-03-26 16:39:39,345 - WARNING - Directory name not entered.
+2024-03-27 09:27:17,041 - INFO - Checking password.
+2024-03-27 09:27:31,252 - WARNING - Created file file.py.
+2024-03-27 09:27:39,224 - INFO - Checking Kilo compilation.
+2024-03-27 09:27:39,327 - INFO - Checking Kilo compilation.
+2024-03-27 09:27:39,427 - WARNING - Kilo was not complied, compiling now.
+2024-03-27 09:27:40,242 - INFO - Kilo complied, starting now.
+2024-03-27 09:27:40,396 - INFO - Exited Kilo text editor.
+2024-03-27 09:54:20,618 - INFO - Checking password.
+2024-03-27 09:55:12,694 - INFO - Checking Kilo compilation.
+2024-03-27 09:55:12,798 - INFO - Starting Kilo text editor.
+2024-03-27 09:55:17,153 - INFO - Exited Kilo text editor.
+2024-03-27 09:57:09,345 - INFO - Checking password.
+2024-03-27 09:57:15,403 - INFO - Checking Kilo compilation.
+2024-03-27 09:57:15,504 - INFO - Starting Kilo text editor.
