@@ -4,6 +4,8 @@
 #define DHTPIN A0     // Pin where the DHT11 is connected
 #define DHTTYPE DHT11 // Type of DHT sensor
 
+int jobNumber = 0;
+
 // Ruler variables
 int trigPin = 2;    // Trigger
 int echoPin = 3;    // Echo
@@ -55,11 +57,11 @@ void setup() {
 
 
 // Looking for signal from PIPBOI to determine Job
-int lookForJob(){
+int lookForJob() {
   if (Serial.available() > 0) {
-    int receivedJob = Serial.readInt();
-    return recievedJob;
-  }else{
+    int receivedJob = Serial.parseInt();
+    return receivedJob;
+  } else {
     return 0;
   }
 }
@@ -91,7 +93,7 @@ void doIdleJob(){
 // End Idle Job
 
 // Ruler Job
-void doRulerJob(){
+void doRulerJob() {
   matrix.beginDraw();
 
   matrix.stroke(0xFFFFFFFF);
@@ -102,7 +104,7 @@ void doRulerJob(){
 
   char text[20];
 
-  sprintf(text, "  "+number_str+"cm ");
+  sprintf(text, "  %s cm ", number_str.c_str());
 
   matrix.textFont(Font_5x7);
 
@@ -117,26 +119,34 @@ void doRulerJob(){
 // End Ruler Job
 
 // T/H Job
-void doTempHumiJob(){
-  delay(2000);
+void doTempHumiJob() {
+  matrix.beginDraw();
+
+  matrix.stroke(0xFFFFFFFF);
+
+  matrix.textScrollSpeed(100);
 
   float temperature = dht.readTemperature(); // Read temperature as Celsius
   float humidity = dht.readHumidity();       // Read humidity as percentage
 
   // Check if any reads failed and exit early (to try again)
   if (isnan(temperature) || isnan(humidity)) {
-    Serial.println("Failed to read from DHT sensor!");
-    return;
+    char errorText[] = "Failed to read sensor!";
+    matrix.textFont(Font_5x7);
+    matrix.beginText(0, 1, 0xFF0000);
+    matrix.println(errorText);
+    matrix.endText(SCROLL_LEFT);
+  } else {
+    char text[20];
+    sprintf(text, "%.0f°C/%.0f%%", temperature, humidity);
+
+    matrix.textFont(Font_5x7);
+    matrix.beginText(0, 1, 0xFFFFFF);
+    matrix.println(text);
+    matrix.endText(SCROLL_LEFT);
   }
 
-  // Replace with LED display
-  Serial.print("Temperature: ");
-  Serial.print(temperature);
-  Serial.println(" °C");
-  
-  Serial.print("Humidity: ");
-  Serial.print(humidity);
-  Serial.println(" %");
+  matrix.endDraw();
 }
 // End T/H Job
 
@@ -164,7 +174,7 @@ void loop() {
       doTempHumiJob();
       break;
     case 3:
-      doTiltJob()
+      doTiltJob();
       break;
   }
 
