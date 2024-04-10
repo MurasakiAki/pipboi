@@ -231,3 +231,9 @@
 2024-03-27 20:37:29,141 - INFO - Checking password.
 2024-03-27 20:37:35,826 - INFO - Echoing mods of help file.
 2024-03-27 20:37:51,715 - INFO - Echoing mods of help file.
+2024-04-07 16:03:32,181 - INFO - Checking password.
+2024-04-07 16:03:41,292 - INFO - Checking internet connection.
+2024-04-07 16:03:41,931 - INFO - Checking city validity.
+2024-04-07 16:03:42,466 - INFO - Telling temperature in prague
+2024-04-07 16:03:42,533 - INFO - Echoing weather in prague.
+2024-04-07 16:03:46,221 - INFO - Displaying help file.
