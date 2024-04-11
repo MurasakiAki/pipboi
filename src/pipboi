@@ -8,6 +8,7 @@ source time.sh
 source weather.sh
 source location.sh
 source command_observer.sh
+source sensor.sh
 
 project_dir="$(echo "$PATH" | awk -F: '{print $NF}')"
 
@@ -122,6 +123,12 @@ elif [ "$1" == "login" ]; then
                 echo_daytime
             elif [ "$input1" == "calendar" ]; then
                 echo_calendar "$input2"
+            
+            # Sensors
+            elif [ "$input1" == "s-dist" ]; then
+                apply_job_dist
+            elif [ "$input1" == "s-temp" ]; then
+                apply_job_temp
 
             # Mods
             elif [ "$input1" == "mods" ]; then
@@ -162,6 +169,10 @@ elif [ "$1" == "login" ]; then
                 output random
                 echo "What was that!"
             
+            # Image
+            elif [ "$input1" == "draw" ]; then
+                draw_image $logged_in_usr $input2 
+            fi
 
             # Weather
             elif [ "$input1" == "weather" ]; then

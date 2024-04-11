@@ -242,3 +242,5 @@
 2024-04-10 18:47:59,979 - INFO - Sending distance job request.
 2024-04-10 18:48:13,882 - INFO - Sending distance job request.
 2024-04-10 18:48:27,658 - INFO - Sending distance job request.
+2024-04-11 14:12:45,256 - INFO - Checking password.
+2024-04-11 14:12:49,873 - INFO - Displaying help file.
