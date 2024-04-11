@@ -11,6 +11,7 @@ system_logger = Logger(log_file_path)
 
 ser = serial.Serial('/dev/ttyACM0', 9600)
 
+
 def send_job_idle():
     try:
         ser.write(b'0')
@@ -18,19 +19,24 @@ def send_job_idle():
     except:
         system_logger.log_message("ERROR", "Error sending idle job request.")
 
+
 def send_job_dist():
     try:
         ser.write(b'1')
         system_logger.log_message("INFO", "Sending distance job request.")
     except:
-        system_logger.log_message("ERROR", "Error sending distance job request.")
+        system_logger.log_message(
+            "ERROR", "Error sending distance job request.")
+
 
 def send_job_temp():
     try:
         ser.write(b'2')
-        system_logger.log_message("INFO", "Sending temperature/humidity job request.")
+        system_logger.log_message(
+            "INFO", "Sending temperature/humidity job request.")
     except:
-        system_logger.log_message("ERROR", "Error sending temperature/humidity job request.")
+        system_logger.log_message(
+            "ERROR", "Error sending temperature/humidity job request.")
 
 
 def send_job_tilt():
@@ -39,12 +45,3 @@ def send_job_tilt():
         system_logger.log_message("INFO", "Sending tilt job request.")
     except:
         system_logger.log_message("ERROR", "Error sending tilt job request.")
-
-def receive_string():
-    if ser.in_waiting > 0:
-        received_string = ser.readline().decode().strip()
-        return received_string
-
-send_job_dist()
-time.sleep(5)
-print(receive_string())
