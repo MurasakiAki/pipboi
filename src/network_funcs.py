@@ -15,5 +15,5 @@ def check_connection():
         system_logger.log_message("INFO", "Checking internet connection.")
         return 1
     except OSError:
-        system_logger.log_message("FATAL", "No internet connection.")
+        system_logger.log_message("CRITICAL", "No internet connection.")
         return 0
