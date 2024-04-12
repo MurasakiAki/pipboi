@@ -12,19 +12,19 @@ All PIPBOI Commands
  update - updates the PIPBOI
  quit - exits the interface
  hello - introduction/basic quick info
- 
+ #END#
  #TIME#
  time - tells current time
  day - tells current day
  dt - tells day and time
  calendar [type] - displays the calendar [type] is year/month 
- 
+ #END#
  #IMAGE#
  draw [img_file] - will draw image file as ascii art
- 
+ #END#
  #WEATHER#
  weather [city name] - tells you current weather in [city name]
- 
+ #END#
  #FILES#
  list - shows content of your user folder
  list [dir name] - shows content of [dir name]
@@ -34,7 +34,7 @@ All PIPBOI Commands
  makedir - creates a directory
  removed [dir name] - removes a directory
  *goto [dir] - changes working directory
- 
+ #END#
  #LOCATION1#
  whereami - tells you your location
  whereip [ipv4 address] - tells you location of device using [ipv4 address]
@@ -43,7 +43,7 @@ All PIPBOI Commands
  addloc [lat/lng] - saves a location based on latitude and longitude
  remloc [location name] - removes a saved location
  showloc - shows saved locations
- 
+ #END#
  #LOCATION2#
  distance [lat1, lng1, lat2, lng2] - tells you distance between two points
  distname [name, lat2, lng2] - tells you distance between saved location [name] and point [lat2, lng2]
@@ -51,15 +51,16 @@ All PIPBOI Commands
  disthere [name|lat/lng] - tells you how far is your current location and location you choose
  getlocname [lat/lng] - tells you location name based on [lat/lng]
  getloc [name] - tells you lat/lng based on [name]
- 
+ #END#
  #MODS#
  mods - tells you available mods
  use [mod name] - runs the [mod name]
  modinfo [mod name] - shows info about [mod name], if info.txt is in the mod
  include [folder name] - will make your folder an executable mod in PIPBOI (more in /docs/modding.md)
  removem [mod name] - removes mod
- 
+ #END#
  #SENSORS#
  s-dist - will measure distance
  s-temp - will measure temperature(°C)/humidity(%)
+ #END#
  ////////////////////

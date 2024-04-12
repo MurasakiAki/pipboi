@@ -283,3 +283,72 @@
 2024-04-12 21:51:52,631 - INFO - Listing user files.
 2024-04-12 21:52:26,960 - INFO - Deleting directory folder.
 2024-04-12 21:54:05,045 - INFO - Checking password.
+2024-04-12 21:56:49,232 - INFO - Checking password.
+2024-04-12 21:56:52,982 - INFO - Echoing files of help file.
+2024-04-12 21:57:46,121 - INFO - Checking password.
+2024-04-12 21:57:48,208 - ERROR - Section not found in help file.
+2024-04-12 21:57:54,106 - ERROR - Section not found in help file.
+2024-04-12 21:58:17,907 - ERROR - Section not found in help file.
+2024-04-12 21:58:24,788 - ERROR - Section not found in help file.
+2024-04-12 21:59:03,834 - INFO - Checking password.
+2024-04-12 21:59:08,533 - ERROR - Section not found in help file.
+2024-04-12 21:59:53,322 - INFO - Checking password.
+2024-04-12 21:59:54,530 - ERROR - Section not found in help file.
+2024-04-12 22:00:50,388 - INFO - Checking password.
+2024-04-12 22:00:55,978 - ERROR - Section not found in help file.
+2024-04-12 22:02:30,791 - INFO - Checking password.
+2024-04-12 22:02:33,667 - INFO - Echoing files of help file.
+2024-04-12 22:03:51,481 - INFO - Checking password.
+2024-04-12 22:03:54,301 - INFO - Echoing files of help file.
+2024-04-12 22:04:44,435 - INFO - Checking password.
+2024-04-12 22:04:46,916 - INFO - Echoing files of help file.
+2024-04-12 22:06:47,005 - INFO - Checking password.
+2024-04-12 22:06:50,681 - ERROR - Section not found in help file.
+2024-04-12 22:08:43,040 - INFO - Checking password.
+2024-04-12 22:09:01,506 - ERROR - Section not found in help file.
+2024-04-12 22:09:06,947 - ERROR - Section not found in help file.
+2024-04-12 22:09:13,232 - ERROR - Section not found in help file.
+2024-04-12 22:11:22,592 - INFO - Checking password.
+2024-04-12 22:11:27,118 - INFO - Echoing files of help file.
+2024-04-12 22:14:24,985 - INFO - Checking password.
+2024-04-12 22:14:28,008 - ERROR - Section not found in help file.
+2024-04-12 22:15:36,589 - INFO - Checking password.
+2024-04-12 22:15:38,464 - ERROR - Section not found in help file.
+2024-04-12 22:15:40,638 - ERROR - Section not found in help file.
+2024-04-12 22:16:51,347 - INFO - Checking password.
+2024-04-12 22:16:56,781 - ERROR - Section not found in help file.
+2024-04-12 22:17:02,808 - ERROR - Section not found in help file.
+2024-04-12 22:17:04,961 - INFO - Displaying help file sections.
+2024-04-12 22:17:09,713 - ERROR - Section not found in help file.
+2024-04-12 22:18:03,454 - INFO - Checking password.
+2024-04-12 22:18:08,840 - ERROR - Section not found in help file.
+2024-04-12 22:18:24,479 - ERROR - Section not found in help file.
+2024-04-12 22:18:30,473 - ERROR - Section not found in help file.
+2024-04-12 22:18:36,606 - ERROR - Section not found in help file.
+2024-04-12 22:19:32,478 - INFO - Checking password.
+2024-04-12 22:19:38,287 - ERROR - Section not found in help file.
+2024-04-12 22:20:14,881 - INFO - Checking password.
+2024-04-12 22:20:19,558 - ERROR - Section not found in help file.
+2024-04-12 22:20:29,984 - ERROR - Section not found in help file.
+2024-04-12 22:21:31,049 - INFO - Checking password.
+2024-04-12 22:21:34,072 - ERROR - Section not found in help file.
+2024-04-12 22:21:37,177 - ERROR - Section not found in help file.
+2024-04-12 22:21:41,004 - ERROR - Section not found in help file.
+2024-04-12 22:22:19,709 - INFO - Checking password.
+2024-04-12 22:22:23,443 - ERROR - Section not found in help file.
+2024-04-12 22:23:31,503 - INFO - Checking password.
+2024-04-12 22:23:36,267 - ERROR - Section not found in help file.
+2024-04-12 22:23:41,391 - ERROR - Section not found in help file.
+2024-04-12 22:23:44,332 - ERROR - Section not found in help file.
+2024-04-12 22:25:49,311 - INFO - Checking password.
+2024-04-12 22:25:53,345 - ERROR - Section not found in help file.
+2024-04-12 22:26:35,469 - INFO - Checking password.
+2024-04-12 22:26:38,945 - INFO - Echoing files of help file.
+2024-04-12 22:26:43,791 - INFO - Echoing basics of help file.
+2024-04-12 22:27:44,125 - INFO - Checking password.
+2024-04-12 22:27:46,699 - INFO - Echoing mods of help file.
+2024-04-12 22:27:55,326 - INFO - Echoing basics of help file.
+2024-04-12 22:31:45,763 - INFO - Checking password.
+2024-04-12 22:33:25,239 - INFO - Checking password.
+2024-04-12 22:33:55,413 - INFO - Checking password.
+2024-04-12 22:34:33,515 - INFO - Checking password.

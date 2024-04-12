@@ -32,8 +32,6 @@ function echo_help() {
     fi
 }
 
-
-
 function write_file() {
     file_to_write="$1"
     if [ -n "$file_to_write" ]; then
