@@ -11,7 +11,7 @@ All PIPBOI Commands
  whoami - tells you your name
  update - updates the PIPBOI
  quit - exits the interface
- *hello - introduction/basic quick info
+ hello - introduction/basic quick info
  
  #TIME#
  time - tells current time
@@ -57,7 +57,7 @@ All PIPBOI Commands
  use [mod name] - runs the [mod name]
  modinfo [mod name] - shows info about [mod name], if info.txt is in the mod
  include [folder name] - will make your folder an executable mod in PIPBOI (more in /docs/modding.md)
- *removem [mod name] - removes mod
+ removem [mod name] - removes mod
  
  #SENSORS#
  s-dist - will measure distance

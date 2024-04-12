@@ -251,3 +251,35 @@
 2024-04-12 21:29:48,086 - INFO - Checking internet connection.
 2024-04-12 21:29:48,495 - INFO - Telling location based on IP.
 2024-04-12 21:29:48,573 - INFO - Echoing location of Ip address.
+2024-04-12 21:34:43,777 - INFO - Listing user files.
+2024-04-12 21:34:49,854 - WARNING - Creating folder directory.
+2024-04-12 21:38:25,133 - INFO - Checking password.
+2024-04-12 21:38:27,200 - INFO - Displaying help file sections.
+2024-04-12 21:38:35,655 - INFO - Echoing mods of help file.
+2024-04-12 21:38:47,430 - INFO - Echoing files of help file.
+2024-04-12 21:39:06,138 - INFO - Echoing files of help file.
+2024-04-12 21:39:07,985 - INFO - Echoing files of help file.
+2024-04-12 21:39:13,259 - INFO - Echoing location1 of help file.
+2024-04-12 21:39:56,927 - INFO - Checking password.
+2024-04-12 21:40:02,908 - INFO - Echoing time of help file.
+2024-04-12 21:40:08,202 - INFO - Echoing basics of help file.
+2024-04-12 21:41:19,493 - INFO - Checking password.
+2024-04-12 21:41:22,465 - INFO - Echoing basics of help file.
+2024-04-12 21:41:27,261 - INFO - Echoing image of help file.
+2024-04-12 21:44:05,996 - INFO - Checking password.
+2024-04-12 21:44:09,420 - INFO - Echoing files of help file.
+2024-04-12 21:45:46,600 - INFO - Checking password.
+2024-04-12 21:45:49,982 - INFO - Displaying help file sections.
+2024-04-12 21:46:02,046 - INFO - Echoing FILES of help file.
+2024-04-12 21:46:57,746 - INFO - Checking password.
+2024-04-12 21:47:01,077 - INFO - Displaying help file sections.
+2024-04-12 21:48:00,364 - INFO - Echoing image of help file.
+2024-04-12 21:48:06,714 - INFO - Echoing IMAGE of help file.
+2024-04-12 21:49:03,324 - INFO - Checking password.
+2024-04-12 21:49:09,152 - INFO - Displaying help file sections.
+2024-04-12 21:49:30,400 - INFO - Echoing image of help file.
+2024-04-12 21:51:42,269 - INFO - Checking password.
+2024-04-12 21:51:44,697 - INFO - Displaying help file sections.
+2024-04-12 21:51:52,631 - INFO - Listing user files.
+2024-04-12 21:52:26,960 - INFO - Deleting directory folder.
+2024-04-12 21:54:05,045 - INFO - Checking password.

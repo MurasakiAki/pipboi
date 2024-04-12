@@ -159,8 +159,8 @@ elif [ "$1" == "login" ]; then
                 remove_directory "$input2"
             elif [ "$input1" == "list" ]; then
                 list "$input2"
-            elif [ "$input1" == "goto" ]; then
-                goto_folder "$input2"
+            #elif [ "$input1" == "goto" ]; then
+            #    goto_folder "$input2"
             elif [ "$input1" == "update" ]; then
                 update_pipboi
             elif [ "$input1" == "sus" ]; then
@@ -204,6 +204,7 @@ elif [ "$1" == "login" ]; then
                 echo_getloc
             else
                 if [ "$input1" == "quit" ]; then
+                    cat "" > "../logs/.command_history"
                     output sad
                     tell_farewell
                 else

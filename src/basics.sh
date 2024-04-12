@@ -13,28 +13,26 @@ function echo_help() {
     section="$1"
     content=$(cat ../.help.txt)
     if [ -n "$section" ]; then
-        sec_to_check="#$(echo "$section" | tr '[:lower:]' '[:upper:]')#"
-        if grep -q "$sec_to_check" ../.help.txt; then
-            output love
+        sec_to_check=$(echo "$section" | awk '{print toupper($0)}')
+        if grep -q "#$sec_to_check#" ../.help.txt; then
             python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Echoing $section of help file.')"
-            echo Displaying "$section" of help file
-            output_sec=$(echo "$content" | sed -n "/^$sec_to_check$/,/^*/p" | sed '1d;$d')
+            echo "Displaying '$section' section of help file"
+            output_sec=$(echo "$content" | sed -n "/^#$sec_to_check#/,/^#/p" | sed '1d;$d')
             echo '////////////////////'
-            echo "$sec_to_check"
             echo "$output_sec"
             echo '////////////////////'
         else
-            output sad
             python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Section not found in help file.')"
             echo "No section '$section' found"
         fi
     else
-        output love
-        python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Displaying help file.')"
-        echo Here is all commands:
-        cat ../.help.txt
+        python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Displaying help file sections.')"
+        echo "Type help <section> for more help:"
+        echo "BASICS TIME IMAGE WEATHER FILES LOCATION1 LOCATION2 MODS SENSORS"
     fi
 }
+
+
 
 function write_file() {
     file_to_write="$1"
