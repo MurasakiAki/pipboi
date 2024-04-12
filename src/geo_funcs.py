@@ -1,4 +1,6 @@
 import os
+import sys
+sys.path.append("vendor/python_dep")
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
 import geocoder

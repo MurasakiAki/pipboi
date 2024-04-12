@@ -172,7 +172,6 @@ elif [ "$1" == "login" ]; then
             # Image
             elif [ "$input1" == "draw" ]; then
                 draw_image $logged_in_usr $input2 
-            fi
 
             # Weather
             elif [ "$input1" == "weather" ]; then

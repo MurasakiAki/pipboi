@@ -1,4 +1,6 @@
 import os
+import sys
+sys.path.append("vendor/python_dep")
 import bcrypt
 from logger import Logger
 

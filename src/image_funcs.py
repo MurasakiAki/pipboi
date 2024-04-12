@@ -1,4 +1,6 @@
 import os
+import sys
+sys.path.append("vendor/python_dep")
 from PIL import Image
 from logger import Logger
 

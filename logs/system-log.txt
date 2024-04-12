@@ -244,3 +244,10 @@
 2024-04-10 18:48:27,658 - INFO - Sending distance job request.
 2024-04-11 14:12:45,256 - INFO - Checking password.
 2024-04-11 14:12:49,873 - INFO - Displaying help file.
+2024-04-12 21:29:13,562 - INFO - Checking password.
+2024-04-12 21:29:31,044 - INFO - Checking internet connection.
+2024-04-12 21:29:31,514 - INFO - Telling location.
+2024-04-12 21:29:31,593 - INFO - Echoing location.
+2024-04-12 21:29:48,086 - INFO - Checking internet connection.
+2024-04-12 21:29:48,495 - INFO - Telling location based on IP.
+2024-04-12 21:29:48,573 - INFO - Echoing location of Ip address.

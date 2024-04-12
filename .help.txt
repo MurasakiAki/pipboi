@@ -4,7 +4,7 @@ All PIPBOI Commands
 //(If command entry begins with '*' character, the command is not integrated yet.)//
  
 #BASICS#
- help - displays this help file
+ help - displays help sections
  help [section] - displays only one section of help file
  register [name] - creates new user
  login [name] - log into your account
