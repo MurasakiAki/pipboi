@@ -2,11 +2,11 @@
 
 A PIPBOI system for RPi.
 
-***PIPBOI*** stands for:
+**_PIPBOI_** stands for:
 
 Pigeon Integrated Personal Biometric and Operational Interface
 
-***Version Beta 0.1***
+**_Version 1.0.0_**
 
 ### Dependancies:
 
@@ -15,7 +15,4 @@ Pigeon Integrated Personal Biometric and Operational Interface
 - Python geopy
 - Python geocoder
 - Python pillow
-- Python requests
-
-
-aaaa test
+- Python PIL
