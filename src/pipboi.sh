@@ -21,6 +21,8 @@ enable_input() {
     stty "$stty_settings"
 }
 
+bash init.sh
+
 # Check if the project directory path is empty or not found
 if [ -z "$project_dir" ]; then
     echo "Project directory path not found in PATH variable. Please set it."

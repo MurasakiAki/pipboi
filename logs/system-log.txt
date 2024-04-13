@@ -53,3 +53,5 @@
 2024-04-13 18:58:15,140 - INFO - Telling location.
 2024-04-13 18:58:15,219 - INFO - Echoing location.
 2024-04-13 18:58:27,101 - INFO - Echoing location1 of help folder.
+2024-04-13 19:06:26,176 - INFO - Checking password.
+2024-04-13 19:08:03,820 - INFO - Checking password.

@@ -19,6 +19,10 @@ sudo chmod u+x passwd_funcs.py time_funcs.py network_funcs.py geo_funcs.py weath
 sudo chmod u+x pipboi
 cd ..
 
+# Run unit tests
+sudo chmod +x src/init.sh
+bash src/init.sh
+
 # Add the current directory to the PATH variable
 export PATH=$PATH:$(pwd)/src
 
@@ -42,7 +46,7 @@ sudo python3-pip install --upgrade pip
 pip_path=$(which pip)
 
 # Installing Python libraries using the specified pip
-libraries=("bcrypt" "geopy" "geocoder" "pillow" "requests" "pyserial")
+libraries=("bcrypt" "geopy" "geocoder" "pillow")
 
 echo "Starting installing libraries:"
 echo
