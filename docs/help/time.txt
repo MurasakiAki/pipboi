@@ -1,0 +1,6 @@
+#TIME#
+time - tells current time
+day - tells current day
+dt - tells day and time
+calendar [type] - displays the calendar [type] is year/month 
+#END#

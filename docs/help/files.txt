@@ -1,0 +1,10 @@
+#FILES#
+list - shows content of your user folder
+list [dir name] - shows content of [dir name]
+write [file name] - creates or writes into [file name]
+read [file name] - displays a [file name] content
+removef [file name] - removes [file name] file
+makedir - creates a directory
+removed [dir name] - removes a directory
+*goto [dir] - changes working directory
+#END#

@@ -1,0 +1,10 @@
+#BASICS#
+help - displays help sections
+help [section] - displays only one section of help file
+register [name] - creates new user
+login [name] - log into your account
+whoami - tells you your name
+update - updates the PIPBOI
+quit - exits the interface
+hello - introduction/basic quick info
+#END#

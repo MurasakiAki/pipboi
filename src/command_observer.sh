@@ -1,15 +1,14 @@
 #!/bin/bash
 
-# File to store commands history
 history_file="../logs/.command_history"
 
-load_history() {
+function load_history() {
     if [ -f "$history_file" ]; then
         history -r "$history_file"
     fi
 }
 
-save_history() {
+function save_history() {
     history -w "$history_file"
 }
 
@@ -31,8 +30,8 @@ function observe() {
     document "$@"
 }
 
-handle_input() {
-    if IFS= read -r -e -p "Enter command:" input1 input2; then
+function handle_input() {
+    if IFS= read -r -e -p ">" input1 input2; then
         history -s "$input1" "$input2"
         if [ -n "$input1" ]; then
             save_history

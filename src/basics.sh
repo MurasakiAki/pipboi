@@ -11,24 +11,25 @@ function echo_whoami() {
 
 function echo_help() {
     section="$1"
-    content=$(cat ../.help.txt)
     if [ -n "$section" ]; then
-        sec_to_check=$(echo "$section" | awk '{print toupper($0)}')
-        if grep -q "#$sec_to_check#" ../.help.txt; then
-            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Echoing $section of help file.')"
+        if [ -f "../docs/help/$section.txt" ]; then
+            output normal
+            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Echoing $section of help folder.')"
             echo "Displaying '$section' section of help file"
-            output_sec=$(echo "$content" | sed -n "/^#$sec_to_check#/,/^#/p" | sed '1d;$d')
-            echo '////////////////////'
-            echo "$output_sec"
-            echo '////////////////////'
+            echo "//(If command entry begins with '*' character, the command is not integrated yet.)//"
+            cat ../docs/help/$section.txt
         else
-            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Section not found in help file.')"
+            output sad
+            python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('ERROR', 'Section not found in help folder.')"
             echo "No section '$section' found"
         fi
     else
+        output normal
         python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Displaying help file sections.')"
-        echo "Type help <section> for more help:"
-        echo "BASICS TIME IMAGE WEATHER FILES LOCATION1 LOCATION2 MODS SENSORS"
+        echo "Type help <section> for more help"
+        echo "Available sections:"
+        echo "[basics, time, image, weather, files,"
+        echo "location1, location2, mods, sensors]"
     fi
 }
 

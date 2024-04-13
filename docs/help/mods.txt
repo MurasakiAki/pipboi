@@ -1,0 +1,7 @@
+#MODS#
+mods - tells you available mods
+use [mod name] - runs the [mod name]
+modinfo [mod name] - shows info about [mod name], if info.txt is in the mod
+include [folder name] - will make your folder an executable mod in PIPBOI (more in /docs/modding.md)
+removem [mod name] - removes mod
+#END#

@@ -1,0 +1,3 @@
+#IMAGE#
+draw [img_file] - will draw image file as ascii art
+#END#

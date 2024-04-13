@@ -1,0 +1,9 @@
+#LOCATION1#
+whereami - tells you your location
+whereip [ipv4 address] - tells you location of device using [ipv4 address]
+whereloc [location name] - tells you latitude and longitude of your saved location
+addloc here - saves your current location
+addloc [lat/lng] - saves a location based on latitude and longitude
+remloc [location name] - removes a saved location
+showloc - shows saved locations
+#END#

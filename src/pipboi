@@ -109,6 +109,7 @@ elif [ "$1" == "login" ]; then
         done
 
         until [ "$input1" == "quit" ]; do
+            echo
             load_history
             input_commands=($(handle_input "$@"))
             input1="${input_commands[0]}"

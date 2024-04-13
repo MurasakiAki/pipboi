@@ -1,354 +1,55 @@
-2024-03-20 19:58:04,658 - INFO - Printing image.
-2024-03-20 19:58:26,810 - ERROR - File not_eevee.jpg not found.
-2024-03-21 10:18:41,754 - INFO - Telling time.
-2024-03-21 10:35:45,979 - INFO - Telling temperature in prague
-2024-03-21 10:36:22,974 - ERROR - Error fetching weather data.
-2024-03-21 10:36:26,115 - ERROR - Error fetching weather data.
-2024-03-21 11:01:59,379 - INFO - Telling location based on IP.
-2024-03-21 17:42:37,022 - INFO - Checking password.
-2024-03-21 17:42:37,023 - ERROR - Error while checking password.
-2024-03-21 18:16:03,245 - INFO - Checking password.
-2024-03-21 18:16:23,996 - INFO - Checking internet connection.
-2024-03-21 18:16:24,456 - ERROR - Error telling location: [Errno 2] No such file or directory: '.aki/.locations.json'
-2024-03-21 18:18:49,194 - INFO - Checking password.
-2024-03-21 18:18:52,792 - INFO - Checking internet connection.
-2024-03-21 18:18:53,222 - INFO - Telling location.
-2024-03-22 17:03:19,289 - INFO - Checking password.
-2024-03-22 17:29:27,441 - INFO - Checking password.
-2024-03-22 17:31:20,699 - INFO - Checking password.
-2024-03-22 17:31:30,860 - INFO - Checking password.
-2024-03-22 17:41:25,597 - INFO - Checking password.
-2024-03-22 17:52:18,849 - INFO - Checking password.
-2024-03-22 17:53:28,904 - INFO - Checking password.
-2024-03-22 17:54:33,931 - INFO - Checking password.
-2024-03-22 17:55:32,178 - INFO - Checking password.
-2024-03-22 17:56:02,440 - INFO - Checking password.
-2024-03-22 17:56:29,089 - INFO - Checking password.
-2024-03-22 18:07:48,674 - INFO - Checking password.
-2024-03-22 18:10:25,674 - INFO - Checking password.
-2024-03-22 18:10:29,334 - INFO - Using test
-2024-03-22 18:12:54,638 - INFO - Checking password.
-2024-03-22 18:23:04,542 - INFO - Checking password.
-2024-03-22 18:26:08,552 - INFO - Checking password.
-2024-03-22 18:27:37,344 - INFO - Checking password.
-2024-03-22 18:49:58,662 - INFO - Checking password.
-2024-03-23 12:25:24,996 - INFO - Checking password.
-2024-03-23 13:07:37,080 - INFO - Checking password.
-2024-03-23 13:07:44,000 - WARNING - Created file file.txt.
-2024-03-23 13:08:53,078 - INFO - Checking password.
-2024-03-23 13:08:55,965 - INFO - Telling identity.
-2024-03-23 13:34:16,294 - INFO - Checking password.
-2024-03-23 13:34:42,388 - INFO - Checking internet connection.
-2024-03-23 13:34:42,976 - INFO - Telling location.
-2024-03-23 13:34:43,060 - INFO - Echoing location.
-2024-03-23 13:34:51,986 - INFO - Telling latitude.
-2024-03-23 13:34:52,422 - INFO - Telling longitude.
-2024-03-23 13:34:52,721 - INFO - New location added successfully.
-2024-03-23 13:34:52,799 - INFO - Adding location - here.
-2024-03-23 13:35:21,493 - INFO - Telling distance from here to 15/3.5.
-2024-03-23 13:35:21,838 - INFO - Telling latitude.
-2024-03-23 13:35:21,975 - INFO - Telling longitude.
-2024-03-23 13:35:21,976 - INFO - Telling distance between 50.088/14.4208 and 15.0/3.5.
-2024-03-23 13:35:22,058 - INFO - Echoing distance between here and 15/3.5.
-2024-03-23 13:37:41,268 - INFO - Echoing identity.
-2024-03-23 13:37:49,619 - INFO - Reading file file.txt.
-2024-03-23 13:38:09,333 - INFO - Echoing location of help file.
-2024-03-23 13:38:31,081 - INFO - Telling saved locations.
-2024-03-23 13:38:31,158 - INFO - Removing locations list.
-2024-03-23 13:38:58,878 - INFO - New location added successfully.
-2024-03-23 13:38:58,959 - INFO - Adding location Void.
-2024-03-23 13:39:01,753 - INFO - Telling saved locations.
-2024-03-23 13:39:01,831 - INFO - Removing locations list.
-2024-03-23 13:39:13,584 - INFO - Echoing location of help file.
-2024-03-23 13:40:00,417 - INFO - Checking password.
-2024-03-23 13:40:20,961 - INFO - Distance between Home and Void is
-2024-03-23 13:40:21,042 - INFO - Echoing distance between names.
-2024-03-23 14:36:05,062 - INFO - Checking password.
-2024-03-23 14:37:00,309 - ERROR - name 'requests' is not defined
-2024-03-23 14:37:00,386 - INFO - Echoing get location name.
-2024-03-23 14:37:45,386 - INFO - Checking password.
-2024-03-23 14:38:12,546 - ERROR - name 'requests' is not defined
-2024-03-23 14:38:12,624 - INFO - Echoing get location name.
-2024-03-23 14:39:32,073 - INFO - Checking password.
-2024-03-23 14:40:07,569 - INFO - Echoing get location name.
-2024-03-23 14:40:43,269 - INFO - Echoing get location name.
-2024-03-23 14:42:48,882 - INFO - Checking password.
-2024-03-23 14:43:14,391 - INFO - Echoing get location name.
-2024-03-23 14:44:36,697 - ERROR - name 'requests' is not defined
-2024-03-23 14:45:19,805 - INFO - Getting name of 40.7127281/-74.0060.
-2024-03-23 14:46:11,836 - INFO - Getting name of 40.7127281/-74.0060.
-2024-03-23 14:46:11,836 - ERROR - name 'typeOf' is not defined
-2024-03-23 14:46:18,308 - INFO - Getting name of 40.7127281/-74.0060.
-2024-03-23 14:49:32,012 - INFO - Getting name of 40.7127281/-74.006.
-2024-03-23 14:50:08,760 - INFO - Getting name of 50.0685293/14.3997193.
-2024-03-23 14:50:40,088 - INFO - Getting name of 50.0685293/14.3997193.
-2024-03-23 14:50:51,868 - INFO - Getting name of 50.0685293/14.3997193.
-2024-03-23 14:52:00,069 - INFO - Getting name of 50.0685293/14.3997193.
-2024-03-23 14:52:38,988 - INFO - Getting name of 40.7127281/-74.0060152.
-2024-03-23 14:56:54,970 - INFO - Checking password.
-2024-03-23 14:57:25,802 - INFO - Getting name of 40.7127281/-74.0060152.
-2024-03-23 14:57:25,884 - INFO - Echoing get location name.
-2024-03-23 14:59:34,493 - INFO - Checking password.
-2024-03-23 15:00:05,742 - INFO - Getting lat/lng of Ostrovského 32/1823.
-2024-03-23 15:00:05,824 - INFO - Echoing get location name.
-2024-03-23 15:00:23,145 - INFO - New location added successfully.
-2024-03-23 15:00:23,222 - INFO - Saving get location.
-2024-03-23 15:01:48,210 - INFO - Checking password.
-2024-03-23 15:01:58,169 - INFO - Getting lat/lng of Praha.
-2024-03-23 15:01:58,250 - INFO - Echoing get location name.
-2024-03-23 15:02:04,357 - INFO - New location added successfully.
-2024-03-23 15:02:04,435 - INFO - Saving get location.
-2024-03-23 15:02:45,373 - INFO - Checking password.
-2024-03-23 15:02:55,111 - INFO - Checking password.
-2024-03-23 15:03:02,615 - INFO - Checking password.
-2024-03-23 15:03:07,500 - ERROR - Section not found in help file.
-2024-03-23 15:03:12,055 - INFO - Echoing basics of help file.
-2024-03-23 15:03:27,080 - INFO - Echoing location of help file.
-2024-03-23 15:04:00,690 - INFO - Echoing basics of help file.
-2024-03-23 15:04:18,797 - INFO - Echoing basics of help file.
-2024-03-23 15:04:53,181 - INFO - Echoing location of help file.
-2024-03-23 15:06:41,556 - INFO - Checking password.
-2024-03-23 15:06:54,691 - INFO - Echoing location of help file.
-2024-03-23 15:07:04,815 - INFO - Displaying help file.
-2024-03-24 13:16:12,598 - INFO - Checking password.
-2024-03-24 13:17:39,977 - INFO - Checking password.
-2024-03-24 13:17:44,496 - ERROR - Folder test doesn't exist.
-2024-03-24 13:20:18,578 - INFO - Checking password.
-2024-03-24 13:20:23,336 - WARNING - Directory name not entered.
-2024-03-24 13:20:38,314 - WARNING - Creating testmod2 directory.
-2024-03-24 13:20:47,922 - INFO - Listing user files.
-2024-03-24 13:21:11,887 - INFO - Removed file.txt file.
-2024-03-24 13:21:17,546 - INFO - Listing user files.
-2024-03-24 13:37:04,244 - INFO - Checking password.
-2024-03-24 13:37:11,432 - WARNING - Created file file.txt.
-2024-03-24 13:38:16,393 - INFO - Checking password.
-2024-03-24 13:39:16,682 - INFO - Checking password.
-2024-03-24 13:39:23,489 - INFO - Listing user files.
-2024-03-24 13:40:46,913 - INFO - Checking password.
-2024-03-24 13:41:33,194 - INFO - Checking password.
-2024-03-24 13:41:40,880 - INFO - Checking password.
-2024-03-24 13:43:07,787 - INFO - Checking password.
-2024-03-24 13:44:36,733 - WARNING - Created file testmod2/main.sh.
-2024-03-24 13:44:41,250 - INFO - Listing user files.
-2024-03-24 13:44:48,353 - INFO - Listing files and directories in ../.aki/testmod2.
-2024-03-24 13:44:57,012 - ERROR - Error while including testmod2 into mods folder.
-2024-03-24 13:46:43,014 - INFO - Checking password.
-2024-03-24 13:46:50,467 - ERROR - Error while including testmod2 into mods folder.
-2024-03-24 13:48:41,318 - INFO - Checking password.
-2024-03-24 13:48:47,583 - INFO - Folder testmod2 included into mods folder.
-2024-03-24 13:50:48,490 - INFO - Using testmod2.
-2024-03-24 13:53:04,197 - INFO - Checking password.
-2024-03-24 13:53:11,460 - INFO - Using test.
-2024-03-24 13:53:38,812 - INFO - Checking password.
-2024-03-24 13:53:44,585 - INFO - Using test.
-2024-03-24 13:54:54,041 - INFO - Checking password.
-2024-03-24 13:54:59,375 - INFO - Using test.
-2024-03-24 13:55:44,615 - INFO - Checking password.
-2024-03-24 13:55:55,965 - INFO - Using test.
-2024-03-24 13:57:06,180 - INFO - Checking password.
-2024-03-24 13:57:12,790 - INFO - Using test.
-2024-03-24 13:57:29,244 - INFO - Telling info about test.
-2024-03-24 14:26:09,877 - INFO - Checking password.
-2024-03-24 14:27:04,392 - INFO - Checking password.
-2024-03-24 14:27:52,326 - INFO - Checking password.
-2024-03-24 14:28:47,725 - INFO - Checking password.
-2024-03-24 14:29:48,274 - INFO - Checking password.
-2024-03-26 07:56:09,619 - INFO - Checking password.
-2024-03-26 07:56:33,235 - INFO - Displaying help file.
-2024-03-26 07:57:16,264 - INFO - Echoing mods of help file.
-2024-03-26 07:57:25,555 - INFO - Listing mods.
-2024-03-26 07:57:34,604 - INFO - Using test.
-2024-03-26 16:04:47,110 - INFO - Checking password.
-2024-03-26 16:07:38,094 - INFO - Checking password.
-2024-03-26 16:22:58,946 - INFO - Checking password.
-2024-03-26 16:23:11,868 - WARNING - Created file file.py.
-2024-03-26 16:23:17,426 - INFO - Wrote into file file.py.
-2024-03-26 16:26:33,782 - INFO - Checking password.
-2024-03-26 16:26:38,969 - INFO - Wrote into file file.py.
-2024-03-26 16:28:38,188 - INFO - Checking password.
-2024-03-26 16:28:42,190 - INFO - Wrote into file file.py.
-2024-03-26 16:31:07,762 - INFO - Checking password.
-2024-03-26 16:31:13,786 - INFO - Wrote into file file.py.
-2024-03-26 16:31:22,158 - INFO - Checking password.
-2024-03-26 16:31:58,626 - INFO - Wrote into file file.py.
-2024-03-26 16:35:49,315 - INFO - Checking password.
-2024-03-26 16:36:20,902 - INFO - Exited Kilo text editor.
-2024-03-26 16:39:39,345 - WARNING - Directory name not entered.
-2024-03-27 09:27:17,041 - INFO - Checking password.
-2024-03-27 09:27:31,252 - WARNING - Created file file.py.
-2024-03-27 09:27:39,224 - INFO - Checking Kilo compilation.
-2024-03-27 09:27:39,327 - INFO - Checking Kilo compilation.
-2024-03-27 09:27:39,427 - WARNING - Kilo was not complied, compiling now.
-2024-03-27 09:27:40,242 - INFO - Kilo complied, starting now.
-2024-03-27 09:27:40,396 - INFO - Exited Kilo text editor.
-2024-03-27 09:54:20,618 - INFO - Checking password.
-2024-03-27 09:55:12,694 - INFO - Checking Kilo compilation.
-2024-03-27 09:55:12,798 - INFO - Starting Kilo text editor.
-2024-03-27 09:55:17,153 - INFO - Exited Kilo text editor.
-2024-03-27 09:57:09,345 - INFO - Checking password.
-2024-03-27 09:57:15,403 - INFO - Checking Kilo compilation.
-2024-03-27 09:57:15,504 - INFO - Starting Kilo text editor.
-2024-03-27 19:37:29,261 - INFO - Checking password.
-2024-03-27 19:37:35,337 - INFO - Checking Kilo compilation.
-2024-03-27 19:37:35,383 - INFO - Checking Kilo compilation.
-2024-03-27 19:37:35,427 - WARNING - Kilo was not complied, compiling now.
-2024-03-27 19:37:35,817 - INFO - Kilo complied, starting now.
-2024-03-27 19:37:35,864 - INFO - Exited Kilo text editor.
-2024-03-27 19:38:47,815 - INFO - Checking password.
-2024-03-27 19:38:53,901 - INFO - Checking Kilo compilation.
-2024-03-27 19:38:53,946 - INFO - Starting Kilo text editor.
-2024-03-27 19:41:26,135 - INFO - Checking password.
-2024-03-27 19:41:31,050 - INFO - Checking Kilo compilation.
-2024-03-27 19:41:31,094 - INFO - Starting Kilo text editor.
-2024-03-27 19:41:44,322 - INFO - Exited Kilo text editor.
-2024-03-27 20:03:44,123 - INFO - Checking password.
-2024-03-27 20:03:50,906 - INFO - Observing command - help.
-2024-03-27 20:03:50,950 - WARNING - Log file ../logs/commands.txt is missing.
-2024-03-27 20:03:50,998 - INFO - Created ../logs/commands.txt
-2024-03-27 20:03:51,043 - INFO - Documented command - help.
-2024-03-27 20:03:51,093 - INFO - Displaying help file.
-2024-03-27 20:04:05,399 - INFO - Echoing basics of help file.
-2024-03-27 20:04:20,693 - WARNING - Created file text.md.
-2024-03-27 20:04:29,269 - INFO - Checking Kilo compilation.
-2024-03-27 20:04:29,319 - INFO - Starting Kilo text editor.
-2024-03-27 20:04:51,372 - INFO - Exited Kilo text editor.
-2024-03-27 20:09:24,361 - INFO - Observing command - quit.
-2024-03-27 20:09:24,406 - INFO - Documented command - quit.
-2024-03-27 20:24:18,366 - INFO - Checking password.
-2024-03-27 20:24:18,819 - WARNING - Log file ../logs/.command_history is missing.
-2024-03-27 20:24:18,866 - INFO - Created ../logs/.command_history
-2024-03-27 20:26:39,457 - INFO - Checking password.
-2024-03-27 20:28:21,515 - INFO - Checking password.
-2024-03-27 20:31:20,734 - INFO - Checking password.
-2024-03-27 20:31:40,702 - INFO - Checking password.
-2024-03-27 20:31:48,828 - INFO - Checking Kilo compilation.
-2024-03-27 20:31:48,873 - INFO - Starting Kilo text editor.
-2024-03-27 20:31:51,576 - INFO - Exited Kilo text editor.
-2024-03-27 20:32:56,443 - INFO - Checking password.
-2024-03-27 20:33:06,145 - INFO - Checking Kilo compilation.
-2024-03-27 20:33:06,191 - INFO - Starting Kilo text editor.
-2024-03-27 20:33:08,333 - INFO - Exited Kilo text editor.
-2024-03-27 20:37:29,141 - INFO - Checking password.
-2024-03-27 20:37:35,826 - INFO - Echoing mods of help file.
-2024-03-27 20:37:51,715 - INFO - Echoing mods of help file.
-2024-04-07 16:03:32,181 - INFO - Checking password.
-2024-04-07 16:03:41,292 - INFO - Checking internet connection.
-2024-04-07 16:03:41,931 - INFO - Checking city validity.
-2024-04-07 16:03:42,466 - INFO - Telling temperature in prague
-2024-04-07 16:03:42,533 - INFO - Echoing weather in prague.
-2024-04-07 16:03:46,221 - INFO - Displaying help file.
-2024-04-10 18:33:39,449 - INFO - Sending distance job request.
-2024-04-10 18:47:35,037 - INFO - Sending distance job request.
-2024-04-10 18:47:59,979 - INFO - Sending distance job request.
-2024-04-10 18:48:13,882 - INFO - Sending distance job request.
-2024-04-10 18:48:27,658 - INFO - Sending distance job request.
-2024-04-11 14:12:45,256 - INFO - Checking password.
-2024-04-11 14:12:49,873 - INFO - Displaying help file.
-2024-04-12 21:29:13,562 - INFO - Checking password.
-2024-04-12 21:29:31,044 - INFO - Checking internet connection.
-2024-04-12 21:29:31,514 - INFO - Telling location.
-2024-04-12 21:29:31,593 - INFO - Echoing location.
-2024-04-12 21:29:48,086 - INFO - Checking internet connection.
-2024-04-12 21:29:48,495 - INFO - Telling location based on IP.
-2024-04-12 21:29:48,573 - INFO - Echoing location of Ip address.
-2024-04-12 21:34:43,777 - INFO - Listing user files.
-2024-04-12 21:34:49,854 - WARNING - Creating folder directory.
-2024-04-12 21:38:25,133 - INFO - Checking password.
-2024-04-12 21:38:27,200 - INFO - Displaying help file sections.
-2024-04-12 21:38:35,655 - INFO - Echoing mods of help file.
-2024-04-12 21:38:47,430 - INFO - Echoing files of help file.
-2024-04-12 21:39:06,138 - INFO - Echoing files of help file.
-2024-04-12 21:39:07,985 - INFO - Echoing files of help file.
-2024-04-12 21:39:13,259 - INFO - Echoing location1 of help file.
-2024-04-12 21:39:56,927 - INFO - Checking password.
-2024-04-12 21:40:02,908 - INFO - Echoing time of help file.
-2024-04-12 21:40:08,202 - INFO - Echoing basics of help file.
-2024-04-12 21:41:19,493 - INFO - Checking password.
-2024-04-12 21:41:22,465 - INFO - Echoing basics of help file.
-2024-04-12 21:41:27,261 - INFO - Echoing image of help file.
-2024-04-12 21:44:05,996 - INFO - Checking password.
-2024-04-12 21:44:09,420 - INFO - Echoing files of help file.
-2024-04-12 21:45:46,600 - INFO - Checking password.
-2024-04-12 21:45:49,982 - INFO - Displaying help file sections.
-2024-04-12 21:46:02,046 - INFO - Echoing FILES of help file.
-2024-04-12 21:46:57,746 - INFO - Checking password.
-2024-04-12 21:47:01,077 - INFO - Displaying help file sections.
-2024-04-12 21:48:00,364 - INFO - Echoing image of help file.
-2024-04-12 21:48:06,714 - INFO - Echoing IMAGE of help file.
-2024-04-12 21:49:03,324 - INFO - Checking password.
-2024-04-12 21:49:09,152 - INFO - Displaying help file sections.
-2024-04-12 21:49:30,400 - INFO - Echoing image of help file.
-2024-04-12 21:51:42,269 - INFO - Checking password.
-2024-04-12 21:51:44,697 - INFO - Displaying help file sections.
-2024-04-12 21:51:52,631 - INFO - Listing user files.
-2024-04-12 21:52:26,960 - INFO - Deleting directory folder.
-2024-04-12 21:54:05,045 - INFO - Checking password.
-2024-04-12 21:56:49,232 - INFO - Checking password.
-2024-04-12 21:56:52,982 - INFO - Echoing files of help file.
-2024-04-12 21:57:46,121 - INFO - Checking password.
-2024-04-12 21:57:48,208 - ERROR - Section not found in help file.
-2024-04-12 21:57:54,106 - ERROR - Section not found in help file.
-2024-04-12 21:58:17,907 - ERROR - Section not found in help file.
-2024-04-12 21:58:24,788 - ERROR - Section not found in help file.
-2024-04-12 21:59:03,834 - INFO - Checking password.
-2024-04-12 21:59:08,533 - ERROR - Section not found in help file.
-2024-04-12 21:59:53,322 - INFO - Checking password.
-2024-04-12 21:59:54,530 - ERROR - Section not found in help file.
-2024-04-12 22:00:50,388 - INFO - Checking password.
-2024-04-12 22:00:55,978 - ERROR - Section not found in help file.
-2024-04-12 22:02:30,791 - INFO - Checking password.
-2024-04-12 22:02:33,667 - INFO - Echoing files of help file.
-2024-04-12 22:03:51,481 - INFO - Checking password.
-2024-04-12 22:03:54,301 - INFO - Echoing files of help file.
-2024-04-12 22:04:44,435 - INFO - Checking password.
-2024-04-12 22:04:46,916 - INFO - Echoing files of help file.
-2024-04-12 22:06:47,005 - INFO - Checking password.
-2024-04-12 22:06:50,681 - ERROR - Section not found in help file.
-2024-04-12 22:08:43,040 - INFO - Checking password.
-2024-04-12 22:09:01,506 - ERROR - Section not found in help file.
-2024-04-12 22:09:06,947 - ERROR - Section not found in help file.
-2024-04-12 22:09:13,232 - ERROR - Section not found in help file.
-2024-04-12 22:11:22,592 - INFO - Checking password.
-2024-04-12 22:11:27,118 - INFO - Echoing files of help file.
-2024-04-12 22:14:24,985 - INFO - Checking password.
-2024-04-12 22:14:28,008 - ERROR - Section not found in help file.
-2024-04-12 22:15:36,589 - INFO - Checking password.
-2024-04-12 22:15:38,464 - ERROR - Section not found in help file.
-2024-04-12 22:15:40,638 - ERROR - Section not found in help file.
-2024-04-12 22:16:51,347 - INFO - Checking password.
-2024-04-12 22:16:56,781 - ERROR - Section not found in help file.
-2024-04-12 22:17:02,808 - ERROR - Section not found in help file.
-2024-04-12 22:17:04,961 - INFO - Displaying help file sections.
-2024-04-12 22:17:09,713 - ERROR - Section not found in help file.
-2024-04-12 22:18:03,454 - INFO - Checking password.
-2024-04-12 22:18:08,840 - ERROR - Section not found in help file.
-2024-04-12 22:18:24,479 - ERROR - Section not found in help file.
-2024-04-12 22:18:30,473 - ERROR - Section not found in help file.
-2024-04-12 22:18:36,606 - ERROR - Section not found in help file.
-2024-04-12 22:19:32,478 - INFO - Checking password.
-2024-04-12 22:19:38,287 - ERROR - Section not found in help file.
-2024-04-12 22:20:14,881 - INFO - Checking password.
-2024-04-12 22:20:19,558 - ERROR - Section not found in help file.
-2024-04-12 22:20:29,984 - ERROR - Section not found in help file.
-2024-04-12 22:21:31,049 - INFO - Checking password.
-2024-04-12 22:21:34,072 - ERROR - Section not found in help file.
-2024-04-12 22:21:37,177 - ERROR - Section not found in help file.
-2024-04-12 22:21:41,004 - ERROR - Section not found in help file.
-2024-04-12 22:22:19,709 - INFO - Checking password.
-2024-04-12 22:22:23,443 - ERROR - Section not found in help file.
-2024-04-12 22:23:31,503 - INFO - Checking password.
-2024-04-12 22:23:36,267 - ERROR - Section not found in help file.
-2024-04-12 22:23:41,391 - ERROR - Section not found in help file.
-2024-04-12 22:23:44,332 - ERROR - Section not found in help file.
-2024-04-12 22:25:49,311 - INFO - Checking password.
-2024-04-12 22:25:53,345 - ERROR - Section not found in help file.
-2024-04-12 22:26:35,469 - INFO - Checking password.
-2024-04-12 22:26:38,945 - INFO - Echoing files of help file.
-2024-04-12 22:26:43,791 - INFO - Echoing basics of help file.
-2024-04-12 22:27:44,125 - INFO - Checking password.
-2024-04-12 22:27:46,699 - INFO - Echoing mods of help file.
-2024-04-12 22:27:55,326 - INFO - Echoing basics of help file.
-2024-04-12 22:31:45,763 - INFO - Checking password.
-2024-04-12 22:33:25,239 - INFO - Checking password.
-2024-04-12 22:33:55,413 - INFO - Checking password.
-2024-04-12 22:34:33,515 - INFO - Checking password.
+2024-04-13 18:15:27,722 - INFO - Checking password.
+2024-04-13 18:17:50,476 - INFO - Checking password.
+2024-04-13 18:18:04,277 - INFO - Checking password.
+2024-04-13 18:19:02,623 - INFO - Checking password.
+2024-04-13 18:22:59,070 - INFO - Checking password.
+2024-04-13 18:23:17,386 - INFO - Checking password.
+2024-04-13 18:24:21,855 - INFO - Checking password.
+2024-04-13 18:25:17,148 - INFO - Checking password.
+2024-04-13 18:27:02,983 - INFO - Checking password.
+2024-04-13 18:30:50,671 - INFO - Checking password.
+2024-04-13 18:31:11,187 - INFO - Checking password.
+2024-04-13 18:32:50,846 - INFO - Checking password.
+2024-04-13 18:33:14,034 - INFO - Checking password.
+2024-04-13 18:33:22,621 - INFO - Displaying help file sections.
+2024-04-13 18:33:30,872 - INFO - Checking internet connection.
+2024-04-13 18:33:31,420 - INFO - Checking city validity.
+2024-04-13 18:33:31,754 - INFO - Telling temperature in prague
+2024-04-13 18:33:31,820 - INFO - Echoing weather in prague.
+2024-04-13 18:34:07,419 - INFO - Checking password.
+2024-04-13 18:34:12,833 - INFO - Displaying help file sections.
+2024-04-13 18:36:37,059 - INFO - Echoing files of help file.
+2024-04-13 18:36:45,222 - INFO - Echoing FILES of help file.
+2024-04-13 18:48:00,836 - INFO - Checking password.
+2024-04-13 18:48:06,173 - ERROR - Section not found in help folder.
+2024-04-13 18:48:58,011 - INFO - Checking password.
+2024-04-13 18:49:00,465 - INFO - Displaying help file sections.
+2024-04-13 18:51:04,768 - INFO - Checking password.
+2024-04-13 18:51:07,945 - INFO - Displaying help file sections.
+2024-04-13 18:52:04,515 - INFO - Checking password.
+2024-04-13 18:52:07,919 - INFO - Displaying help file sections.
+2024-04-13 18:52:12,649 - INFO - Echoing basics of help folder.
+2024-04-13 18:53:11,937 - INFO - Checking password.
+2024-04-13 18:53:18,829 - INFO - Echoing files of help folder.
+2024-04-13 18:53:48,824 - INFO - Checking password.
+2024-04-13 18:53:59,297 - INFO - Echoing files of help folder.
+2024-04-13 18:55:06,722 - INFO - Checking password.
+2024-04-13 18:55:10,193 - INFO - Echoing files of help folder.
+2024-04-13 18:55:37,935 - INFO - Checking password.
+2024-04-13 18:55:40,006 - INFO - Echoing files of help folder.
+2024-04-13 18:56:01,029 - INFO - Echoing files of help folder.
+2024-04-13 18:56:43,221 - INFO - Checking password.
+2024-04-13 18:56:46,648 - INFO - Echoing files of help folder.
+2024-04-13 18:57:10,187 - INFO - Checking password.
+2024-04-13 18:57:21,838 - INFO - Echoing files of help folder.
+2024-04-13 18:57:41,501 - INFO - Checking internet connection.
+2024-04-13 18:57:42,059 - INFO - Checking city validity.
+2024-04-13 18:57:45,690 - INFO - Telling temperature in prague
+2024-04-13 18:57:45,755 - INFO - Echoing weather in prague.
+2024-04-13 18:57:57,343 - INFO - Echoing basics of help folder.
+2024-04-13 18:58:00,896 - INFO - Echoing mods of help folder.
+2024-04-13 18:58:06,443 - INFO - Displaying help file sections.
+2024-04-13 18:58:14,721 - INFO - Checking internet connection.
+2024-04-13 18:58:15,140 - INFO - Telling location.
+2024-04-13 18:58:15,219 - INFO - Echoing location.
+2024-04-13 18:58:27,101 - INFO - Echoing location1 of help folder.

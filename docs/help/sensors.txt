@@ -1,0 +1,4 @@
+#SENSORS#
+s-dist - will measure distance
+s-temp - will measure temperature(°C)/humidity(%)
+#END#
