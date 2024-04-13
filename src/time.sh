@@ -1,6 +1,8 @@
 #!/bin/bash
 
-source output_pip.sh
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+
+source $SCRIPT_DIR/output_pip.sh
 
 function echo_time() {
     script_command=$(python3 -c "from time_funcs import tell_time; print(tell_time())")

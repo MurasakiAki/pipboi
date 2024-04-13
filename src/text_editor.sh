@@ -1,6 +1,8 @@
 #!/bin/bash
 
-source output_pip.sh
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+
+source $SCRIPT_DIR/output_pip.sh
 
 function check_kilo() {
     python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Checking Kilo compilation.')"

@@ -1,7 +1,9 @@
 #!/bin/bash
 
-source output_pip.sh
-source text_editor.sh
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+
+source $SCRIPT_DIR/output_pip.sh
+source $SCRIPT_DIR/text_editor.sh
 
 function echo_whoami() {
     output love

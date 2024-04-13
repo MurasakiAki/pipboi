@@ -1,14 +1,16 @@
 #!/bin/bash
 
-source output_pip.sh
-source farewell_pip.sh
-source basics.sh
-source mods.sh
-source time.sh
-source weather.sh
-source location.sh
-source command_observer.sh
-source sensor.sh
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+
+source $SCRIPT_DIR/output_pip.sh
+source $SCRIPT_DIR/farewell_pip.sh
+source $SCRIPT_DIR/basics.sh
+source $SCRIPT_DIR/mods.sh
+source $SCRIPT_DIR/time.sh
+source $SCRIPT_DIR/weather.sh
+source $SCRIPT_DIR/location.sh
+source $SCRIPT_DIR/command_observer.sh
+source $SCRIPT_DIR/sensor.sh
 
 project_dir="$(echo "$PATH" | awk -F: '{print $NF}')"
 

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-source output_pip.sh
+SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+
+source $SCRIPT_DIR/output_pip.sh
 
 function echo_mods() {
     if [ -d ../mods ]; then
