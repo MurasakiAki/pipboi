@@ -3,3 +3,8 @@
 2024-04-15 10:17:04,843 - INFO - Checking password.
 2024-04-15 10:17:14,894 - INFO - Displaying help file sections.
 2024-04-15 10:17:27,975 - INFO - Echoing image of help folder.
+2024-04-15 10:47:19,018 - INFO - Checking password.
+2024-04-15 10:47:26,781 - INFO - Telling day-time.
+2024-04-15 10:47:26,835 - INFO - Echoing daytime.
+2024-04-15 10:47:32,750 - INFO - Telling day-time.
+2024-04-15 10:47:32,797 - INFO - Echoing daytime.

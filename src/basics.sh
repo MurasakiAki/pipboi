@@ -4,6 +4,15 @@ SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 
 source $SCRIPT_DIR/output_pip.sh
 source $SCRIPT_DIR/text_editor.sh
+source $SCRIPT_DIR/farewell_pip.sh
+
+function echo_hello() {
+    output love
+    tell_welcome
+    script_command=$(python3 -c "from time_funcs import tell_dt; print(tell_dt())")
+    python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Echoing hello.')"
+    echo "$script_command"
+}
 
 function echo_whoami() {
     output love

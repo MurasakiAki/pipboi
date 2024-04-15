@@ -6,7 +6,7 @@ A PIPBOI system for RPi.
 
 Pigeon Integrated Personal Biometric and Operational Interface
 
-**_Version 1.0.0_**
+**_MK1.0_**
 
 ### Dependancies:
 

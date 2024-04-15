@@ -145,6 +145,8 @@ elif [ "$1" == "login" ]; then
                 remove_mod "$input2"
 
             # Basic manipulation
+            elif [ "$input1" == "hello" ] || [ "$input1" == "hi" ]; then
+                echo_hello
             elif [ "$input1" == "help" ]; then
                 echo_help "$input2"
             elif [ "$input1" == "whoami" ]; then

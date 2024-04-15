@@ -9,10 +9,14 @@ function apply_job_idle() {
 }
 
 function apply_job_dist() {
+    output normal
+    echo You can see the distance on the second screen
     python3 -c "import sensor_funcs; send_job_dist()"
 }
 
 function apply_job_temp() {
+    output normal
+    echo You can see the temp/hum on the second screen
     python3 -c "import sensor_funcs; send_job_temp()"
 }
 
