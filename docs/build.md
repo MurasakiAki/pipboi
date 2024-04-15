@@ -6,7 +6,7 @@
 
 - RPi 3/4/5
 - Waveshare 3.5" display
-- Arduino (Using UNO R4 WiFi but other can be used too)
+- Arduino UNO R4 WiFi
 - Ultrasound sensor (HC-SRO4)
 - Temperature/humidity sensor (DHT11)
 - Optional tilt sensor (SW-520D)
@@ -27,4 +27,20 @@ With your display now running, you might want to change the resolution, if you'r
 
 With wires and a breadboard connect Arduino and the sensors accordingly:
 
-![alt text](pipboi_circuit.png)
+![alt text](pipboi_circuit2.png)
+
+Note that different sensors can have different pin orientation.
+
+## Step 4:
+
+Install Arduino IDE v2. Locate and download library for your Arduino. Install Dependancy libraries `DHT` and `ArduinoGraphics`, connect the Arduino to your PC, copy `sensor_controller.ino` from `pipboi/src/sensors` into the IDE. Load the code into the Arduino.
+
+Disconnect Arduino from your PC.
+
+## Step 5:
+
+Connect Arduino into your RPi, and in the config file `pipboi/conf/sens_conf.json` update the serial port your Arduino is connected on.
+
+## Step 6:
+
+On the PIPBOI startup, you should see unit test passed for serial connection. You can test out each sensor with commands (more in help command)
