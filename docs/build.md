@@ -1,5 +1,7 @@
 # PIPBOI Build Tutorial
 
+**Note that there is no official case or any other mean of making the whole setup wearable.**
+
 ## Requirements:
 
 (For PIPBOI MK1.x)
@@ -14,8 +16,9 @@
 
 ## Step 1:
 
-(Assuming you have installed OS on your RPi)
-With SSH or by plugging your RPi into a monitor, locate a tutorial how to setup your Waveshare display. It usually consists of downloading and installing drivers, so Internet connection is needed.
+**(Assuming you have installed OS on your RPi)**
+
+Locate a tutorial on how to setup your Waveshare display. It usually consists of downloading and installing drivers, so Internet connection is needed.
 
 ## Step 2:
 
@@ -29,7 +32,7 @@ With wires and a breadboard connect Arduino and the sensors accordingly:
 
 ![alt text](pipboi_circuit2.png)
 
-Note that different sensors can have different pin orientation.
+> Note that different sensors can have different pin orientation.
 
 ## Step 4:
 
@@ -43,4 +46,4 @@ Connect Arduino into your RPi, and in the config file `pipboi/conf/sens_conf.jso
 
 ## Step 6:
 
-On the PIPBOI startup, you should see unit test passed for serial connection. You can test out each sensor with commands (more in help command)
+On the PIPBOI startup, you should see unit test passed for serial connection. You can test out each sensor with commands (more in help command).
