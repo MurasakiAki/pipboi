@@ -12,7 +12,7 @@ source $SCRIPT_DIR/location.sh
 source $SCRIPT_DIR/command_observer.sh
 source $SCRIPT_DIR/sensor.sh
 
-project_dir="$(echo "$PATH" | awk -F: '{print $NF}')"
+PASSWD_PATH="$SCRIPT_DIR/passwd_funcs.py"
 
 logged_in_usr=""
 
@@ -23,15 +23,7 @@ enable_input() {
     stty "$stty_settings"
 }
 
-bash init.sh
-
-# Check if the project directory path is empty or not found
-if [ -z "$project_dir" ]; then
-    echo "Project directory path not found in PATH variable. Please set it."
-    exit 1
-else
-    cd "$project_dir/src"
-fi
+bash $SCRIPT_DIR/init.sh
 
 if [ "$1" == "register" ]; then
     username="$2"
@@ -40,7 +32,7 @@ if [ "$1" == "register" ]; then
         output disappointment
         echo Fill in your name too dummy
     
-    elif [ -d  "../.$username" ]; then
+    elif [ -d  "$SCRIPT_DIR/../.$username" ]; then
         output sad
         echo Username already exists silly
     
@@ -65,14 +57,14 @@ if [ "$1" == "register" ]; then
 
         mkdir ../.$username
         #.userdata.ini file
-        touch ../.$username/.usrdata.ini
-        echo "[Data]" >> ../.$username/.usrdata.ini
-        echo "username=$username" >> ../.$username/.usrdata.ini
+        touch $SCRIPT_DIR/../.$username/.usrdata.ini
+        echo "[Data]" >> $SCRIPT_DIR/../.$username/.usrdata.ini
+        echo "username=$username" >> $SCRIPT_DIR/../.$username/.usrdata.ini
         hashedpw=$(python3 -c "from passwd_funcs import hash_password; print(hash_password('$password'))")
-        echo "password=$hashedpw" >> ../.$username/.usrdata.ini
+        echo "password=$hashedpw" >> $SCRIPT_DIR/../.$username/.usrdata.ini
         #.locations.json file
-        touch ../.$username/.locations.json
-        echo '{"locations" : [] }' > ../.$username/.locations.json
+        touch $SCRIPT_DIR/../.$username/.locations.json
+        echo '{"locations" : [] }' > $SCRIPT_DIR/../.$username/.locations.json
         output normal
         echo yay user created   
     fi
@@ -84,13 +76,13 @@ elif [ "$1" == "login" ]; then
         output disappointment
         echo Fill in your name too dummy
 
-    elif ! [ -d  "../.$username" ]; then
+    elif ! [ -d  "$SCRIPT_DIR/../.$username" ]; then
         output sad
         echo Username doesn\'t exists silly
 
     else
         input_pw=""
-        file="../.${username}/.usrdata.ini"
+        file="$SCRIPT_DIR/../.${username}/.usrdata.ini"
         hashed_pw=$(grep -E "^\[Data\]" -A 1000 "$file" | grep -E "password=" | cut -d'=' -f2-)
 
         while true; do
@@ -102,6 +94,11 @@ elif [ "$1" == "login" ]; then
                 output normal         
                 echo "Password is correct!"
                 logged_in_usr="$username"
+                stty -echo
+                sleep 3
+                enable_input
+                output random
+                echo "Welcome, for more info type: help"
                 break
             else
                 output sad                 
@@ -209,7 +206,7 @@ elif [ "$1" == "login" ]; then
                 echo_getloc
             else
                 if [ "$input1" == "quit" ]; then
-                    cat "" > "../logs/.command_history"
+                    cat "" > "$SCRIPT_DIR/../logs/.command_history"
                     output sad
                     tell_farewell
                 else

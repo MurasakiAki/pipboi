@@ -28,11 +28,11 @@ export PATH=$PATH:$(pwd)/src
 
 # Save the updated PATH variable to the bashrc or profile file - depends on the system
 if [ -f "$HOME/.bashrc" ]; then
-    echo "export PATH=\$PATH:$(pwd)/src" >> ~/.bashrc
+    echo "alias pipboi='bash $(pwd)/main.sh'" >> ~/.bashrc
 elif [ -f "$HOME/.profile" ]; then
-    echo "export PATH=\$PATH:$(pwd)/src" >> ~/.profile
+    echo "alias pipboi=\"bash $(pwd)/main.sh\"">> ~/.profile
 elif [ -f "$HOME/.zshrc" ]; then
-    echo 'export PATH=$PATH:'"$(pwd)src" >> ~/.zshrc
+    echo "alias pipboi=\"bash $(pwd)/main.sh\"" >> ~/.zshrc
 fi
 
 # Installing pip

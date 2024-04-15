@@ -35,3 +35,5 @@ done
 
 echo "//Unit test init end//"
 echo "" > ../logs/.test-log.txt
+
+sleep 5
