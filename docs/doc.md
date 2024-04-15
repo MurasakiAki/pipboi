@@ -15,12 +15,14 @@ PIPBOI should work on any unix system that has bash/python, but its recomended t
 - Ultrasound sensor (HC-SRO4)
 - Temperature/humidity sensor (DHT11)
 - Optional tilt sensor (SW-520D)
+- Any input device(Bluetooth mini keyboard recommended)
 
 How to build your wearable PIPBOI can be found in [Build tutorial](build.md).
 
 ## Usage
 
 The PIPBOI is controlled through a simple command line inputs.
+It is recommended to have stable internet access.
 
 ### Start
 
@@ -29,6 +31,27 @@ For this, move yourself to the pipboi directory, execute the `startup.sh` file w
 
 First, you need to register yourself with the register command `pipboi register <name>`, affter succesfully registering you can login with `pipboi login <name>`.
 
+A user folder is created, with initial locations JSON file and data INI file, in this folder, user can create, modify and remove folders and files.
+
 ### Basics
 
 To start using PIPBOI you'll need to learn the few commands that are implemented in PIPBOI, to see the description in interface use the `help` command, you can learn more about each command there.
+
+## Used tools and requirements
+
+PIPBOI is build using Bash script, Python and C++.
+
+**Requirements:**
+
+- Python
+- Python bcrypt
+- Python geopy
+- Python geocoder
+- Python pillow
+- Python PIL
+
+**Configuration:**
+
+You can configure the used port for serial communication with the Arduino. Often it is a required step.
+
+You can find the config file in `conf/sens_conf.json`.
