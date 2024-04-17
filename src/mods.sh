@@ -33,7 +33,7 @@ function use_mod() {
                 output normal
             elif [[ "$main_script" == *.sh ]]; then
                 python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('INFO', 'Using $mod_to_use.')"
-                bash "$main_script"
+                bash "$main_script" "$logged_in_usr"
                 output normal
             else
                 python3 -c "from logger import Logger; Logger('../logs/system-log.txt').log_message('WARNING', '$mod_to_use has invalid main script format.')"

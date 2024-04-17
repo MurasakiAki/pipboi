@@ -1,6 +1,6 @@
 #!/bin/bash
 
-UT_FLDR=unit_tests/*
+UT_FLDR=$SCRIPT_DIR/unit_tests/*
 
 pids=()
 
@@ -15,7 +15,7 @@ done
 while true; do
     clear
     echo "//Unit test init begin//"
-    echo "$(<../logs/.test-log.txt)"
+    echo "$(<$SCRIPT_DIR/../logs/.test-log.txt)"
 
     all_finished=true
     for pid in "${pids[@]}"; do
@@ -34,6 +34,6 @@ while true; do
 done
 
 echo "//Unit test init end//"
-echo "" > ../logs/.test-log.txt
+echo "" > $SCRIPT_DIR/../logs/.test-log.txt
 
 sleep 5

@@ -1,0 +1,15 @@
+2024-04-17 20:32:40,329 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:32:40,329 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:32:40,336 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:32:54,855 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:32:54,857 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:32:54,866 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:36:05,074 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:36:05,078 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:36:05,084 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:42:54,297 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:42:54,300 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:42:54,301 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:45:44,451 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:45:44,453 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.
+2024-04-17 20:45:44,461 - CRITICAL - Error: The specified log file '/home/aki/../logs/.test-log.txt' was not found.

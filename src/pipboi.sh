@@ -1,7 +1,5 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
-
 source $SCRIPT_DIR/output_pip.sh
 source $SCRIPT_DIR/farewell_pip.sh
 source $SCRIPT_DIR/basics.sh
@@ -14,7 +12,7 @@ source $SCRIPT_DIR/sensor.sh
 
 PASSWD_PATH="$SCRIPT_DIR/passwd_funcs.py"
 
-logged_in_usr=""
+export logged_in_usr=""
 
 stty_settings=$(stty -g)
 
@@ -60,7 +58,7 @@ if [ "$1" == "register" ]; then
         touch $SCRIPT_DIR/../.$username/.usrdata.ini
         echo "[Data]" >> $SCRIPT_DIR/../.$username/.usrdata.ini
         echo "username=$username" >> $SCRIPT_DIR/../.$username/.usrdata.ini
-        hashedpw=$(python3 -c "from passwd_funcs import hash_password; print(hash_password('$password'))")
+        hashedpw=$(python3 -c "from passwd_funcs import hash_password; print(hash_password('$password'))" "$PASSWD_PATH")
         echo "password=$hashedpw" >> $SCRIPT_DIR/../.$username/.usrdata.ini
         #.locations.json file
         touch $SCRIPT_DIR/../.$username/.locations.json
@@ -90,7 +88,7 @@ elif [ "$1" == "login" ]; then
             read -s -p "What's your password? " input_pw
             echo
 
-            if [ "$(python3 -c "from passwd_funcs import check_password; print(check_password('$input_pw', '$hashed_pw'))")" = "True" ]; then
+            if [ "$(python3 -c "from passwd_funcs import check_password; print(check_password('$input_pw', '$hashed_pw'))" "$PASSWD_PATH")" = "True" ]; then
                 output normal         
                 echo "Password is correct!"
                 logged_in_usr="$username"
