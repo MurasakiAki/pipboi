@@ -9,6 +9,7 @@ source $SCRIPT_DIR/weather.sh
 source $SCRIPT_DIR/location.sh
 source $SCRIPT_DIR/command_observer.sh
 source $SCRIPT_DIR/sensor.sh
+source $SCRIPT_DIR/image.sh
 
 PASSWD_PATH="$SCRIPT_DIR/passwd_funcs.py"
 

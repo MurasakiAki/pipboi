@@ -1,29 +1,20 @@
-2024-04-15 10:14:00,424 - INFO - Checking password.
-2024-04-15 10:15:21,730 - INFO - Checking password.
-2024-04-15 10:17:04,843 - INFO - Checking password.
-2024-04-15 10:17:14,894 - INFO - Displaying help file sections.
-2024-04-15 10:17:27,975 - INFO - Echoing image of help folder.
-2024-04-15 10:47:19,018 - INFO - Checking password.
-2024-04-15 10:47:26,781 - INFO - Telling day-time.
-2024-04-15 10:47:26,835 - INFO - Echoing daytime.
-2024-04-15 10:47:32,750 - INFO - Telling day-time.
-2024-04-15 10:47:32,797 - INFO - Echoing daytime.
-2024-04-16 19:28:45,474 - INFO - Checking password.
-2024-04-16 19:28:56,542 - INFO - Using wastelanders.
-2024-04-17 20:05:49,710 - INFO - Checking password.
-2024-04-17 20:06:05,889 - INFO - Using wastelanders.
-2024-04-17 20:06:58,213 - INFO - Checking password.
-2024-04-17 20:07:12,495 - INFO - Using wastelanders.
-2024-04-17 20:08:04,720 - INFO - Checking password.
-2024-04-17 20:08:16,489 - INFO - Using wastelanders.
-2024-04-17 20:09:14,761 - INFO - Checking password.
-2024-04-17 20:09:25,802 - INFO - Using wastelanders.
-2024-04-17 20:10:27,777 - INFO - Checking password.
-2024-04-17 20:10:35,385 - INFO - Using wastelanders.
-2024-04-17 20:18:59,101 - INFO - Checking password.
-2024-04-17 20:19:11,447 - INFO - Using wastelanders.
-2024-04-17 20:20:32,624 - INFO - Checking password.
-2024-04-17 20:20:41,092 - INFO - Using wastelanders.
-2024-04-17 20:23:27,864 - INFO - Checking password.
-2024-04-17 20:23:36,469 - INFO - Using wastelanders.
-2024-04-17 20:48:13,379 - INFO - Checking password.
+2024-04-17 21:29:07,311 - INFO - Checking password.
+2024-04-17 21:29:18,900 - INFO - Drawing eevee.jpg
+2024-04-17 21:29:18,981 - INFO - Checking if file is image (.png, .jpeg, .jpg).
+2024-04-17 21:29:19,001 - INFO - Printing image.
+2024-04-17 21:29:47,598 - INFO - Checking password.
+2024-04-17 21:29:53,481 - INFO - Drawing eevee.jpg
+2024-04-17 21:29:53,564 - INFO - Checking if file is image (.png, .jpeg, .jpg).
+2024-04-17 21:29:53,585 - INFO - Printing image.
+2024-04-17 21:31:05,938 - INFO - Checking password.
+2024-04-17 21:31:16,688 - INFO - Drawing eevee.jpg
+2024-04-17 21:31:16,768 - INFO - Checking if file is image (.png, .jpeg, .jpg).
+2024-04-17 21:31:16,789 - INFO - Printing image.
+2024-04-17 21:31:42,629 - INFO - Checking password.
+2024-04-17 21:32:02,600 - INFO - Drawing eevee.jpg
+2024-04-17 21:32:02,682 - INFO - Checking if file is image (.png, .jpeg, .jpg).
+2024-04-17 21:32:02,702 - INFO - Printing image.
+2024-04-17 21:34:22,090 - INFO - Checking password.
+2024-04-17 21:34:30,093 - INFO - Drawing eevee.jpg
+2024-04-17 21:34:30,175 - INFO - Checking if file is image (.png, .jpeg, .jpg).
+2024-04-17 21:34:30,195 - INFO - Printing image.

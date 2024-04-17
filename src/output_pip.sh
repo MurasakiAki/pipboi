@@ -56,7 +56,7 @@ function output() {
         return 1
     fi
 
-    clear
+    #clear
     echo "===================================================="
     echo "                       ,~."
     echo "                      ($emotion)"
