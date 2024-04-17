@@ -2,7 +2,7 @@
 
 ## Description
 
-PIPBOI is an console interface application for RPi wearable system, that can be used for your everyday computer needs.
+PIPBOI is an console application for RPi wearable system, that can be used for your everyday computer needs.
 It is based on Fallout's PIPBOY device that is commonly used throughout the game, PIPBOI is trying to be a replica or realistic implementation of Fallout's PIPBOY.
 
 PIPBOI should work on any unix system that has bash/python, but its recomended to use it with the wearable setup, consisting of:
