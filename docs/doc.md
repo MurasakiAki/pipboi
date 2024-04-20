@@ -55,3 +55,7 @@ PIPBOI is build using Bash script, Python and C++.
 You can configure the used port for serial communication with the Arduino. Often it is a required step.
 
 You can find the config file in `conf/sens_conf.json`.
+
+**Design pattern**
+
+Most of PIPBOIs functionalities comes from communicating with APIs, or other advanced functions that Bash could not accomplish. These tasks are solved using several Python scripts, Bash script then acts as a facade that provides a simplified interface to the functionality provided by the Python scripts. It performs additional checks, logging, and then delegates the work to the appropriate Python function.
