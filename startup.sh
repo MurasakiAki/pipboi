@@ -29,15 +29,18 @@ export PATH=$PATH:$(pwd)/src
 # Save the updated PATH variable to the bashrc or profile file - depends on the system
 if [ -f "$HOME/.bashrc" ]; then
     echo "alias pipboi='bash $(pwd)/main.sh'" >> ~/.bashrc
+    source ~/.bashrc
 elif [ -f "$HOME/.profile" ]; then
     echo "alias pipboi=\"bash $(pwd)/main.sh\"">> ~/.profile
+    source ~/.profile
 elif [ -f "$HOME/.zshrc" ]; then
     echo "alias pipboi=\"bash $(pwd)/main.sh\"" >> ~/.zshrc
+    source ~/.zshrc
 fi
 
 # Installing pip
 # Note: It should be "python3-pip" instead of "pip" on some systems
-#sudo apt install python3-pip
+sudo apt install python3-pip
 
 #sudo python3 -m pip install --upgrade pip
 sudo python3-pip install --upgrade pip
@@ -46,14 +49,14 @@ sudo python3-pip install --upgrade pip
 pip_path=$(which pip)
 
 # Installing Python libraries using the specified pip
-libraries=("bcrypt" "geopy" "geocoder" "pillow")
+libraries=("bcrypt" "geopy" "geocoder" "pillow" "serial")
 
 echo "Starting installing libraries:"
 echo
 for library in "${libraries[@]}"; do
-    #$pip_path install "$library"
+    $pip_path install "$library"
     # For Arch Linux, you can use the following command instead:
-    sudo pacman -S python-"$library"
+    #sudo pacman -S python-"$library"
 done
 echo
 
