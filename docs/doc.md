@@ -19,24 +19,6 @@ PIPBOI should work on any unix system that has bash/python, but its recomended t
 
 How to build your wearable PIPBOI can be found in [Build tutorial](build.md).
 
-## Usage
-
-The PIPBOI is controlled through a simple command line inputs.
-It is recommended to have stable internet access.
-
-### Start
-
-To have full access to all functions of the PIPBOI, you need to have certain Python libraries installed, plus some other setup is needed.
-For this, move yourself to the pipboi directory, execute the `startup.sh` file with `chmod +x startup.sh` and `./startup.sh` a setup interface will go through the setup with you.
-
-First, you need to register yourself with the register command `pipboi register <name>`, affter succesfully registering you can login with `pipboi login <name>`.
-
-A user folder is created, with initial locations JSON file and data INI file, in this folder, user can create, modify and remove folders and files.
-
-### Basics
-
-To start using PIPBOI you'll need to learn the few commands that are implemented in PIPBOI, to see the description in interface use the `help` command, you can learn more about each command there.
-
 ## Used tools and requirements
 
 PIPBOI is build using Bash script, Python and C++.
