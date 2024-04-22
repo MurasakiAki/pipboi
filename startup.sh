@@ -49,7 +49,7 @@ sudo python3-pip install --upgrade pip
 pip_path=$(which pip)
 
 # Installing Python libraries using the specified pip
-libraries=("bcrypt" "geopy" "geocoder" "pillow" "serial")
+libraries=("bcrypt" "geopy" "geocoder" "pillow" "pyserial")
 
 echo "Starting installing libraries:"
 echo
